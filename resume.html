@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,55 +6,72 @@
     <style>
         /* Inline CSS for demonstration purposes */
         body {
-            font-family: Arial, sans-serif; /* Ensures a consistent font is used */
-            margin: 0; /* Removes default margin */
-            padding: 0; /* Removes default padding */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-size: cover; /* Covers the entire background without repeating */
         }
         header {
             background-color: maroon; /* Maroon background for the header */
-            padding: 10px 20px; /* Padding around the navigation */
-            color: white; /* White text color for better contrast */
-            text-align: center; /* Centers the header text */
-            font-size: 36px; /* Larger, bold text for the header */
-            font-weight: bold;
-        }
-        nav {
-            background-color: maroon; /* Maroon background for the nav */
-            padding: 10px 0; /* Vertical padding for nav */
-        }
-        nav ul {
-            list-style-type: none; /* Removes bullet points */
-            padding: 0;
-            margin: 0;
-            display: flex; /* Horizontally aligns nav items */
-            align-items: center;
-            justify-content: flex-start; /* Aligns navigation to the top left */
-        }
-        nav ul li {
-            margin-right: 20px; /* Spacing between nav items */
-        }
-        nav ul li a {
-            text-decoration: none; /* Removes underline from links */
-            color: white; /* Sets text color to white */
-            font-weight: bold;
+            padding: 20px 20px; /* Padding around the navigation */
+            color: white;
+            position: relative; /* Needed for absolute positioning of stripe */
+            display: flex; /* Enables flexbox for child elements */
+            justify-content: flex-end; /* Aligns navigation to the right */
         }
         .stripe {
+            position: absolute;
+            bottom: 0; /* Position stripe at the bottom of the header */
+            left: 0;
+            width: 100%; /* Full width */
             height: 5px; /* Height of the stripe */
-            background-color: gray; /* Gray color for the stripe */
+            background-color: gray;
+        }
+        nav {
+            background-color: transparent; /* No additional background */
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+        nav ul li {
+            margin-left: 20px; /* Spacing between nav items */
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 18px; /* Enlarged font size for better visibility */
+        }
+        nav ul li.current a { /* Styles for the current tab */
+            background-color: transparent; /* Removing background color */
+            color: gray; /* Gray color for the text */
+            padding: 5px 10px; /* Padding to maintain alignment */
+        }
+        .title {
+            text-align: center; /* Centers the title text */
+            font-size: 36px; /* Larger font size */
+            color: black; /* Black text for better visibility */
+            padding: 10px 0; /* Adds vertical spacing */
+            font-weight: bold; /* Bold text for the title */
         }
         main {
-            font-size: 20px; /* Larger text for main descriptors, aligned left */
-            margin-left: 10px; /* Slightly indents the main descriptors from the left */
-            margin-top: 20px; /* Adds vertical space before each main section */
+            font-size: 20px;
+            margin-left: 10px;
+            margin-top: 20px;
+            text-decoration: underline; /* Underlines semester titles */
         }
         p {
-            text-indent: 20px; /* Indents paragraphs */
-            margin-left: 30px; /* Further indentation for clarity */
-            font-size: 16px; /* Standard text size for paragraphs */
+            text-indent: 20px;
+            margin-left: 30px;
+            font-size: 16px;
         }
         .link {
-            color: blue; /* Makes the link color blue */
-            text-decoration: underline; /* Underlines the link */
+            color: blue;
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -66,13 +82,12 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="resume.html">Resume</a></li>
-                <li><a href="classes.html">Classes</a></li>
-                <li><a href="contact.html">Contact Info</a></li>
+                <li class="current"><a href="classes.html">Classes</a></li> <!-- 'Classes' as current -->
             </ul>
         </nav>
         <div class="stripe"></div> <!-- Gray stripe below the nav -->
-        Classes!
     </header>
+    <div class="title">Classes I've Taken!</div>
     <main>Fall 2022</main>
     <p><a href="https://student.mit.edu/catalog/search.cgi?search=3.091&style=verbatim&when=C&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">3.091:</a> Introduction to Solid-State Chemistry</p>
     <p><a href="https://student.mit.edu/catalog/search.cgi?search=6.100A&style=verbatim&when=C&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">6.100A:</a> Introduction to Computer Science Programming in Python</p>
@@ -81,30 +96,30 @@
     <p><a href="https://student.mit.edu/catalog/search.cgi?search=21G.404&style=verbatim&when=C&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">21G.404:</a> German IV</p>
 
     <main>IAP 2023</main>
-    <p>21G.S07: German: Communication Intensive</p>
+    <p><a href="https://student.mit.edu/catalog/search.cgi?search=21G.S07&style=verbatim&when=J&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">21G.S07:</a> Communication Intensive German</p>
 
     <main>Spring 2023</main>
-    <p>2.00B: Toy Product Design</p>
-    <p>6.1010: Fundamentals of Programming</p>
-    <p>8.02: Physics II</p>
-    <p>17.591: Research Seminar in Applied International Studies</p>
-    <p>18.03: Differential Equations</p>
+    <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.00B&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.00B:</a> Toy Product Design</p>
+    <p><a href="https://student.mit.edu/catalog/search.cgi?search=6.1010&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">6.1010:</a> Fundamentals of Programming</p>
+    <p><a href="https://student.mit.edu/catalog/search.cgi?search=8.02&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">8.02:</a> Physics II</p>
+    <p><a href="https://student.mit.edu/catalog/search.cgi?search=17.591&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">17.591:</a> Research Seminar in Applied International Studies</p>
+    <p><a href="https://student.mit.edu/catalog/search.cgi?search=18.03&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">18.03:</a> Differential Equations</p>
 
     <main>Fall 2023</main>
-    <p>2.001: Mechanics and Materials I</p>
-    <p>2.086: Numerical Computation for Mechanical Engineers</p>
-    <p>2.670: Mechanical Engineering Tools</p>
-    <p>2.678: Electronics for Mechanical Systems</p>
-    <p>6.1200: Mathematics for Computer Science</p>
+    <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.001&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.001:</a> Mechanics and Materials I</p>
+    <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.086&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.086:</a> Numerical Computation for Mechanical Engineers</p>
+    <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.670&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.670:</a> Mechanical Engineering Tools</p>
+    <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.678&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.678:</a> Electronics for Mechanical Systems</p>
+    <p><a href="https://student.mit.edu/catalog/search.cgi?search=6.1200&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">6.1200:</a> Mathematics for Computer Science</p>
+    <p><a href="https://student.mit.edu/catalog/search.cgi?search=18.C06&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">18.C06:</a> Linear Algebra and Optimization</p>
 
     <main>IAP 2024</main>
-    <p>6.S191: Introduction to Deep Learning</p>
-    <p>6.9610: The Battlecode Programming Competition</p>
+    <p><a href="http://introtodeeplearning.com/" class="link">6.S191:</a> Introduction to Deep Learning</p>
 
     <main>Spring 2024 (Current)</main>
-    <p>2.003: Dynamics and Control I</p>
-    <p>2.007: Design and Manufacturing I</p>
-    <p>6.4200: Robotics: Science and Systems</p>
-    <p>21G.418: Race and Migration in Europe</p>
+    <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.003&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.003:</a> Dynamics and Control I</p>
+    <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.007&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.007:</a> Design and Manufacturing I</p>
+    <p><a href="https://student.mit.edu/catalog/search.cgi?search=6.4200&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">6.4200:</a> Robotics: Science and Systems</p>
+    <p><a href="https://student.mit.edu/catalog/search.cgi?search=21G.418&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">21G.418:</a> Race and Migration in Europe</p>
 </body>
 </html>

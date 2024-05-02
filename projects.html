@@ -2,43 +2,71 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Classes</title>
+    <title>Eric D. Delgado's Resume</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Inline CSS for demonstration purposes */
         body {
-            font-family: Arial, sans-serif; /* Ensures a consistent font is used */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-size: cover; /* Covers the entire background without repeating */
         }
         header {
-            font-size: 36px; /* Larger, bold, and centered text for the header */
-            font-weight: bold;
-            text-align: center;
-            margin: 20px 0; /* Adds space around the header */
+            background-color: maroon; /* Maroon background for the header */
+            padding: 20px; /* Uniform padding around the navigation */
+            color: white;
+            position: relative; /* Needed for absolute positioning of stripe */
+            display: flex; /* Enables flexbox for child elements */
+            justify-content: flex-end; /* Aligns navigation to the right */
         }
-        main {
-            font-size: 20px; /* Larger text for main descriptors, aligned left */
-            margin-left: 10px; /* Slightly indents the main descriptors from the left */
-            margin-top: 20px; /* Adds vertical space before each main section */
+        .stripe {
+            position: absolute;
+            bottom: 0; /* Position stripe at the bottom of the header */
+            left: 0;
+            width: 100%; /* Full width */
+            height: 5px; /* Height of the stripe */
+            background-color: gray;
         }
-        p {
-            text-indent: 20px; /* Indents paragraphs */
-            margin-left: 30px; /* Further indentation for clarity */
-            font-size: 16px; /* Standard text size for paragraphs */
+        nav {
+            background-color: transparent; /* No additional background */
         }
         nav ul {
-            list-style-type: none; /* Removes bullet points */
+            list-style-type: none;
             padding: 0;
-            display: flex; /* Horizontally aligns nav items */
-            justify-content: flex-start; /* Aligns navigation to the top left */
-            background-color: #f8f9fa; /* Light background for the nav bar */
-            padding: 10px 0; /* Adds padding around the nav items */
+            margin: 0;
+            display: flex;
+            align-items: center;
         }
         nav ul li {
-            margin-right: 20px; /* Spacing between nav items */
+            margin-left: 20px; /* Spacing between nav items */
         }
         nav ul li a {
-            text-decoration: none; /* Removes underline from links */
-            color: black; /* Sets text color */
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 18px; /* Enlarged font size for better visibility */
+        }
+        nav ul li.current a {
+            background-color: transparent; /* Removing background color */
+            color: lightgray; /* Gray color for the text */
+            padding: 5px 10px; /* Padding to maintain alignment */
+        }
+        .title {
+            text-align: left; /* Aligns the title text */
+            font-size: 36px; /* Larger font size */
+            color: black; /* Black text for better visibility */
+            padding: 10px 0; /* Adds vertical spacing */
+            font-weight: bold; /* Bold text for the title */
+        }
+        main {
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            color: maroon; /* Theme color for headers */
+        }
+        p, li {
+            font-size: 16px; /* Standard font size for body text */
         }
     </style>
 </head>
@@ -48,44 +76,42 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="projects.html">Projects</a></li>
-                <li><a href="resume.html">Resume</a></li>
+                <li class="current"><a href="resume.html">Resume</a></li>
                 <li><a href="classes.html">Classes</a></li>
             </ul>
         </nav>
-        <div>Classes!</div>
+        <div class="stripe"></div> <!-- Gray stripe below the nav -->
     </header>
-    <main>Fall 2022</main>
-    <p>3.091: Introduction to Solid-State Chemistry</p>
-    <p>6.100A: Introduction to Computer Science Programming in Python</p>
-    <p>8.01: Physics I</p>
-    <p>18.02: Multivariable Calculus</p>
-    <p>21G.404: German IV</p>
+    <main>
+        <h1>ERIC D. DELGADO</h1>
+        <p>edelga2@mit.edu | (+1) 414-551-1041</p>
+        <h2>Education</h2>
+        <p><strong>Massachusetts Institute of Technology - Cambridge, MA</strong><br>
+           Expected May 2026<br>
+           Candidate for Bachelors in Mechanical Engineering and Computer Science</p>
 
-    <main>IAP 2023</main>
-    <p>21G.S07: Communication Intensive German</p>
+        <h2>Relevant Experience</h2>
+        <h3>Research Intern, MIT Media Lab - Biomechatronics Lab - Cambridge, MA</h3>
+        <p>Jan. 2024 – Present<br>
+           Develop a PID feedback control system for an ankle-foot prosthetic...</p>
+        <!-- Include more experiences similarly -->
 
-    <main>Spring 2023</main>
-    <p>2.00B: Toy Product Design</p>
-    <p>6.1010: Fundamentals of Programming</p>
-    <p>8.02: Physics II</p>
-    <p>17.591: Research Seminar in Applied International Studies</p>
-    <p>18.03: Differential Equations</p>
+        <h2>Extracurriculars</h2>
+        <p><strong>MIT Solar Electric Vehicle Team - Cambridge, MA</strong><br>
+           Sep. 2023 – Present<br>
+           Design and manufacture a solar powered vehicle...</p>
 
-    <main>Fall 2023</main>
-    <p>2.001: Mechanics and Materials I</p>
-    <p>2.086: Numerical Computation for Mechanical Engineers</p>
-    <p>2.670: Mechanical Engineering Tools</p>
-    <p>2.678: Electronics for Mechanical Systems</p>
-    <p>6.1200: Mathematics for Computer Science</p>
+        <h2>Leadership</h2>
+        <p><strong>Science Olympiad Captain - Milwaukee, WI</strong><br>
+           Sep. 2020 – May 2022<br>
+           Competed nationally in a variety of events...</p>
 
-    <main>IAP 2024</main>
-    <p>6.S191: Introduction to Deep Learning</p>
-    <p>6.9610: The Battlecode Programming Competition</p>
-
-    <main>Spring 2024 (Current)</main>
-    <p>2.003: Dynamics and Control I</p>
-    <p>2.007: Design and Manufacturing I</p>
-    <p>6.4200: Robotics: Science and Systems</p>
-    <p>21G.418: Race and Migration in Europe</p>
+        <h2>Skills and Awards</h2>
+        <ul>
+            <li>Languages: English (native), Spanish (native), German (fluent)</li>
+            <li>Computer/Programming: Python, Java, MATLAB, Julia, C, Arduino, Fusion 360, SolidWorks</li>
+            <li>Awards/Honors: National German Exam Gold Medalist, Outstanding Achiever: DSSV German Essay Contest, National Hispanic Recognized Scholar, AP Distinguished Student</li>
+        </ul>
+    </main>
 </body>
 </html>

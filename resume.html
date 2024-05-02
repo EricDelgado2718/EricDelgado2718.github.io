@@ -1,7 +1,8 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Classes</title>
+    <title>Eric D. Delgado's Resume</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Inline CSS for demonstration purposes */
@@ -13,7 +14,7 @@
         }
         header {
             background-color: maroon; /* Maroon background for the header */
-            padding: 20px 20px; /* Padding around the navigation */
+            padding: 20px; /* Uniform padding around the navigation */
             color: white;
             position: relative; /* Needed for absolute positioning of stripe */
             display: flex; /* Enables flexbox for child elements */
@@ -46,32 +47,26 @@
             font-weight: bold;
             font-size: 18px; /* Enlarged font size for better visibility */
         }
-        nav ul li.current a { /* Styles for the current tab */
+        nav ul li.current a {
             background-color: transparent; /* Removing background color */
-            color: gray; /* Gray color for the text */
+            color: lightgray; /* Gray color for the text */
             padding: 5px 10px; /* Padding to maintain alignment */
         }
         .title {
-            text-align: center; /* Centers the title text */
+            text-align: left; /* Aligns the title text */
             font-size: 36px; /* Larger font size */
             color: black; /* Black text for better visibility */
             padding: 10px 0; /* Adds vertical spacing */
             font-weight: bold; /* Bold text for the title */
         }
         main {
-            font-size: 20px;
-            margin-left: 10px;
-            margin-top: 20px;
-            text-decoration: underline; /* Underlines semester titles */
+            padding: 20px;
         }
-        p {
-            text-indent: 20px;
-            margin-left: 30px;
-            font-size: 16px;
+        h1, h2, h3 {
+            color: maroon; /* Theme color for headers */
         }
-        .link {
-            color: blue;
-            text-decoration: underline;
+        p, li {
+            font-size: 16px; /* Standard font size for body text */
         }
     </style>
 </head>
@@ -81,45 +76,42 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="projects.html">Projects</a></li>
-                <li><a href="resume.html">Resume</a></li>
-                <li class="current"><a href="classes.html">Classes</a></li> <!-- 'Classes' as current -->
+                <li class="current"><a href="resume.html">Resume</a></li>
+                <li><a href="classes.html">Classes</a></li>
             </ul>
         </nav>
         <div class="stripe"></div> <!-- Gray stripe below the nav -->
     </header>
-    <div class="title">Classes I've Taken!</div>
-    <main>Fall 2022</main>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=3.091&style=verbatim&when=C&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">3.091:</a> Introduction to Solid-State Chemistry</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=6.100A&style=verbatim&when=C&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">6.100A:</a> Introduction to Computer Science Programming in Python</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=8.01&style=verbatim&when=C&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">8.01:</a> Physics I</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=18.02&style=verbatim&when=C&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">18.02:</a> Multivariable Calculus</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=21G.404&style=verbatim&when=C&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">21G.404:</a> German IV</p>
+    <main>
+        <h1>ERIC D. DELGADO</h1>
+        <p>edelga2@mit.edu | (+1) 414-551-1041</p>
+        <h2>Education</h2>
+        <p><strong>Massachusetts Institute of Technology - Cambridge, MA</strong><br>
+           Expected May 2026<br>
+           Candidate for Bachelors in Mechanical Engineering and Computer Science</p>
 
-    <main>IAP 2023</main>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=21G.S07&style=verbatim&when=J&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">21G.S07:</a> Communication Intensive German</p>
+        <h2>Relevant Experience</h2>
+        <h3>Research Intern, MIT Media Lab - Biomechatronics Lab - Cambridge, MA</h3>
+        <p>Jan. 2024 – Present<br>
+           Develop a PID feedback control system for an ankle-foot prosthetic...</p>
+        <!-- Include more experiences similarly -->
 
-    <main>Spring 2023</main>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.00B&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.00B:</a> Toy Product Design</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=6.1010&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">6.1010:</a> Fundamentals of Programming</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=8.02&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">8.02:</a> Physics II</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=17.591&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">17.591:</a> Research Seminar in Applied International Studies</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=18.03&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">18.03:</a> Differential Equations</p>
+        <h2>Extracurriculars</h2>
+        <p><strong>MIT Solar Electric Vehicle Team - Cambridge, MA</strong><br>
+           Sep. 2023 – Present<br>
+           Design and manufacture a solar powered vehicle...</p>
 
-    <main>Fall 2023</main>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.001&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.001:</a> Mechanics and Materials I</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.086&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.086:</a> Numerical Computation for Mechanical Engineers</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.670&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.670:</a> Mechanical Engineering Tools</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.678&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.678:</a> Electronics for Mechanical Systems</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=6.1200&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">6.1200:</a> Mathematics for Computer Science</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=18.C06&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">18.C06:</a> Linear Algebra and Optimization</p>
+        <h2>Leadership</h2>
+        <p><strong>Science Olympiad Captain - Milwaukee, WI</strong><br>
+           Sep. 2020 – May 2022<br>
+           Competed nationally in a variety of events...</p>
 
-    <main>IAP 2024</main>
-    <p><a href="http://introtodeeplearning.com/" class="link">6.S191:</a> Introduction to Deep Learning</p>
-
-    <main>Spring 2024 (Current)</main>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.003&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.003:</a> Dynamics and Control I</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.007&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.007:</a> Design and Manufacturing I</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=6.4200&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">6.4200:</a> Robotics: Science and Systems</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=21G.418&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">21G.418:</a> Race and Migration in Europe</p>
+        <h2>Skills and Awards</h2>
+        <ul>
+            <li>Languages: English (native), Spanish (native), German (fluent)</li>
+            <li>Computer/Programming: Python, Java, MATLAB, Julia, C, Arduino, Fusion 360, SolidWorks</li>
+            <li>Awards/Honors: National German Exam Gold Medalist, Outstanding Achiever: DSSV German Essay Contest, National Hispanic Recognized Scholar, AP Distinguished Student</li>
+        </ul>
+    </main>
 </body>
 </html>

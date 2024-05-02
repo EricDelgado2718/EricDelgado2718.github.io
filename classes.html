@@ -8,11 +8,12 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;            background-size: cover; /* Covers the entire background without repeating */
+            padding: 0;
+            background-size: cover; /* Covers the entire background without repeating */
         }
         header {
             background-color: maroon; /* Maroon background for the header */
-            padding: 20px 20px; /* Reducing padding to make the header thinner */
+            padding: 20px 20px; /* Padding around the navigation */
             color: white;
             position: relative; /* Needed for absolute positioning of stripe */
             display: flex; /* Enables flexbox for child elements */
@@ -43,22 +44,25 @@
             text-decoration: none;
             color: white;
             font-weight: bold;
+            font-size: 18px; /* Enlarged font size for better visibility */
         }
         nav ul li.current a { /* Styles for the current tab */
-            background-color: blue; /* Darker red background */
+            background-color: lightgray; /* Light gray background for current tab */
             padding: 5px 10px; /* Padding to make it look like a rectangle */
-            border: 2px solid blue; /* Dark red border for emphasis */
+            border: 2px solid blue; /* Blue border for emphasis */
         }
         .title {
             text-align: center; /* Centers the title text */
             font-size: 36px; /* Larger font size */
-            color: black; /* White text for better visibility */
+            color: black; /* Black text for better visibility */
             padding: 10px 0; /* Adds vertical spacing */
+            font-weight: bold; /* Bold text for the title */
         }
         main {
             font-size: 20px;
             margin-left: 10px;
             margin-top: 20px;
+            text-decoration: underline; /* Underlines semester titles */
         }
         p {
             text-indent: 20px;
@@ -78,7 +82,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="resume.html">Resume</a></li>
-                <li><a href="classes.html">Classes</a></li>
+                <li class="current"><a href="classes.html">Classes</a></li> <!-- 'Classes' as current -->
             </ul>
         </nav>
         <div class="stripe"></div> <!-- Gray stripe below the nav -->

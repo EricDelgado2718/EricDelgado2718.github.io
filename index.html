@@ -2,75 +2,74 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Portfolio Website</title>
+    <title>Home - Eric D. Delgado</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Inline CSS for demonstration purposes */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-size: cover; /* Covers the entire background without repeating */
+        }
+        header {
+            background-color: maroon; /* Maroon background for the header */
+            padding: 20px; /* Uniform padding around the navigation */
+            color: white;
+            position: relative; /* Needed for absolute positioning of stripe */
+            display: flex; /* Enables flexbox for child elements */
+            justify-content: flex-end; /* Aligns navigation to the right */
+        }
+        .stripe {
+            position: absolute;
+            bottom: 0; /* Position stripe at the bottom of the header */
+            left: 0;
+            width: 100%; /* Full width */
+            height: 5px; /* Height of the stripe */
+            background-color: gray;
+        }
+        nav {
+            background-color: transparent; /* No additional background */
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+        nav ul li {
+            margin-left: 20px; /* Spacing between nav items */
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 18px; /* Enlarged font size for better visibility */
+        }
+        nav ul li.current a { /* Styles for the current tab */
+            background-color: transparent; /* Removing background color */
+            color: gray; /* Gray color for the text */
+            padding: 5px 10px; /* Padding to maintain alignment */
+        }
+    </style>
 </head>
 <body>
-    <!-- HEADER -->
-    <header class="header" id="header">
+    <header>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li class="current"><a href="index.html">Home</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="resume.html">Resume</a></li>
                 <li><a href="classes.html">Classes</a></li>
             </ul>
         </nav>
+        <div class="stripe"></div> <!-- Gray stripe below the nav -->
     </header>
-
-    <!-- MAIN -->
-    <main class="main">
-        <!-- HOME -->
-        <section class="home section" id="home">
-            <div class="home__social">
-                <a href="https://www.linkedin.com/in/eric-delgado-0896b9292/" target="_blank">LinkedIn</a>
-                <a href="https://dribbble.com/" target="_blank">Dribbble</a>
-                <a href="https://github.com/" target="_blank">GitHub</a>
-            </div>
-            <div class="home__description">
-                High level experience in web design and development knowledge, producing quality work.
-            </div>
-        </section>
-
-        <!-- PORTFOLIO -->
-        <section class="portfolio section" id="portfolio">
-            <div class="portfolio__description">
-                Website adaptable to all devices, with ui components and animated interactions.
-            </div>
-        </section>
-
-        <!-- RESUME -->
-        <section class="resume section" id="resume">
-            <!-- Resume content goes here -->
-        </section>
-
-        <!-- CLASSES -->
-        <section class="classes section" id="classes">
-            <!-- Classes content goes here -->
-        </section>
-
-        <!-- CONTACT ME -->
-        <section class="contact section" id="contact">
-            <!-- Contact form or information -->
-        </section>
+    <main>
+        <h1>Welcome to Eric D. Delgado's Homepage!</h1>
+        <p>Explore my academic and professional achievements, projects, classes, and more!</p>
     </main>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="footer__social">
-            <a href="https://www.facebook.com/" target="_blank">Facebook</a>
-            <a href="https://www.instagram.com/" target="_blank">Instagram</a>
-        </div>
-    </footer>
-
-    <!-- SCROLL TOP -->
-    <button id="scroll-top">Top</button>
-
-    <!-- SWIPER JS -->
-    <script src="swiper.js"></script>
-
-    <!-- MAIN JS -->
-    <script src="main.js"></script>
 </body>
 </html>
+

@@ -2,13 +2,109 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Resume</title>
+    <title>Classes</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Inline CSS for demonstration purposes */
+        body {
+            font-family: Arial, sans-serif; /* Ensures a consistent font is used */
+            margin: 0; /* Removes default margin */
+            padding: 0; /* Removes default padding */
+        }
+        header {
+            background-color: maroon; /* Maroon background for the header */
+            padding: 10px 20px; /* Padding around the navigation */
+            color: white; /* White text color for better contrast */
+            text-align: center; /* Centers the header text */
+            font-size: 36px; /* Larger, bold text for the header */
+            font-weight: bold;
+        }
+        nav {
+            background-color: maroon; /* Maroon background for the nav */
+            padding: 10px 0; /* Vertical padding for nav */
+        }
+        nav ul {
+            list-style-type: none; /* Removes bullet points */
+            padding: 0;
+            margin: 0;
+            display: flex; /* Horizontally aligns nav items */
+            align-items: center;
+            justify-content: flex-start; /* Aligns navigation to the top left */
+        }
+        nav ul li {
+            margin-right: 20px; /* Spacing between nav items */
+        }
+        nav ul li a {
+            text-decoration: none; /* Removes underline from links */
+            color: white; /* Sets text color to white */
+            font-weight: bold;
+        }
+        .stripe {
+            height: 5px; /* Height of the stripe */
+            background-color: gray; /* Gray color for the stripe */
+        }
+        main {
+            font-size: 20px; /* Larger text for main descriptors, aligned left */
+            margin-left: 10px; /* Slightly indents the main descriptors from the left */
+            margin-top: 20px; /* Adds vertical space before each main section */
+        }
+        p {
+            text-indent: 20px; /* Indents paragraphs */
+            margin-left: 30px; /* Further indentation for clarity */
+            font-size: 16px; /* Standard text size for paragraphs */
+        }
+        .link {
+            color: blue; /* Makes the link color blue */
+            text-decoration: underline; /* Underlines the link */
+        }
+    </style>
 </head>
 <body>
-    <header>...</header>
-    <nav>...</nav>
-    <main>Resume content goes here.</main>
-    <footer>...</footer>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="classes.html">Classes</a></li>
+                <li><a href="contact.html">Contact Info</a></li>
+            </ul>
+        </nav>
+        <div class="stripe"></div> <!-- Gray stripe below the nav -->
+        Classes!
+    </header>
+    <main>Fall 2022</main>
+    <p><a href="https://student.mit.edu/catalog/search.cgi?search=3.091&style=verbatim&when=C&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">3.091:</a> Introduction to Solid-State Chemistry</p>
+    <p><a href="https://student.mit.edu/catalog/search.cgi?search=6.100A&style=verbatim&when=C&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">6.100A:</a> Introduction to Computer Science Programming in Python</p>
+    <p><a href="https://student.mit.edu/catalog/search.cgi?search=8.01&style=verbatim&when=C&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">8.01:</a> Physics I</p>
+    <p><a href="https://student.mit.edu/catalog/search.cgi?search=18.02&style=verbatim&when=C&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">18.02:</a> Multivariable Calculus</p>
+    <p><a href="https://student.mit.edu/catalog/search.cgi?search=21G.404&style=verbatim&when=C&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">21G.404:</a> German IV</p>
+
+    <main>IAP 2023</main>
+    <p>21G.S07: German: Communication Intensive</p>
+
+    <main>Spring 2023</main>
+    <p>2.00B: Toy Product Design</p>
+    <p>6.1010: Fundamentals of Programming</p>
+    <p>8.02: Physics II</p>
+    <p>17.591: Research Seminar in Applied International Studies</p>
+    <p>18.03: Differential Equations</p>
+
+    <main>Fall 2023</main>
+    <p>2.001: Mechanics and Materials I</p>
+    <p>2.086: Numerical Computation for Mechanical Engineers</p>
+    <p>2.670: Mechanical Engineering Tools</p>
+    <p>2.678: Electronics for Mechanical Systems</p>
+    <p>6.1200: Mathematics for Computer Science</p>
+
+    <main>IAP 2024</main>
+    <p>6.S191: Introduction to Deep Learning</p>
+    <p>6.9610: The Battlecode Programming Competition</p>
+
+    <main>Spring 2024 (Current)</main>
+    <p>2.003: Dynamics and Control I</p>
+    <p>2.007: Design and Manufacturing I</p>
+    <p>6.4200: Robotics: Science and Systems</p>
+    <p>21G.418: Race and Migration in Europe</p>
 </body>
 </html>

@@ -13,12 +13,18 @@
             background-size: cover; /* Covers the entire background without repeating */
         }
         header {
-            background-color: maroon; /* Maroon background for the header */
-            padding: 20px; /* Uniform padding around the navigation */
+            background-color: maroon;
+            padding: 20px;
             color: white;
-            position: relative; /* Needed for absolute positioning of stripe */
-            display: flex; /* Enables flexbox for child elements */
-            justify-content: flex-end; /* Aligns navigation to the right */
+            position: relative;
+            display: flex;
+            justify-content: space-between; /* Ensures spacing between title and nav */
+            align-items: center; /* Aligns items vertically */
+            height: 30px; /* Specify a fixed height for consistent appearance */
+        }
+        .header-title {
+            font-size: 24px; /* Suitable size for the title */
+            color: white; /* Title color */
         }
         .stripe {
             position: absolute;
@@ -27,6 +33,13 @@
             width: 100%; /* Full width */
             height: 5px; /* Height of the stripe */
             background-color: gray;
+        }
+        .title {
+            text-align: center; /* Centers the title text */
+            font-size: 36px; /* Larger font size */
+            color: maroon; /* Black text for better visibility */
+            padding: 10px 0; /* Adds vertical spacing */
+            font-weight: bold; /* Bold text for the title */
         }
         nav {
             background-color: transparent; /* No additional background */
@@ -45,7 +58,7 @@
             text-decoration: none;
             color: white;
             font-weight: bold;
-            font-size: 18px; /* Enlarged font size for better visibility */
+            font-size: 24px; /* Enlarged font size for better visibility */
         }
         nav ul li.current a {
             background-color: transparent; /* Removing background color */
@@ -71,6 +84,7 @@
 </head>
 <body>
     <header>
+        <div class="header-title">Eric Delgado</div>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -87,6 +101,9 @@
         <h2>Education</h2>
         <p><strong>Massachusetts Institute of Technology - Cambridge, MA (Expected May 2026)</strong><br>
             <br>Candidate for Bachelors in Mechanical Engineering and Computer Science</p>
+
+        <p><strong>Marquette University High School - Milwaukee, WI (May 2022)</strong><br>
+            <br>Graduated Saludatorian</p>
 
         <h2>Previous Experience</h2>
         <p><strong>Research Intern, Biomechatronics Lab - Cambridge, MA (Jan. 2024 – Present)</strong><br>

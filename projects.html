@@ -2,34 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Eric D. Delgado's Resume</title>
+    <title>Projects</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Inline CSS for demonstration purposes */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-size: cover; /* Covers the entire background without repeating */
+            background-size: cover;
         }
         header {
-            background-color: maroon; /* Maroon background for the header */
-            padding: 20px; /* Uniform padding around the navigation */
+            background-color: maroon;
+            padding: 20px;
             color: white;
-            position: relative; /* Needed for absolute positioning of stripe */
-            display: flex; /* Enables flexbox for child elements */
-            justify-content: flex-end; /* Aligns navigation to the right */
+            position: relative;
+            display: flex;
+            justify-content: flex-end;
         }
         .stripe {
             position: absolute;
-            bottom: 0; /* Position stripe at the bottom of the header */
+            bottom: 0;
             left: 0;
-            width: 100%; /* Full width */
-            height: 5px; /* Height of the stripe */
+            width: 100%;
+            height: 5px;
             background-color: gray;
         }
         nav {
-            background-color: transparent; /* No additional background */
+            background-color: transparent;
         }
         nav ul {
             list-style-type: none;
@@ -39,33 +38,50 @@
             align-items: center;
         }
         nav ul li {
-            margin-left: 20px; /* Spacing between nav items */
+            margin-left: 20px;
         }
         nav ul li a {
             text-decoration: none;
             color: white;
             font-weight: bold;
-            font-size: 18px; /* Enlarged font size for better visibility */
+            font-size: 18px;
         }
         nav ul li.current a {
-            background-color: transparent; /* Removing background color */
-            color: lightgray; /* Gray color for the text */
-        }
-        .title {
-            text-align: left; /* Aligns the title text */
-            font-size: 36px; /* Larger font size */
-            color: black; /* Black text for better visibility */
-            padding: 10px 0; /* Adds vertical spacing */
-            font-weight: bold; /* Bold text for the title */
+            color: lightgray;
         }
         main {
             padding: 20px;
+            display: flex;
+            flex-direction: column; /* Stack sections vertically */
         }
         h1, h2, h3 {
-            color: maroon; /* Theme color for headers */
+            color: maroon;
         }
         p, li {
-            font-size: 16px; /* Standard font size for body text */
+            font-size: 16px;
+        }
+        img {
+            width: auto;
+            height: 350px;
+            margin: 0 20px;
+            border: 3px solid gray;
+            box-sizing: border-box;
+        }
+        .image-container {
+            text-align: center; /* Center-align image and description */
+            margin-bottom: 20px; /* Space below each image for separation */
+        }
+        .image-description {
+            margin-top: 8px; /* Spacing between image and its description */
+            color: #333; /* Dark gray color for readability */
+        }
+        .section-description {
+            margin-top: 20px; /* Space above the section description */
+            font-size: 18px; /* Larger text for readability */
+            color: #555; /* Medium gray for softer appearance */
+            max-width: 80%; /* Restricting width for better readability */
+            margin-left: auto;
+            margin-right: auto; /* Centering description */
         }
     </style>
 </head>
@@ -79,36 +95,56 @@
                 <li><a href="classes.html">Classes</a></li>
             </ul>
         </nav>
-        <div class="stripe"></div> <!-- Gray stripe below the nav -->
+        <div class="stripe"></div>
     </header>
     <main>
-        <h2>Autonomous Robotics</h2>
-        <p><strong>Massachusetts Institute of Technology - Cambridge, MA</strong><br>
-           Expected May 2026<br>
-           Candidate for Bachelors in Mechanical Engineering and Computer Science</p>
+        <h2>Autonomous Racecar</h2>
+        <div class="image-container">
+            <img src="./Website_Pics/parking_controller.gif" alt="Parking Controller GIF">
+            <p class="image-description">Parking Controller in action.</p>
+        </div>
+        <div class="image-container">
+            <img src="./Website_Pics/localization.gif" alt="Localization GIF">
+            <p class="image-description">Localization techniques demonstrated.</p>
+        </div>
+        <p class="section-description">This section focuses on the development and implementation of an autonomous racecar capable of parking and localization.</p>
 
         <h2>Semi-Autonomous Robotics</h2>
-        <h3>Research Intern, MIT Media Lab - Biomechatronics Lab - Cambridge, MA</h3>
-        <p>Jan. 2024 – Present<br>
-           Develop a PID feedback control system for an ankle-foot prosthetic...</p>
-        <!-- Include more experiences similarly -->
+        <div class="image-container">
+            <img src="./Website_Pics/robot_elevator.png" alt="Robot Elevator">
+            <p class="image-description">Robot navigating an elevator.</p>
+        </div>
+        <div class="image-container">
+            <img src="./Website_Pics/robot_extended.png" alt="Robot Extended">
+            <p class="image-description">Extended capabilities of the robot.</p>
+        </div>
+        <p class="section-description">Explore the advancements in semi-autonomous robotics, focusing on enhanced interaction with environments.</p>
 
         <h2>Bionic Prosthetics</h2>
-        <p><strong>MIT Solar Electric Vehicle Team - Cambridge, MA</strong><br>
-           Sep. 2023 – Present<br>
-           Design and manufacture a solar powered vehicle...</p>
+        <div class="image-container">
+            <img src="./Website_Pics/hand.png" alt="Hand Prosthetic">
+            <p class="image-description">Innovative hand prosthetic design.</p>
+        </div>
+        <div class="image-container">
+            <img src="./Website_Pics/me_hand.png" alt="Me with Hand Prosthetic">
+            <p class="image-description">Personal testing of the prosthetic hand.</p>
+        </div>
+        <div class="image-container">
+            <img src="./Website_Pics/PCB.png" alt="PCB">
+            <p class="image-description">Custom PCB for prosthetic control.</p>
+        </div>
+        <p class="section-description">This section details the creation and refinement of bionic prosthetics, emphasizing personal customization and technology integration.</p>
 
         <h2>For Fun!</h2>
-        <p><strong>Science Olympiad Captain - Milwaukee, WI</strong><br>
-           Sep. 2020 – May 2022<br>
-           Competed nationally in a variety of events...</p>
-
-        <h2>Skills and Awards</h2>
-        <ul>
-            <li>Languages: English (native), Spanish (native), German (fluent)</li>
-            <li>Computer/Programming: Python, Java, MATLAB, Julia, C, Arduino, Fusion 360, SolidWorks</li>
-            <li>Awards/Honors: National German Exam Gold Medalist, Outstanding Achiever: DSSV German Essay Contest, National Hispanic Recognized Scholar, AP Distinguished Student</li>
-        </ul>
+        <div class="image-container">
+            <img src="./Website_Pics/flower.png" alt="Flower">
+            <p class="image-description">A stunning bloom captured in nature.</p>
+        </div>
+        <div class="image-container">
+            <img src="./Website_Pics/julie_figure.png" alt="Julie Figure">
+            <p class="image-description">A figurine of Julie in a dynamic pose.</p>
+        </div>
+        <p class="section-description">A look at personal hobbies and interests that bring joy and relaxation outside of professional pursuits.</p>
     </main>
 </body>
 </html>

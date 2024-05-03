@@ -17,7 +17,13 @@
             color: white;
             position: relative;
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between; /* Ensures spacing between title and nav */
+            align-items: center; /* Aligns items vertically */
+            height: 30px; /* Specify a fixed height for consistent appearance */
+        }
+        .header-title {
+            font-size: 24px; /* Suitable size for the title */
+            color: white; /* Title color */
         }
         .stripe {
             position: absolute;
@@ -44,7 +50,7 @@
             text-decoration: none;
             color: white;
             font-weight: bold;
-            font-size: 18px;
+            font-size: 24px;
         }
         nav ul li.current a {
             color: lightgray;
@@ -59,34 +65,48 @@
         }
         p, li {
             font-size: 16px;
+            line-height: 2;
+            margin-left: 20px;
         }
-        img {
-            width: auto;
-            height: 350px;
-            margin: 0 20px;
-            border: 3px solid gray;
-            box-sizing: border-box;
+        .image-row {
+            display: flex; /* Aligns the images in a row */
+            justify-content: space-evenly; /* Even spacing between the images */
+            align-items: center; /* Vertically align images */
+            flex-wrap: wrap; /* Allows images to wrap to next line if needed */
         }
         .image-container {
             text-align: center; /* Center-align image and description */
-            margin-bottom: 20px; /* Space below each image for separation */
+            flex: 1 0 300px; /* Flex-grow, Flex-shrink, Flex-basis */
+            margin: 10px; /* Margins around image containers */
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 3px solid gray;
+            box-sizing: border-box;
+        }
+        .title {
+            text-align: center; /* Centers the title text */
+            font-size: 36px; /* Larger font size */
+            color: maroon; /* Black text for better visibility */
+            padding: 10px 0; /* Adds vertical spacing */
+            font-weight: bold; /* Bold text for the title */
         }
         .image-description {
             margin-top: 8px; /* Spacing between image and its description */
-            color: #333; /* Dark gray color for readability */
+            color: black; /* Dark gray color for readability */
         }
         .section-description {
             margin-top: 20px; /* Space above the section description */
             font-size: 18px; /* Larger text for readability */
-            color: #555; /* Medium gray for softer appearance */
-            max-width: 80%; /* Restricting width for better readability */
-            margin-left: auto;
-            margin-right: auto; /* Centering description */
+            color: black; /* Medium gray for softer appearance */
+            text-align: left; /* Aligns text to the left */
         }
     </style>
 </head>
 <body>
     <header>
+        <div class="header-title">Eric Delgado</div>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -97,54 +117,93 @@
         </nav>
         <div class="stripe"></div>
     </header>
+    <div class="title">Hands-On Experience</div>
     <main>
         <h2>Autonomous Racecar</h2>
-        <div class="image-container">
-            <img src="./Website_Pics/parking_controller.gif" alt="Parking Controller GIF">
-            <p class="image-description">Parking Controller in action.</p>
+        <div class="image-row">
+            <div class="image-container">
+                <img src="./Website_Pics/Park.gif" alt="Parking Controller GIF" style="width: auto; height: 350px;">
+                <p class="image-description">Parking Controller Parks the Racecar at a Specified Distance from the Cone</p>
+            </div>
+            <div class="image-container">
+                <img src="./Website_Pics/localization.gif" alt="Localization GIF" style="width: auto; height: 350px;">
+                <p class="image-description">Real-Time Localization given LIDAR Scan and Map</p>
+            </div>
         </div>
-        <div class="image-container">
-            <img src="./Website_Pics/localization.gif" alt="Localization GIF">
-            <p class="image-description">Localization techniques demonstrated.</p>
-        </div>
-        <p class="section-description">This section focuses on the development and implementation of an autonomous racecar capable of parking and localization.</p>
+        <p class="section-description">Given a racecar robot with an NVIDIA Jetson Xavier computer, LIDAR Scanner, ZED Camera, 
+            and more advanced technologies, my team and I have been tasked with programming and executing various operations.
+            Our tasks encompass developing and implementing sophisticated functionalities such as wall-following, a 
+            safety controller, cone detection, parking control, line following, localization, path planning, and path 
+            following. To ensure transparency and collaboration, we conduct bi-weekly Lab Briefings and Reports, 
+            during which we discuss the rationale behind our decisions, coding strategies, and collaborative efforts.
+            This project has been a valuable experience, enriching my skills in both technical aspects and in terms of communication and teamwork.</p>
 
         <h2>Semi-Autonomous Robotics</h2>
-        <div class="image-container">
-            <img src="./Website_Pics/robot_elevator.png" alt="Robot Elevator">
-            <p class="image-description">Robot navigating an elevator.</p>
+        <div class="image-row">
+            <div class="image-container">
+                <img src="./Website_Pics/robot_extended.png" alt="Robot Extended" style="width: auto; height: 350px;">
+                <p class="image-description">Front View: Telescoping Lift Fully Extended</p>
+            </div>
+            <div class="image-container">
+                <img src="./Website_Pics/robot_elevator.png" alt="Robot Elevator" style="width: auto; height: 350px;">
+                <p class="image-description">Rear View: Elevator Mechanism</p>
+            </div>
+            <div class="image-container">
+                <img src="./Website_Pics/CAD.png" alt="Robot CAD" style="width: auto; height: 350px;">
+                <p class="image-description">CAD: Fully Articulable CAD Model</p>
+            </div>
         </div>
-        <div class="image-container">
-            <img src="./Website_Pics/robot_extended.png" alt="Robot Extended">
-            <p class="image-description">Extended capabilities of the robot.</p>
-        </div>
-        <p class="section-description">Explore the advancements in semi-autonomous robotics, focusing on enhanced interaction with environments.</p>
+        <p class="section-description">As a part of my sophomore Mechanical Engineering Capstone,
+            I designed and fabricated a robot to both autonomously and manually navigate a 
+            competition course, score points, and compete against fellow classmates. 
+            This process has taught me extenstively about design strategy, iterative design, 
+            applied physics, and what to do when plans go awry.
+        </p>
 
         <h2>Bionic Prosthetics</h2>
-        <div class="image-container">
-            <img src="./Website_Pics/hand.png" alt="Hand Prosthetic">
-            <p class="image-description">Innovative hand prosthetic design.</p>
+        <div class="image-row">
+            <div class="image-container">
+                <img src="./Website_Pics/me_hand.png" alt="Me with Hand Prosthetic" style="width: auto; height: 400px;">
+                <p class="image-description">Disassembled Bionic Hand</p>
+            </div>
+            <div class="image-container">
+                <img src="./Website_Pics/hand.png" alt="Hand Prosthetic" style="width: auto; height: 400px;">
+                <p class="image-description">Bionic Hand on Stand</p>
+            </div>
+            <div class="image-container">
+                <img src="./Website_Pics/PCB.png" alt="PCB" style="width: auto; height: 400px;">
+                <p class="image-description">Custom PCB for Dual CAN Interface.</p>
+            </div>
         </div>
-        <div class="image-container">
-            <img src="./Website_Pics/me_hand.png" alt="Me with Hand Prosthetic">
-            <p class="image-description">Personal testing of the prosthetic hand.</p>
-        </div>
-        <div class="image-container">
-            <img src="./Website_Pics/PCB.png" alt="PCB">
-            <p class="image-description">Custom PCB for prosthetic control.</p>
-        </div>
-        <p class="section-description">This section details the creation and refinement of bionic prosthetics, emphasizing personal customization and technology integration.</p>
+        <p class="section-description">Bionic Prosthetics have, for a long time, been of 
+            interest to me. I have had the privilege of working in several bionic prosthetics 
+            laboratories and was provided with the resources to construct a bionic hand in 
+            Germany. This project utilized a tendon-driven system powered by 16 motors, 
+            allowing me to control the four fingers through Arduino units communicating via 
+            CAN Bus. I am currently researching in the Biomechatronics lab at MIT, where I am responsible 
+            for designing the control system for an ankle-foot prosthetic. This 
+            role focuses on optimizing motor activation given individual gait patterns to 
+            reduce metabolic expenditure. Through this work, I have gained extensive insights into the capabilities and 
+            limitations of both human and mechanical systems, finding the experience profoundly 
+            rewarding.</p>
 
-        <h2>For Fun!</h2>
-        <div class="image-container">
-            <img src="./Website_Pics/flower.png" alt="Flower">
-            <p class="image-description">A stunning bloom captured in nature.</p>
+        <h2>For Fun</h2>
+        <div class="image-row">
+            <div class="image-container">
+                <img src="./Website_Pics/flower.png" alt="Flower" style="width: auto; height: 400px;">
+                <p class="image-description">A welded succulent plant</p>
+            </div>
+            <div class="image-container">
+                <img src="./Website_Pics/julie_figure.png" alt="Julie Figure" style="width: auto; height: 400px;">
+                <p class="image-description">A chiseled figurine of a dancer</p>
+            </div>
         </div>
-        <div class="image-container">
-            <img src="./Website_Pics/julie_figure.png" alt="Julie Figure">
-            <p class="image-description">A figurine of Julie in a dynamic pose.</p>
-        </div>
-        <p class="section-description">A look at personal hobbies and interests that bring joy and relaxation outside of professional pursuits.</p>
+        <p class="section-description"> Both woodworking and metalworking are hobbies of 
+            mine, and I love making gifts for others. Growing up, my father taught me to 
+            work with tools, and I have always been eager to have access to woodshops and 
+            makerspaces to make my designs come to life. I find delving into these types of
+            projects to be calming, and oftentimes like to use hand tools for a slower, 
+            more authentic feeling.</p>
     </main>
 </body>
 </html>

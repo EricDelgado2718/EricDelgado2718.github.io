@@ -10,17 +10,18 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-color: navy;
+            background-color: #151E3D;
             color: lightgray;
             display: flex;
             height: 100vh;
             overflow: hidden;
         }
         #left-panel {
-            background-color: navy;
+            background-color: #151E3D;
             color: lightgray;
             width: 50%;
             padding: 20px;
+            padding-left: 15%;
             box-sizing: border-box;
             position: fixed;
             height: 100%;
@@ -30,8 +31,9 @@
             justify-content: space-between;
         }
         #right-panel {
-            width: 45%;
-            margin-left: 55%;
+            width: 50%;
+            margin-left: 50%;
+            padding-right: 15%;
             height: 100%;
             overflow-y: scroll;
             padding: 20px;
@@ -70,6 +72,8 @@
         }
         .contact-info {
             font-size: 16px;
+            display: flex;
+            justify-content: space-between;
             margin-top: 20px;
         }
         .section {
@@ -87,9 +91,14 @@
             position: absolute;
             width: 500px;
             height: 500px;
-            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 60%);
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 60%);
             pointer-events: none;
             transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+        .last-updated {
+            margin-top: 10px;
+            font-size: 16px;
         }
     </style>
 </head>
@@ -110,10 +119,13 @@
                 </ul>
             </div>
         </div>
-        <div class="contact-info">
-            <p>ericdelgado2718@gmail.com</p>
-            <p>edelga2@mit.edu</p>
-            <p>(+1) 414-551-1041</p>
+        <div>
+            <div class="contact-info">
+                <p>ericdelgado2718@gmail.com</p>
+                <p>edelga2@mit.edu</p>
+                <p>(+1) 414-551-1041</p>
+            </div>
+            <div class="last-updated">Last Updated: [Date]</div>
         </div>
     </div>
     <div id="right-panel">
@@ -143,14 +155,10 @@
                 in nature - running, cycling, lifting, and hiking are some of my favorite 
                 ways to destress! Watching fast cars on TV is my peak entertainment.  
                 Look around to learn more about me and what I do.</p>
-            <p>I enjoy hands-on projects, from woodworking 
-                to Arduino and everything in between. I love being active and 
-                in nature - running, cycling, lifting, and hiking are some of my favorite 
-                ways to destress! Watching fast cars on TV is my peak entertainment.  
-                Look around to learn more about me and what I do.</p>
         </div>
         <div id="experience" class="section">
             <h2>Experience</h2>
+            <p>Details about my previous experience will go here...</p>
             <p>Details about my previous experience will go here...</p>
             <p>Details about my previous experience will go here...</p>
             <p>Details about my previous experience will go here...</p>
@@ -203,7 +211,8 @@
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 60) {
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - sectionHeight / 3) {
                     current = section.getAttribute('id');
                 }
             });

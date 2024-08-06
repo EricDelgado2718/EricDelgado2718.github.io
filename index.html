@@ -7,140 +7,167 @@
     <link rel="icon" type="image/png" href="./Website_Pics/Favicon.png">
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-size: cover;
-        }
-        header {
-            background-color: maroon;
-            padding: 20px;
-            color: white;
-            position: relative;
+            font-family: Arial, sans-serif;
+            background-color: navy;
+            color: lightgray;
             display: flex;
-            justify-content: space-between; /* Ensures spacing between title and nav */
-            align-items: center; /* Aligns items vertically */
-            height: 30px; /* Specify a fixed height for consistent appearance */
+            height: 100vh;
+            overflow: hidden;
+        }
+        #left-panel {
+            background-color: navy;
+            color: lightgray;
+            width: 35%;
+            padding: 20px;
+            box-sizing: border-box;
+            position: fixed;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        #right-panel {
+            width: 65%;
+            margin-left: 35%;
+            height: 100%;
+            overflow-y: scroll;
+            padding: 20px;
+            box-sizing: border-box;
         }
         .header-title {
-            font-size: 24px; /* Suitable size for the title */
-            color: white; /* Title color */
+            font-size: 36px;
+            font-weight: bold;
         }
-        .stripe {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background-color: gray;
+        .quote {
+            font-size: 24px;
+            margin-top: 10px;
         }
-        nav {
-            margin-left: auto; /* Pushes nav to the right */
+        .description {
+            font-size: 18px;
+            margin-top: 10px;
         }
-        nav ul {
+        .nav-tabs {
+            margin-top: 20px;
+        }
+        .nav-tabs ul {
             list-style-type: none;
             padding: 0;
             margin: 0;
-            display: flex;
-            align-items: center;
         }
-        nav ul li {
-            margin-left: 0px;
-        }
-        nav ul li a {
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
+        .nav-tabs ul li {
             font-size: 24px;
+            margin: 10px 0;
         }
-        nav ul li.current a {
+        .nav-tabs ul li a {
+            text-decoration: none;
             color: lightgray;
         }
-        main {
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-        }
-        .content-section {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-        .text-section {
-            width: 60%;
-        }
-        .image-section {
-            width: 40%;
-            text-align: center;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-            border: 3px solid gray;
-            box-sizing: border-box;
-        }
-        h1, h2, h3 {
-            color: maroon;
-        }
-        p, li {
-            font-size: 20px;
-            line-height: 2;
-            margin-left: 20px;
-            text-indent: 20px;
-        }
-        .title {
-            text-align: center;
-            font-size: 36px;
-            color: maroon;
-            padding: 10px 0;
+        .nav-tabs ul li a.active {
             font-weight: bold;
         }
-        ul.hobbies {
-            display: flex;
-            justify-content: space-around;
-            padding: 0;
-            list-style: none;
+        .contact-info {
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .section {
+            padding: 20px 0;
+        }
+        .section h2 {
+            font-size: 28px;
+            color: maroon;
+        }
+        .section p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        #cursor-highlight {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 60%);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="header-title">Eric Delgado</div>
-        <nav>
-            <ul>
-                <li class="current"><a href="index.html">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="resume.html">Resume</a></li>
-                <li><a href="classes.html">Classes</a></li>
-            </ul>
-        </nav>
-        <div class="stripe"></div>
-    </header>
-    <div class="title">Welcome to My Website</div>
-    <main>
-        <div class="content-section">
-            <div class="text-section">
-                <h2>About Me</h2>
-                <p>Hi, I'm Eric Delgado! I am an MIT '26 from Milwaukee, Wisconsin 
-                    studying Mechanical Engineering and concentrating in Robotics. 
-                    Current academic interests include: bionic prosthetics, automobiles, 
-                    and machine learning.</p>
-                    <p>I enjoy hands-on projects, from woodworking 
-                    to Arduino and everything in between. I love being active and 
-                    in nature - running, cycling, lifting, and hiking are some of my favorite 
-                    ways to destress! Watching fast cars on TV is my peak entertainment.  
-                    Look around to learn more about me and what I do.</p>
-            </div>
-            <div class="image-section">
-                <img src="./Website_Pics/home_pic.png" alt="Home Picture" style="width: auto; height: 350px;">
+    <div id="cursor-highlight"></div>
+    <div id="left-panel">
+        <div>
+            <div class="header-title">Eric Delgado</div>
+            <div class="quote">"Inspiring quote here"</div>
+            <div class="description">Hi, I'm Eric Delgado! I am an MIT '26 from Milwaukee, Wisconsin 
+                studying Mechanical Engineering and concentrating in Robotics.</div>
+            <div class="nav-tabs">
+                <ul>
+                    <li><a href="#about" class="active">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#classes">Classes</a></li>
+                </ul>
             </div>
         </div>
-        <h2>Reach Out!</h2>
-        <ul class="hobbies">
-            <li>ericdelgado2718@gmail.com</li>
-            <li>edelga2@mit.edu</li>
-            <li>(+1) 414-551-1041</li>
-        </ul>
-    </main>
+        <div class="contact-info">
+            <p>ericdelgado2718@gmail.com</p>
+            <p>edelga2@mit.edu</p>
+            <p>(+1) 414-551-1041</p>
+        </div>
+    </div>
+    <div id="right-panel">
+        <div id="about" class="section">
+            <h2>About Me</h2>
+            <p>Hi, I'm Eric Delgado! I am an MIT '26 from Milwaukee, Wisconsin 
+                studying Mechanical Engineering and concentrating in Robotics. 
+                Current academic interests include: bionic prosthetics, automobiles, 
+                and machine learning.</p>
+            <p>I enjoy hands-on projects, from woodworking 
+                to Arduino and everything in between. I love being active and 
+                in nature - running, cycling, lifting, and hiking are some of my favorite 
+                ways to destress! Watching fast cars on TV is my peak entertainment.  
+                Look around to learn more about me and what I do.</p>
+        </div>
+        <div id="experience" class="section">
+            <h2>Experience</h2>
+            <p>Details about my previous experience will go here...</p>
+        </div>
+        <div id="projects" class="section">
+            <h2>Projects</h2>
+            <p>Details about my projects will go here...</p>
+        </div>
+        <div id="classes" class="section">
+            <h2>Classes</h2>
+            <p>Details about my classes will go here...</p>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('mousemove', function(e) {
+            const cursorHighlight = document.getElementById('cursor-highlight');
+            cursorHighlight.style.left = e.pageX + 'px';
+            cursorHighlight.style.top = e.pageY + 'px';
+        });
+        
+        const sections = document.querySelectorAll('.section');
+        const navLinks = document.querySelectorAll('.nav-tabs ul li a');
+
+        window.addEventListener('scroll', function() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 60) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

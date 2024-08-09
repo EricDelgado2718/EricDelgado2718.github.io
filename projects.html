@@ -2,209 +2,185 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Projects</title>
+    <title>Projects - Eric Delgado</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="./Website_Pics/Favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
+            margin: 0;
+            padding: 0;
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-size: cover;
-        }
-        header {
-            background-color: maroon;
-            padding: 20px;
-            color: white;
-            position: relative;
+            background-color: #151E3D;
+            color: #99a5b1;
+            height: 100vh;
+            overflow: hidden;
             display: flex;
-            justify-content: space-between; /* Ensures spacing between title and nav */
-            align-items: center; /* Aligns items vertically */
-            height: 30px; /* Specify a fixed height for consistent appearance */
-        }
-        .header-title {
-            font-size: 24px; /* Suitable size for the title */
-            color: white; /* Title color */
-        }
-        .stripe {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background-color: gray;
-        }
-        nav {
-            background-color: transparent;
-        }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
+            flex-direction: column;
             align-items: center;
         }
-        nav ul li {
-            margin-left: 20px;
+        body.alt-color-scheme {
+            background-color: #f5f5dc;
+            color: black;
         }
-        nav ul li a {
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            font-size: 24px;
-        }
-        nav ul li.current a {
-            color: lightgray;
-        }
-        main {
-            padding: 20px;
-            display: flex;
-            flex-direction: column; /* Stack sections vertically */
-        }
-        h1, h2, h3 {
-            color: maroon;
-        }
-        p, li {
-            font-size: 16px;
-            line-height: 2;
-            margin-left: 20px;
-        }
-        .image-row {
-            display: flex; /* Aligns the images in a row */
-            justify-content: space-evenly; /* Even spacing between the images */
-            align-items: center; /* Vertically align images */
-            flex-wrap: wrap; /* Allows images to wrap to next line if needed */
-        }
-        .image-container {
-            text-align: center; /* Center-align image and description */
-            flex: 1 0 300px; /* Flex-grow, Flex-shrink, Flex-basis */
-            margin: 10px; /* Margins around image containers */
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-            border: 3px solid gray;
+        #right-panel {
+            width: 90%;
+            padding: 25px;
             box-sizing: border-box;
+            overflow-y: auto;
+            height: 100%;
+            scroll-behavior: smooth;
         }
-        .title {
-            text-align: center; /* Centers the title text */
-            font-size: 36px; /* Larger font size */
-            color: maroon; /* Black text for better visibility */
-            padding: 10px 0; /* Adds vertical spacing */
-            font-weight: bold; /* Bold text for the title */
+        .project-title {
+            font-size: 60px;
+            font-weight: bold;
+            text-align: center;
+            padding-bottom: 25px;
         }
-        .image-description {
-            margin-top: 8px; /* Spacing between image and its description */
-            color: black; /* Dark gray color for readability */
+        .divider {
+            width: 100%;
+            height: 2px;
+            background-color: lightgray;
+            margin-bottom: 30px;
         }
-        .section-description {
-            margin-top: 20px; /* Space above the section description */
-            font-size: 18px; /* Larger text for readability */
-            color: black; /* Medium gray for softer appearance */
-            text-align: left; /* Aligns text to the left */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .project {
+            background-color: #1b2b4c;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        body.alt-color-scheme .project {
+            background-color: #e0e0e0;
+        }
+        .project img {
+            width: 30%;
+            border-radius: 10px;
+            margin-right: 15px;
+        }
+        .project-title-text {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .project-description {
+            font-size: 16px;
+        }
+        .project:hover {
+            background-color: #22365e;
+            transform: scale(1.05);
+        }
+        body.alt-color-scheme .project:hover {
+            background-color: #c0c0c0;
+        }
+        .toggle-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: #99a5b1;
+        }
+        body.alt-color-scheme .toggle-button {
+            color: black;
+        }
+        /* House icon style */
+        .home-icon {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            color: #99a5b1;
+            text-decoration: none;
+        }
+        body.alt-color-scheme .home-icon {
+            color: black;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="header-title">Eric Delgado</div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li class="current"><a href="projects.html">Projects</a></li>
-                <li><a href="resume.html">Resume</a></li>
-                <li><a href="classes.html">Classes</a></li>
-            </ul>
-        </nav>
-        <div class="stripe"></div>
-    </header>
-    <div class="title">Hands-On Experience</div>
-    <main>
-        <h2>Autonomous Racecar</h2>
-        <div class="image-row">
-            <div class="image-container">
-                <img src="./Website_Pics/Park.gif" alt="Parking Controller GIF" style="width: auto; height: 350px;">
-                <p class="image-description">Parking Controller Parks at a Specified Distance from the Cone</p>
+    <!-- House Icon -->
+    <a href="index.html" class="home-icon"><i class="fas fa-home"></i></a>
+    
+    <button class="toggle-button"><i class="fas fa-moon"></i></button>
+    
+    <div id="right-panel">
+        <div class="project-title">Projects</div>
+        <div class="divider"></div>
+        <div class="projects-container">
+            <!-- Example Project 1 -->
+            <div class="project" onclick="location.href='mpc_pendubot.html'">
+                <img src="./Website_Pics/Pendubot.png" alt="MPC Pendubot">
+                <div>
+                    <div class="project-title-text">MPC Pendubot</div>
+                    <div class="project-description">A brief description of the MPC Pendubot project.</div>
+                </div>
             </div>
-            <div class="image-container">
-                <img src="./Website_Pics/localization.gif" alt="Localization GIF" style="width: auto; height: 350px;">
-                <p class="image-description">Real-Time Localization given LIDAR Scan and Map</p>
+            <!-- Example Project 2 -->
+            <div class="project" onclick="location.href='bionic_ankle.html'">
+                <img src="./Website_Pics/Full_Ankle.png" alt="Bionic Ankle">
+                <div>
+                    <div class="project-title-text">Bionic Ankle</div>
+                    <div class="project-description">A brief description of the Bionic Ankle project.</div>
+                </div>
             </div>
-        </div>
-        <p class="section-description">Given a racecar robot with an NVIDIA Jetson Xavier computer, LIDAR Scanner, ZED Camera, 
-            and more advanced technologies, my team and I have been tasked with programming and executing various operations.
-            Our tasks encompass developing and implementing sophisticated functionalities such as wall-following, a 
-            safety controller, cone detection, parking control, line following, localization, path planning, and path 
-            following. To ensure transparency and collaboration, we conduct bi-weekly Lab Briefings and Reports, 
-            during which we discuss the rationale behind our decisions, coding strategies, and collaborative efforts.
-            This project has been a valuable experience, enriching my skills in both technical aspects and in terms of communication and teamwork.</p>
-
-        <h2>Semi-Autonomous Robotics</h2>
-        <div class="image-row">
-            <div class="image-container">
-                <img src="./Website_Pics/robot_extended.png" alt="Robot Extended" style="width: auto; height: 350px;">
-                <p class="image-description">Front View: Telescoping Lift Fully Extended</p>
+            <!-- Example Project 3 -->
+            <div class="project" onclick="location.href='autonomous_race_car.html'">
+                <img src="./Website_Pics/RSSMainPic.png" alt="Autonomous Race Car">
+                <div>
+                    <div class="project-title-text">Autonomous Race Car</div>
+                    <div class="project-description">A brief description of the MPC Pendubot project.</div>
+                </div>
             </div>
-            <div class="image-container">
-                <img src="./Website_Pics/robot_elevator.png" alt="Robot Elevator" style="width: auto; height: 350px;">
-                <p class="image-description">Rear View: Elevator Mechanism</p>
+            <!-- Example Project 4 -->
+            <div class="project" onclick="location.href='semi_autonomous_robot.html'">
+                <img src="./Website_Pics/2007Pic.png" alt="2.007 Semi-Autonomous Robot">
+                <div>
+                    <div class="project-title-text">2.007 Semi-Autonomous Robot</div>
+                    <div class="project-description">A brief description of the Bionic Ankle project.</div>
+                </div>
             </div>
-            <div class="image-container">
-                <img src="./Website_Pics/CAD.png" alt="Robot CAD" style="width: auto; height: 350px;">
-                <p class="image-description">CAD: Fully Articulable CAD Model</p>
+            <!-- Example Project 5 -->
+            <div class="project" onclick="location.href='bionic_hand.html'">
+                <img src="./Website_Pics/BioHand.png" alt="Bionic Hand">
+                <div>
+                    <div class="project-title-text">Bionic Hand</div>
+                    <div class="project-description">A brief description of the Bionic Ankle project.</div>
+                </div>
             </div>
-        </div>
-        <p class="section-description">As a part of my sophomore Mechanical Engineering Capstone,
-            I designed and fabricated a robot to both autonomously and manually navigate a 
-            competition course, score points, and compete against fellow classmates. 
-            This process has taught me extenstively about design strategy, iterative design, 
-            applied physics, and what to do when plans go awry.
-        </p>
-
-        <h2>Bionic Prosthetics</h2>
-        <div class="image-row">
-            <div class="image-container">
-                <img src="./Website_Pics/me_hand.png" alt="Me with Hand Prosthetic" style="width: auto; height: 400px;">
-                <p class="image-description">Disassembled Bionic Hand</p>
-            </div>
-            <div class="image-container">
-                <img src="./Website_Pics/hand.png" alt="Hand Prosthetic" style="width: auto; height: 400px;">
-                <p class="image-description">Bionic Hand on Stand</p>
-            </div>
-            <div class="image-container">
-                <img src="./Website_Pics/PCB.png" alt="PCB" style="width: auto; height: 400px;">
-                <p class="image-description">Custom PCB for Dual CAN Interface.</p>
+            <!-- Example Project 6 -->
+            <div class="project" onclick="location.href='fun_projects.html'">
+                <img src="./Website_Pics/flower.png" alt="Miscellaneous!">
+                <div>
+                    <div class="project-title-text">Miscellaneous!</div>
+                    <div class="project-description">A brief description of the Bionic Ankle project.</div>
+                </div>
             </div>
         </div>
-        <p class="section-description">Bionic Prosthetics have, for a long time, been of 
-            interest to me. I have had the privilege of working in several bionic prosthetics 
-            laboratories and was provided with the resources to construct a bionic hand in 
-            Germany. This project utilized a tendon-driven system powered by 16 motors, 
-            allowing me to control the four fingers through Arduino units communicating via 
-            CAN Bus. I am currently researching in the Biomechatronics lab at MIT, where I am responsible 
-            for designing the control system for an ankle-foot prosthetic. This 
-            role focuses on optimizing motor activation given individual gait patterns to 
-            reduce metabolic expenditure. Through this work, I have gained extensive insights into the capabilities and 
-            limitations of both human and mechanical systems, finding the experience profoundly 
-            rewarding.</p>
-
-        <h2>For Fun</h2>
-        <div class="image-row">
-            <div class="image-container">
-                <img src="./Website_Pics/flower.png" alt="Flower" style="width: auto; height: 400px;">
-                <p class="image-description">A welded succulent plant</p>
-            </div>
-            <div class="image-container">
-                <img src="./Website_Pics/julie_figure.png" alt="Julie Figure" style="width: auto; height: 400px;">
-                <p class="image-description">A chiseled figurine of a dancer</p>
-            </div>
-        </div>
-        <p class="section-description"> Both woodworking and metalworking are hobbies of 
-            mine, and I love making gifts for others. Growing up, my father taught me to 
-            work with tools, and I have always been eager to have access to woodshops and 
-            makerspaces to make my designs come to life. I find delving into these types of
-            projects to be calming, and oftentimes like to use hand tools for a slower, 
-            more authentic feeling.</p>
-    </main>
+    </div>
+    
+    <script>
+        const toggleButton = document.querySelector('.toggle-button');
+        toggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('alt-color-scheme');
+            const icon = toggleButton.querySelector('i');
+            if (document.body.classList.contains('alt-color-scheme')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        });
+    </script>
 </body>
 </html>

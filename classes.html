@@ -1,146 +1,220 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Classes</title>
+    <title>Projects - Eric Delgado</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="./Website_Pics/Favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Inline CSS for demonstration purposes */
         body {
+            margin: 0;
+            padding: 0;
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-size: cover; /* Covers the entire background without repeating */
-        }
-        header {
-            background-color: maroon;
-            padding: 20px;
-            color: white;
-            position: relative;
+            background-color: #151E3D;
+            color: #99a5b1;
+            height: 100vh;
+            overflow: hidden;
             display: flex;
-            justify-content: space-between; /* Ensures spacing between title and nav */
-            align-items: center; /* Aligns items vertically */
-            height: 30px; /* Specify a fixed height for consistent appearance */
-        }
-        .header-title {
-            font-size: 24px; /* Suitable size for the title */
-            color: white; /* Title color */
-        }
-        .stripe {
-            position: absolute;
-            bottom: 0; /* Position stripe at the bottom of the header */
-            left: 0;
-            width: 100%; /* Full width */
-            height: 5px; /* Height of the stripe */
-            background-color: gray;
-        }
-        nav {
-            background-color: transparent; /* No additional background */
-        }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
+            flex-direction: column;
             align-items: center;
         }
-        nav ul li {
-            margin-left: 20px; /* Spacing between nav items */
+        body.alt-color-scheme {
+            background-color: #f5f5dc;
+            color: black;
         }
-        nav ul li a {
-            text-decoration: none;
-            color: white;
+        #right-panel {
+            width: 90%;
+            padding: 25px;
+            box-sizing: border-box;
+            overflow-y: auto;
+            height: 100%;
+            scroll-behavior: smooth;
+        }
+        .project-title {
+            font-size: 48px;
             font-weight: bold;
-            font-size: 24px; /* Enlarged font size for better visibility */
+            text-align: center;
+            padding-bottom: 25px;
         }
-        nav ul li.current a { /* Styles for the current tab */
-            background-color: transparent; /* Removing background color */
-            color: lightgray; /* Gray color for the text */
+        .divider {
+            width: 100%;
+            height: 2px;
+            background-color: lightgray;
+            margin-bottom: 30px;
         }
-        .title {
-            text-align: center; /* Centers the title text */
-            font-size: 36px; /* Larger font size */
-            color: maroon; /* Black text for better visibility */
-            padding: 10px 0; /* Adds vertical spacing */
-            font-weight: bold; /* Bold text for the title */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columns layout */
+            gap: 20px;
         }
-        main {
-            font-size: 20px;
-            margin-left: 10px;
-            margin-top: 20px;
-            text-decoration: underline; /* Underlines semester titles */
+        .project {
+            background-color: #1b2b4c;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column; /* Adjusted for better readability in grid */
+            align-items: flex-start;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
         }
-        p {
-            margin-left: 30px;
+        body.alt-color-scheme .project {
+            background-color: #e0e0e0;
+        }
+        .project img {
+            width: 90%;
+            border-radius: 10px;
+            margin-bottom: 15px; /* Adjusted margin for better spacing */
+        }
+        .project-title-text {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .project-description {
             font-size: 16px;
         }
-        .link {
-            color: blue;
-            text-decoration: underline;
+        .project:hover {
+            background-color: #22365e;
+            transform: scale(1.05);
         }
-        h1, h2, h3 {
-            color: maroon; /* Theme color for headers */
-            padding: 20px
+        body.alt-color-scheme .project:hover {
+            background-color: #c0c0c0;
+        }
+        .toggle-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: #99a5b1;
+        }
+        body.alt-color-scheme .toggle-button {
+            color: black;
+        }
+        /* House icon style */
+        .home-icon {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            color: #99a5b1;
+            text-decoration: none;
+        }
+        body.alt-color-scheme .home-icon {
+            color: black;
+        }
+        .section p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .section h4 {
+            font-size: 24px;
+            line-height: 1.6;
+            margin: 0;
+            position: relative;
+            padding-bottom: 5px; /* Space for the underline */
+        }
+        .link {
+            display: block;
+            color: lightgray; /* Initial text color */
+            padding: 5px 10px; /* Padding for better hover effect */
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+        }
+        body.alt-color-scheme .link {
+            color: black; /* Color for alternate color scheme */
+        }
+        .link:hover {
+            background: rgba(0, 0, 0, 0.7); /* Opaque background on hover */
+            color: white; /* Text color on hover */
+            border-radius: 5px; /* Rounded corners */
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="header-title">Eric Delgado</div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="resume.html">Resume</a></li>
-                <li class="current"><a href="classes.html">Classes</a></li> <!-- 'Classes' as current -->            </ul>
-                <!-- /*hllo*/ -->
-        </nav>
-        <div class="stripe"></div> <!-- Gray stripe below the nav -->
-    </header>
-    <div class="title">Classes I've Taken</div>
-    <h2>Fall 2022</h2>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=3.091&style=verbatim&when=C&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">3.091:</a> Introduction to Solid-State Chemistry</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=6.100A&style=verbatim&when=C&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">6.100A:</a> Introduction to Computer Science Programming in Python</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=8.01&style=verbatim&when=C&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">8.01:</a> Physics I</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=18.02&style=verbatim&when=C&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">18.02:</a> Multivariable Calculus</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=21G.404&style=verbatim&when=C&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">21G.404:</a> German IV</p>
+    <!-- House Icon -->
+    <a href="index.html" class="home-icon"><i class="fas fa-home"></i></a>
+    
+    <button class="toggle-button"><i class="fas fa-moon"></i></button>
+    
+    <div id="right-panel">
+        <div class="project-title">Classes I've Taken</div>
+        <div class="divider"></div>
+        <div class="projects-container">
+            <!-- First Row -->
+            <div class="section">
+                <h4>Fall 2022</h4>
+                <p><a href="https://student.mit.edu/catalog/search.cgi?search=3.091&style=verbatim&when=C&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">3.091: Introduction to Solid-State Chemistry</a></p>
+                <p><a href="https://student.mit.edu/catalog/search.cgi?search=6.100A&style=verbatim&when=C&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">6.100A: Introduction to Computer Science Programming in Python</a></p>
+                <p><a href="https://student.mit.edu/catalog/search.cgi?search=8.01&style=verbatim&when=C&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">8.01: Physics I</a></p>
+                <p><a href="https://student.mit.edu/catalog/search.cgi?search=18.02&style=verbatim&when=C&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">18.02: Multivariable Calculus</a></p>
+                <p><a href="https://student.mit.edu/catalog/search.cgi?search=21G.404&style=verbatim&when=C&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">21G.404: German IV</a></p>
 
-    <h2>IAP 2023</h2>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=21G.S07&style=verbatim&when=J&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">21G.S07:</a> German: Communication Intensive</p>
-
-    <h2>Spring 2023</h2>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.00B&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.00B:</a> Toy Product Design</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=6.1010&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">6.1010:</a> Fundamentals of Programming</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=8.02&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">8.02:</a> Physics II</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=17.591&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">17.591:</a> Research Seminar in Applied International Studies</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=18.03&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">18.03:</a> Differential Equations</p>
-
-    <h2>Fall 2023</h2>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.001&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.001:</a> Mechanics and Materials I</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.086&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.086:</a> Numerical Computation for Mechanical Engineers</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.670&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.670:</a> Mechanical Engineering Tools</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.678&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.678:</a> Electronics for Mechanical Systems</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=6.1200&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">6.1200:</a> Mathematics for Computer Science</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=18.C06&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">18.C06:</a> Linear Algebra and Optimization</p>
-
-    <h2>IAP 2024</h2>
-    <p><a href="http://introtodeeplearning.com/" class="link">6.S191:</a> Introduction to Deep Learning</p>
-
-    <h2>Spring 2024</h2>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.003&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.003:</a> Dynamics and Control I</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.007&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.007:</a> Design and Manufacturing I</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=6.4200&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">6.4200:</a> Robotics: Science and Systems</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=21G.418&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">21G.418:</a> Race and Migration in Europe</p>
-
-    <h2>Fall 2024 (Current)</h2>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.003&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.004:</a> Dynamics and Control II</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.155&style=verbatim&when=C&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.155:</a> AI & ML for Engineering Design</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=6.1210&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">6.1210:</a> Introduction to Algorithms</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=6.9110&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">6.9110:</a> Engineering Leadership Lab</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=6.9120&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">6.9120:</a> Engineering Leadership</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=11.011&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">11.011:</a> Art and Science of Negotiation</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=14.01&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">14.01:</a> Principles of Microeconomics</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=16.30&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">16.30:</a> Feedback Control Systems</p>
-    <p><a href="https://student.mit.edu/catalog/search.cgi?search=17.561&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">17.561:</a> European Politics</p>
+            </div>
+            <div class="section">
+                <h4>IAP 2023</h4>
+                <p><a href="https://student.mit.edu/catalog/search.cgi?search=21G.S07&style=verbatim&when=J&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">21G.S07: German: Communication Intensive</a></p>            
+            </div>
+            <div class="section">
+                <h4>Spring 2023</h4>
+                <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.00B&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.00B: Toy Product Design</a></p>
+                <p><a href="https://student.mit.edu/catalog/search.cgi?search=6.1010&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">6.1010: Fundamentals of Programming</a></p>
+                <p><a href="https://student.mit.edu/catalog/search.cgi?search=8.02&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">8.02: Physics II</a></p>
+                <p><a href="https://student.mit.edu/catalog/search.cgi?search=17.591&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">17.591: Research Seminar in Applied International Studies</a></p>
+                <p><a href="https://student.mit.edu/catalog/search.cgi?search=18.03&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">18.03: Differential Equations</a></p>
+            </div>
+            <!-- Second Row -->
+            <div class="section">
+                <h4>Fall 2023</h4>
+                <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.001&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.001: Mechanics and Materials I</a></p>
+                <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.086&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.086: Numerical Computation for Mechanical Engineers</a></p>
+                <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.670&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.670: Mechanical Engineering Tools</a></p>
+                <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.678&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.678: Electronics for Mechanical Systems</a></p>
+                <p><a href="https://student.mit.edu/catalog/search.cgi?search=6.1200&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">6.1200: Mathematics for Computer Science</a></p>
+                <p><a href="https://student.mit.edu/catalog/search.cgi?search=18.C06&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">18.C06: Linear Algebra and Optimization</a></p>
+            </div>   
+            <div class="section">
+                <h4>IAP 2024</h4>
+                <p><a href="http://introtodeeplearning.com/" class="link">6.S191: Introduction to Deep Learning</a></p>
+            </div>
+            <div class="section">
+                <h4>Spring 2024</h4>
+                <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.003&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.003: Dynamics and Control I</a></p>
+                <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.007&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.007: Design and Manufacturing I</a></p>
+                <p><a href="https://student.mit.edu/catalog/search.cgi?search=6.4200&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">6.4200: Robotics: Science and Systems</a></p>
+                <p><a href="https://student.mit.edu/catalog/search.cgi?search=21G.418&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">21G.418: Race and Migration in Europe</a></p>
+            </div>  
+            <div class="section">
+                <h4>Fall 2024 (Current Classes):</h4>
+                <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.003&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.004: Dynamics and Control II</a></p>
+                <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.008&style=verbatim&when=C&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.008: Design and Manufacturing II</a></p>
+                <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.155&style=verbatim&when=C&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.155: AI & ML for Engineering Design</a></p>
+                <p><a href="https://student.mit.edu/catalog/search.cgi?search=6.1210&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">6.1210: Introduction to Algorithms</a></p>
+                <p><a href="https://student.mit.edu/catalog/search.cgi?search=6.9110&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">6.9110: Engineering Leadership Lab</a></p>
+                <p><a href="https://student.mit.edu/catalog/search.cgi?search=6.9120&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">6.9120: Engineering Leadership</a></p>
+                <p><a href="https://student.mit.edu/catalog/search.cgi?search=11.011&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">11.011: Art and Science of Negotiation</a></p>
+                <p><a href="https://student.mit.edu/catalog/search.cgi?search=14.01&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">14.01: Principles of Microeconomics</a></p>
+                <p><a href="https://student.mit.edu/catalog/search.cgi?search=16.30&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">16.30: Feedback Control Systems</a></p>
+                <p><a href="https://student.mit.edu/catalog/search.cgi?search=17.561&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">17.561: European Politics</a></p>
+            </div>  
+        </div>
+    </div>
+    
+    <script>
+        const toggleButton = document.querySelector('.toggle-button');
+        toggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('alt-color-scheme');
+            const icon = toggleButton.querySelector('i');
+            if (document.body.classList.contains('alt-color-scheme')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        });
+    </script>
 </body>
 </html>

@@ -5,6 +5,8 @@
     <title>Home - Eric Delgado</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="./Website_Pics/Favicon.png">
+    <!-- Include FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             margin: 0;
@@ -16,11 +18,15 @@
             height: 100vh;
             overflow: hidden;
         }
+        body.alt-color-scheme {
+            background-color: #f5f5dc;
+            color: black;
+        }
         #left-panel {
             background-color: #151E3D;
             color: lightgray;
             width: 50%;
-            padding: 80px;
+            padding: 75px;
             padding-left: 15%;
             box-sizing: border-box;
             position: fixed;
@@ -30,17 +36,22 @@
             flex-direction: column;
             justify-content: space-between;
         }
+        body.alt-color-scheme #left-panel {
+            background-color: #f5f5dc;
+            color: black;
+        }
         #right-panel {
             width: 45%;
             margin-left: 50%;
             padding-right: 15%;
             height: 100%;
             overflow-y: scroll;
-            padding: 55px;
+            padding: 50px;
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
         .header-title {
-            font-size: 48px;
+            font-size: 60px;
             font-weight: bold;
         }
         .quote {
@@ -53,7 +64,7 @@
             margin-top: 10px;
         }
         .nav-tabs {
-            margin-top: 80px;
+            margin-top: 60px;
         }
         .nav-tabs ul {
             list-style-type: none;
@@ -62,23 +73,49 @@
         }
         .nav-tabs ul li {
             font-size: 18px;
-            margin: 10px 0;
+            margin: 20px 0; /* Increased margin for larger spacing */
+            position: relative;
         }
         .nav-tabs ul li a {
             text-decoration: none;
             color: lightgray;
+            display: block;
+            padding: 10px;
+            border-radius: 25px; /* Rounded corners */
+            transition: background 0.3s;
+        }
+        body.alt-color-scheme .nav-tabs ul li a {
+            color: black;
         }
         .nav-tabs ul li a.active {
-            font-weight: bold;
+            background: rgba(255, 255, 255, 0.5);
         }
         .contact-info {
-            font-size: 16px;
+            font-size: 24px;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
             margin-top: 20px;
+        }
+        .contact-info a {
+            color: lightgray;
+            text-decoration: none;
+            margin-right: 25px;
+        }
+        body.alt-color-scheme .contact-info a {
+            color: black;
+        }
+        .contact-info a:hover {
+            color: #ddd;
+        }
+        .contact-info i {
+            font-size: 20px;
         }
         .section {
             padding: 20px 0;
+            border-bottom: 1px solid currentColor; /* Same color as text */
+        }
+        .section:last-child {
+            border-bottom: none;
         }
         .section h2 {
             font-size: 28px;
@@ -88,10 +125,109 @@
             font-size: 16px;
             line-height: 1.6;
         }
+        .section h4 {
+            font-size: 32px;
+            line-height: 1.6;
+            margin: 0px;
+        }
+        .experience-section li {
+            margin-left: 20px; /* Indent */
+            list-style-type: disc; /* Bullet points */
+        }
+        .resume-link {
+            display: flex;
+            margin-top: 20px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .resume-link .details {
+            width: 100%; /* Make it span the full width */
+            transition: background-color 0.3s, border-radius 0.3s;
+            border-radius: 5px; /* Initial rounded corners */
+            padding: 5px;
+            color: inherit;
+            text-align: center; /* Center the text */
+        }
+
+        .resume-link .details h3{
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .resume-link:hover .details {
+            width: 100%; /* Make the details span the entire left side */
+            background: rgba(0, 0, 0, 0.7); /* Opaque background */
+            border-radius: 10px; /* Remove border-radius for full span */
+            padding: 10px;
+            color: white;
+        }
+        .project {
+            display: flex;
+            margin-bottom: 20px;
+            position: relative;
+            cursor: pointer;
+        }
+        .project img {
+            width: 50%;
+            margin-right: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .project .details {
+            width: 100%; /* Make it span the full width */
+            transition: background-color 0.3s, border-radius 0.3s;
+            border-radius: 5px; /* Initial rounded corners */
+            padding: 5px;
+            color: inherit;
+            text-align: center; /* Center the text */
+        }
+        .project .details h3 {
+            font-size: 24px;
+            margin: 0;
+        }
+        .project .details p {
+            margin: 5px 0 0;
+        }
+        .project:hover img {
+            transform: scale(1.05);
+        }
+        .project:hover .details {
+            width: 100%; /* Make the details span the entire left side */
+            background: rgba(0, 0, 0, 0.7); /* Opaque background */
+            border-radius: 10px; /* Remove border-radius for full span */
+            padding: 10px;
+            color: white;
+        }
+        .classes {
+            display: flex;
+            margin-bottom: 20px;
+            position: relative;
+            cursor: pointer;
+        }
+        .classes .details {
+            width: 100%; /* Make it span the full width */
+            transition: background-color 0.3s, border-radius 0.3s;
+            border-radius: 5px; /* Initial rounded corners */
+            padding: 5px;
+            color: inherit;
+            text-align: center; /* Center the text */
+            
+        }
+        .classes .details h3 {
+            font-size: 24px;
+            margin: 0;
+        }
+        .classes:hover .details {
+            width: 100%; /* Make the details span the entire left side */
+            background: rgba(0, 0, 0, 0.7); /* Opaque background */
+            border-radius: 10px; /* Remove border-radius for full span */
+            padding: 10px;
+            color: white;
+        }
         #cursor-highlight {
             position: absolute;
-            width: 750px;
-            height: 750px;
+            width: 500px;
+            height: 500px;
             background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 60%);
             pointer-events: none;
             transform: translate(-50%, -50%);
@@ -101,10 +237,50 @@
             margin-top: 10px;
             font-size: 12px;
         }
+        .toggle-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: #99a5b1;
+        }
+        body.alt-color-scheme .toggle-button {
+            color: black;
+        }
+        .see-full-projects {
+            font-size: 32px;
+            color: inherit;
+            cursor: pointer;
+            text-decoration: underline;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .link {
+            display: block;
+            color: lightgray; /* Initial text color */
+            padding: 5px 10px; /* Padding for better hover effect */
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+        }
+
+        body.alt-color-scheme .link {
+            color: black; /* Color for alternate color scheme */
+        }
+
+        .link:hover {
+            background: rgba(0, 0, 0, 0.7); /* Opaque background on hover */
+            color: white; /* Text color on hover */
+            border-radius: 5px; /* Rounded corners */
+        }
+
     </style>
 </head>
 <body>
     <div id="cursor-highlight"></div>
+    <button class="toggle-button"><i class="fas fa-moon"></i></button>
     <div id="left-panel">
         <div>
             <div class="header-title">Eric Delgado</div>
@@ -112,7 +288,7 @@
             <div class="description">I build ideas</div>
             <div class="nav-tabs">
                 <ul>
-                    <li><a href="#about" class="active">About</a></li>
+                    <li><a href="#about">About</a></li>
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#classes">Classes</a></li>
@@ -121,11 +297,11 @@
         </div>
         <div>
             <div class="contact-info">
-                <p>ericdelgado2718@gmail.com</p>
-                <p>edelga2@mit.edu</p>
-                <p>(+1) 414-551-1041</p>
+                <a href="https://github.com/EricDelgado2718" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/eric-delgado-0896b9292/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:edelga2@mit.edu"><i class="fas fa-envelope"></i></a>
             </div>
-            <div class="last-updated">Last Updated: 8/6/2024</div>
+            <div class="last-updated">Last Updated: 8/7/2024</div>
         </div>
     </div>
     <div id="right-panel">
@@ -139,62 +315,74 @@
                 in nature - running, cycling, lifting, and hiking are some of my favorite 
                 ways to destress! Watching fast cars on TV is my peak entertainment.  
                 Look around to learn more about me and what I do.</p>
-            <p>I enjoy hands-on projects, from woodworking 
-                to Arduino and everything in between. I love being active and 
-                in nature - running, cycling, lifting, and hiking are some of my favorite 
-                ways to destress! Watching fast cars on TV is my peak entertainment.  
-                Look around to learn more about me and what I do.</p>
-            <p>I enjoy hands-on projects, from woodworking 
-                to Arduino and everything in between. I love being active and 
-                in nature - running, cycling, lifting, and hiking are some of my favorite 
-                ways to destress! Watching fast cars on TV is my peak entertainment.  
-                Look around to learn more about me and what I do.</p>
-            <p>I enjoy hands-on projects, from woodworking 
-                to Arduino and everything in between. I love being active and 
-                in nature - running, cycling, lifting, and hiking are some of my favorite 
-                ways to destress! Watching fast cars on TV is my peak entertainment.  
-                Look around to learn more about me and what I do.</p>
         </div>
-        <div id="experience" class="section">
-            <p>Details about my previous experience will go here...</p>
-            <p>Details about my previous experience will go here...</p>
-            <p>Details about my previous experience will go here...</p>
-            <p>Details about my previous experience will go here...</p>
-            <p>Details about my previous experience will go here...</p>
-            <p>Details about my previous experience will go here...</p>
-            <p>Details about my previous experience will go here...</p>
-            <p>Details about my previous experience will go here...</p>
-            <p>Details about my previous experience will go here...</p>
-            <p>Details about my previous experience will go here...</p>
-            <p>Details about my previous experience will go here...</p>
-            <p>Details about my previous experience will go here...</p>
-            <p>Details about my previous experience will go here...</p>
-            <p>Details about my previous experience will go here...</p>
-            <p>Details about my previous experience will go here...</p>
-            <p>Details about my previous experience will go here...</p>
-            <p>Details about my previous experience will go here...</p>
-            <p>Details about my previous experience will go here...</p>
-            <p>Details about my previous experience will go here...</p>
-            <p>Details about my previous experience will go here...</p>
-            <p>Details about my previous experience will go here...</p>
-            <p>Details about my previous experience will go here...</p>
-            <p>Details about my previous experience will go here...</p>
-            <p>Details about my previous experience will go here...</p>
-            <p>Details about my previous experience will go here...</p>
-            <p>Details about my previous experience will go here...</p>
-            <p>Details about my previous experience will go here...</p>
-            <p>Details about my previous experience will go here...</p>
-            <p>Details about my previous experience will go here...</p>
-            <li><a href="resume.html">Resume</a></li>
+        <div id="experience" class="section experience-section">
+            <p><strong>Research Intern, Biomechatronics Lab (Jan. 2024 – Present)</strong></p>
+            <li>Develop a humanoid walking plant model in Drake for integration with a Model Predictive Controller, optimizing the gait of an ankle-foot prosthetic based on specified mass and walking speed</li>
+            <li>Incorporate Bayesian optimization into a Model Predictive Controller to reduce metabolic expenditure during the use of an ankle prosthetic</li>
+            <li>Assist supervisor in conducting walking trials to test controller robustness</li>
+
+            <p><strong>MIT Solar Electric Vehicle Team Lead (Sep. 2023 – Present)</strong></p>
+            <li>Design and manufacture a solar powered vehicle that competes in prestigious national and international competitions (American Solar Challenge)</li>
+            <li>Develop and refine the rear suspension subsystem by programming HAAS toolpaths, CAD-ing, water jetting, and welding components for final vehicle assembly</li>    
+            
+            <p><strong>Research Intern, Fluid Interfaces Lab (Sep. 2022 – Sep. 2023)</strong></p>
+            <li>Designed, manufactured, and tested a hybrid hydrogel-electrically controlled bionic hand prosthetic</li>
+            <li>Coded and implemented a CAN bus communication system facilitated by Arduino nodes to simultaneously and independently actuate tendons of a hand prosthetic</li>
+            <li>Designed and fabricated a damping mechanism meant to simulate muscular stretch during flexion and extension of digits</li>
+
+            <div class="resume-link" onclick="location.href='resume.html'">
+                <div class="details">
+                    <h3>View Full Resume</h3>
+                </div>
+            </div>
         </div>
         <div id="projects" class="section">
-            <p>Details about my projects will go here...</p>
-            <li><a href="projects.html">Projects</a></li>
+            <div class="project" onclick="location.href='mpc_pendubot.html'">
+                <img style='border:5px solid #99a5b1' src="./Website_Pics/Pendubot.png" alt="Project Image">
+                <div class="details">
+                    <h3>MPC Pendubot (Ongoing)</h3>
+                    <p>A brief description of the MPC Pendubot project.</p>
+                </div>
+            </div>
+            <div class="project" onclick="location.href='bionic_ankle.html'">
+                <img style='border:5px solid #99a5b1' src="./Website_Pics/Full_Ankle.png" alt="Project Image">
+                <div class="details">
+                    <h3>Bionic Ankle (Ongoing)</h3>
+                    <p>A brief description of the Bionic Ankle project.</p>
+                </div>
+            </div>
+            <div class="project" onclick="location.href='autonomous_race_car.html'">
+                <img style='border:5px solid #99a5b1' src="./Website_Pics/RSSMainPic.png" alt="Project Image">
+                <div class="details">
+                    <h3>Autonomous Race Car</h3>
+                    <p>A brief description of the Autonomous Race Car project.</p>
+                </div>
+            </div>
+            <div class="project" onclick="location.href='projects.html'">
+                <div class="details">
+                    <h3>View All Projects</h3>
+                </div>
+            </div>
         </div>
         <div id="classes" class="section">
-            <p>Details about my classes will go here...</p>
-            <li><a href="classes.html">Classes</a></li>
-        </div>
+            <h4>Current Classes (Fall 2024):</h4>
+            <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.003&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.004: Dynamics and Control II</a></p>
+            <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.008&style=verbatim&when=C&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.008: Design and Manufacturing II</a></p>
+            <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.155&style=verbatim&when=C&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.155: AI & ML for Engineering Design</a></p>
+            <p><a href="https://student.mit.edu/catalog/search.cgi?search=6.1210&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">6.1210: Introduction to Algorithms</a></p>
+            <p><a href="https://student.mit.edu/catalog/search.cgi?search=6.9110&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">6.9110: Engineering Leadership Lab</a></p>
+            <p><a href="https://student.mit.edu/catalog/search.cgi?search=6.9120&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">6.9120: Engineering Leadership</a></p>
+            <p><a href="https://student.mit.edu/catalog/search.cgi?search=11.011&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">11.011: Art and Science of Negotiation</a></p>
+            <p><a href="https://student.mit.edu/catalog/search.cgi?search=14.01&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">14.01: Principles of Microeconomics</a></p>
+            <p><a href="https://student.mit.edu/catalog/search.cgi?search=16.30&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">16.30: Feedback Control Systems</a></p>
+            <p><a href="https://student.mit.edu/catalog/search.cgi?search=17.561&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">17.561: European Politics</a></p>
+            <div class="classes" onclick="location.href='classes.html'">
+                <div class="details">
+                    <h3>View All Classes</h3>
+                </div>
+            </div>
+        </div>        
     </div>
     <script>
         document.addEventListener('mousemove', function(e) {
@@ -202,16 +390,19 @@
             cursorHighlight.style.left = e.pageX + 'px';
             cursorHighlight.style.top = e.pageY + 'px';
         });
-        
+
         const sections = document.querySelectorAll('.section');
         const navLinks = document.querySelectorAll('.nav-tabs ul li a');
+        const leftPanel = document.getElementById('left-panel');
+        const rightPanel = document.getElementById('right-panel');
 
-        window.addEventListener('scroll', function() {
+        function updateActiveLink() {
             let current = '';
             sections.forEach(section => {
-                const sectionTop = section.offsetTop;
+                const sectionTop = section.getBoundingClientRect().top;
                 const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                const sectionMiddle = sectionTop + sectionHeight / 1.5;
+                if (sectionMiddle >= 0 && sectionMiddle <= window.innerHeight) {
                     current = section.getAttribute('id');
                 }
             });
@@ -222,7 +413,35 @@
                     link.classList.add('active');
                 }
             });
+        }
+
+        rightPanel.addEventListener('scroll', updateActiveLink);
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            });
         });
+
+        // Toggle color scheme and icon
+        const toggleButton = document.querySelector('.toggle-button');
+        toggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('alt-color-scheme');
+            const icon = toggleButton.querySelector('i');
+            if (document.body.classList.contains('alt-color-scheme')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        });
+
+        // Initial update to set the active link on page load
+        updateActiveLink();
     </script>
 </body>
 </html>

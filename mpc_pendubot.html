@@ -36,6 +36,7 @@
             font-weight: bold;
             text-align: center;
             padding-bottom: 25px;
+            color: lightgray;
         }
         .divider {
             width: 100%;
@@ -48,10 +49,20 @@
             justify-content: center;
             gap: 20px;
             margin-bottom: 30px;
-        }
+            text-align: center;
+            position: -webkit-sticky; /* For Safari */
+            position: sticky;
+            top: 0;
+            background-color: #151E3D; /* Match the body background color for seamless integration */
+            z-index: 1000; /* Ensure it stays above other content */
+            padding: 10px 0; /* Add padding for better visual spacing */
+            border: 2px solid lightgray; /* Add a border */
+            border-radius: 8px; /* Optional: to make the corners rounded */
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    }   
         .category {
             font-size: 28px;
-            color: #99a5b1;
+            color: lightgray;
             text-decoration: none;
             padding: 10px 75px;
             border-radius: 5px;
@@ -137,6 +148,7 @@
         }
         .section .description h2{
             font-size: 36px;
+            color: lightgray;
         }
 
         .section .description {
@@ -176,7 +188,6 @@
     
     <div id="right-panel">
         <div class="project-title">MPC Pendubot</div>
-        <div class="divider"></div>
         
         <!-- Table of Contents -->
         <div class="categories-container">
@@ -187,7 +198,6 @@
             <a href="#results" class="category">Results</a>
         </div>
         
-        <div class="divider"></div>
         <!-- Sections -->
         <div id="goal" class="section">
             <div class="description">

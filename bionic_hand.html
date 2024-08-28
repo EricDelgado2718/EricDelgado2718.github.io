@@ -36,6 +36,7 @@
             font-weight: bold;
             text-align: center;
             padding-bottom: 25px;
+            color: lightgray;
         }
         .divider {
             width: 100%;
@@ -48,12 +49,22 @@
             justify-content: center;
             gap: 20px;
             margin-bottom: 30px;
-        }
+            text-align: center;
+            position: -webkit-sticky; /* For Safari */
+            position: sticky;
+            top: 0;
+            background-color: #151E3D; /* Match the body background color for seamless integration */
+            z-index: 1000; /* Ensure it stays above other content */
+            padding: 10px 0; /* Add padding for better visual spacing */
+            border: 2px solid lightgray; /* Add a border */
+            border-radius: 8px; /* Optional: to make the corners rounded */
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    }   
         .category {
-            font-size: 20px;
-            color: #99a5b1;
+            font-size: 24px;
+            color: lightgray;
             text-decoration: none;
-            padding: 10px 20px;
+            padding: 10px 40px;
             border-radius: 5px;
             transition: background-color 0.3s;
         }
@@ -92,6 +103,7 @@
         .project-title-text {
             font-size: 24px;
             margin-bottom: 10px;
+    
         }
         .project-description {
             font-size: 16px;
@@ -130,10 +142,42 @@
         }
         .section {
             margin-bottom: 50px;
+            display: flex;
+            align-items: flex-start; /* Align items at the start */
+            justify-content: space-between; /* Distribute space between items */
         }
-        .section img {
+        .section .description h2{
+            font-size: 36px;
+            color: lightgray;
+        }
+
+        .section .description {
+            width: 100%; /* Description takes up 70% of the width */
+            margin-right: 20px; /* Space between description and image */
+        }
+
+        .section .image-container {
+            margin-top: 100px;
+            width: 40%; /* Image container takes up 25% of the width */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center image and caption */
+        }
+        .section img, .section video {
             max-width: 100%;
             border-radius: 10px;
+            border: 3px solid #99a5b1;
+        }
+        .section .image-caption {
+            font-size: 14px; /* Smaller font for image caption */
+            text-align: center;
+            margin-top: 10px;
+            color: #99a5b1;
+        }
+        .center-align {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
     </style>
 </head>
@@ -145,46 +189,182 @@
     
     <div id="right-panel">
         <div class="project-title">Bionic Hand</div>
-        <div class="divider"></div>
         
         <!-- Table of Contents -->
         <div class="categories-container">
-            <a href="#goal" class="category">Goal</a>
-            <a href="#analysis" class="category">Analysis</a>
-            <a href="#design" class="category">Design</a>
-            <a href="#execution" class="category">Execution</a>
-            <a href="#results" class="category">Results</a>
+            <a href="#overview" class="category">Goal</a>
+            <a href="#wallFollowing" class="category">Physical Design</a>
+            <a href="#visual" class="category">PCB Design</a>
+            <a href="#localization" class="category">Controls</a>
+            <a href="#pathPlanning" class="category">Final Product</a>
+
         </div>
         
         <!-- Sections -->
-        <div id="goal" class="section">
-            <h2>Goal</h2>
-            <img src="path/to/goal-image.jpg" alt="Goal Image">
-            <p>Description of the Goal section.</p>
+        <div id="overview" class="section">
+            <div class="description">
+                <h2>Goal</h2>
+                <p style="line-height: 2em;">&emsp; As a part of <a href="https://student.mit.edu/catalog/search.cgi?search=6.4200&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">6.4200</a>, my team and I were given a racecar robot with an NVIDIA Jetson 
+                    Xavier computer, and tasked with programming and executing various operations.
+                    Our tasks encompass developing and implementing sophisticated functionalities such as wall-following, a 
+                    safety controller, cone detection, parking control, line following, localization, path planning, and path 
+                    following. To ensure transparency and collaboration, we conducted bi-weekly Lab Briefings and Reports, 
+                    during which we discussed the rationale behind our decisions, coding strategies, and collaborative efforts.
+                    This project was been a valuable experience, growing my skills in both technical aspects and in terms of communication and teamwork.</p>
+            </div>
+            <div class="image-container">
+                <img src="./Website_Pics/RSS_candid.png" alt="Inverted Pendulum System">
+                <div class="image-caption">MIT 6.4200 Robot Car</div>
+            </div>
         </div>
         
-        <div id="analysis" class="section">
-            <h2>Analysis</h2>
-            <img src="path/to/analysis-image.jpg" alt="Analysis Image">
-            <p>Description of the Analysis section.</p>
+        
+        <div id="wallFollowing" class="section">
+            <div class="description">
+                <h2>Wall Following</h2>
+                <p style="line-height: 2em;">&emsp;Initially, I believed that I would be able to simply turn the crank of Lagrangian 
+                    mechanics, find the equations of motion of the system, and use that
+                    to create a plant system with defined dynamics, but after running through the calculations, I realized that 
+                    this problem was going to have to be approached a little differently:
+                </p>
+                <p style="line-height: 2em;">We are going to use this example double pendulum system to try and find the 
+                    equations of motion (EOM) of the system. We model the links as point masses at the COM.
+                </p>
+                <img src="./Website_Pics/PendubotEOMDiagram.png"
+                width="400"
+                class="center-align"
+                >
+                <p style="line-height: 2em;">And find the position of each of the masses as follows:
+                </p>
+                </p>
+                <img src="./Website_Pics/PendubotEOM1.png"
+                width="600"
+                class="center-align"
+                >
+                <p style="line-height: 2em;">Knowing that we will also need the velocities of each of the masses,
+                    we differentiate the positions and find the velocities of each of the masses as follows:
+                </p>
+                <img src="./Website_Pics/PendubotEOM2.png"
+                width="800"
+                class="center-align"
+                >
+                <p style="line-height: 2em;">We then formulate our Lagrangian from the equation L = T - U, and find our
+                    kinetic and potential energies from the previous results:
+                </p>
+                <img src="./Website_Pics/PendubotEOM3.png"
+                width="1000"
+                class="center-align"
+                >
+                <p style="line-height: 2em;">Finally, turning the crank of Lagrangian mechanics by using the Euler-Lagrange Equation,
+                    we get the EOMs of the system and realize that our math was for nothing since the system is coupled...
+                </p>
+                <img src="./Website_Pics/PendubotEOM4.png"
+                width="1000"
+                class="center-align"
+                >
+                <p style="line-height: 2em;">This just means that we're going to have to use other methods to find trajectories.
+                </p>
+            </div>
         </div>
         
-        <div id="design" class="section">
-            <h2>Design</h2>
-            <img src="path/to/design-image.jpg" alt="Design Image">
-            <p>Description of the Design section.</p>
+        <div id="visual" class="section">
+            <div class="description">
+                <h2>Visual Operations</h2>
+                <p style="line-height: 2em;">In terms of the physical design of this project, it is pretty simple and 
+                    made up of a few components:
+                </p>
+                <p style="line-height: 2em;">&emsp; Base (Designed): will hold up the entire system (motor, electronics, arms, etc.)</p>
+                <p style="line-height: 2em;">&emsp; Bearings (<a href="https://www.amazon.com/HiPicco-607-2RS-Bearings-Miniature-Pre-Lubricated/dp/B0CH2WZQMJ/ref=sr_1_1_sspa?crid=1EFOD8K1KOMB9&dib=eyJ2IjoiMSJ9.meDce_gTHnnGPlxBTQ1J7gA5hP20auGNnl7Xbsi8j0-MzcntQhhOsz4rHqYXo2Pi210PnrKWbQRHS-gkbZUqQ8U5ca1ZvkptxD1ZVDbuA0aBxJApGkgSYLWY-mgjpKxfZbJ8G6mVe0DSZ-jUB5lGRLnXrw8X6_naEmPgKsnzu0jdjVcSGwGNYTG3JI8N-ljBLOR3zM6hRTDbFw-LlcLGIN5jKt6OK8c7E6QsEouzF4E.YYG0qM_bH8nkmEf4UPybXY2gmagHAFQSjfAEtc13Yic&dib_tag=se&keywords=bearings%2B7mm%2Bid&qid=1724303936&sprefix=bearings%2B7mm%2Bid%2Caps%2C73&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1" class="link">Link</a>): allow for rotational motion at the "shoulder" and "elbow"</p>
+                <p style="line-height: 2em;">&emsp; Arms and Connecting Shafts (Designed): rotate about the bearings to create our pendubot!</p>
+                <p style="line-height: 2em;">&emsp; Encoder (Custom): will be situated at joint between the first and second arm - will measure
+                    the angular position of the second arm to receive state
+                </p>
+                <p style="line-height: 2em;">&emsp; Motor (<a href="https://www.mouser.com/ProductDetail/Vertiq/VERT-M2.0-E3.0-F2.0-SC1.0-PCK1.0?qs=QNEnbhJQKvYBTGTgJ%252B2yHQ%3D%3D" class="link">Link</a>): Will actuate the first arm!</p>
+                <p style="line-height: 2em;">&emsp; Slip Ring (<a href="https://www.amazon.com/Comidox-CIRCUITSx2A-Capsule-Electrical-Equipment/dp/B07H2SRMXP/ref=sr_1_5?crid=12DQYJRKFRBQR&dib=eyJ2IjoiMSJ9.IRyuA96vmHwE0i6WI5ToTTM0aztYhkv-AI0UuSpU9_4w_LdAUieL8rROqfaO4WAeeaU8cRSumtzmeyOqyzrSo_5kCdsDwfX8gVE6TU_DRJTeSRYn3860_CycEs0xmgcMpJu4yoRbNLRJTHnlkC-sQoXOp-Ko8XIu3nPV0jQ7U_o5NbpYKOcS6DOfmpV1i7VzlXEnsB8wKOAYLQheWiyYtnpBXFNe-SvpvQNuz_aaGlYygPUmaP7nvYRmdQl319vW3do8YDvN6eWBi_EssYiIJclUKmbiHU9kY0-hzKVxPfg.FZR1AeAUe-JyRbSYNe3DPx_5A8169ZjWf4XGW8I652o&dib_tag=se&keywords=slip+ring&qid=1724303979&sprefix=slip+rin%2Caps%2C108&sr=8-5" class="link">Link</a>): placed along first connecting shaft - will deal with any potential
+                    wire tangling from the rotational motion
+                </p>
+                <p style="line-height: 2em;">&emsp; TO BE EXPANDED UPON!
+                </p>
+
+                
+            </div>
+            <div class="image-container">
+                <img src="./Website_Pics/PendubotCAD.png" alt="Inverted Pendulum System">
+                <div class="image-caption">Example CAD Model of Pendubot</div>
+            </div>
         </div>
         
-        <div id="execution" class="section">
-            <h2>Execution</h2>
-            <img src="path/to/execution-image.jpg" alt="Execution Image">
-            <p>Description of the Execution section.</p>
+        <div id="localization" class="section">
+            <div class="description">
+                <h2>Localization</h2>
+                <p style="line-height: 2em;">&emsp; The first step in execution is getting the system to run in simulation - that means 
+                    we need to do trajectory optimization and subsequent stabilization around the computed trajectories (iLQR or MPC). To achieve this 
+                I will be using Deepnote notebooks and pyDrake.</p>
+                <p style="line-height: 2em;">First we make a URDF of our model with the correct dimensions, masses, and moments of inertia, and visualize it in Meshcat:</p>
+                <img src="./Website_Pics/PendubotMeshcat.png"
+                class="center-align"
+                width="400"
+                >
+                <p style="line-height: 2em;">&emsp;Next, we'll make a MultibodyPlant of the system, and add our URDF along with a single joint actuator
+                    at the shoulder. We now need to figure out how to get our system to behave physically. We can achieve this by creating 
+                    continuous variables to represent the state, velocity, acceleration, timesteps, external forces, and actuation inputs, and
+                    add constraints to our system and variables to forcing the program to enforce certain constraints.
+                </p>
+                <p style="line-height: 2em;">&emsp;The first constraint (1) we will add will be for the system to obey the manipulator equations 
+                    (<a href="https://underactuated.mit.edu/multibody.html" class="link">read more about the manipulator equations here</a>),
+                    which are basically equations of motion with actuation inputs and contact forces included.
+                </p>
+                <img src="./Website_Pics/Manipulator.png"
+                class="center-align"
+                width="400"
+                >
+                <p style="line-height: 2em;">&emsp;In this equation, q represents the state, v represents the derivative of the state, u represents
+                    the control input, and lambda represents the external forces. Now you may be thinking, wait why can we use the equations of 
+                    motion now when we couldn't earlier? And the answer is: Drake. Beautiful Drake can compute all the matrices for you
+                    based on your MultibodyPlant which is wonderful for us. We just move all the terms to one side and constrain the output of
+                    the manipulator equations to be zero for all timesteps. This will make our system behave physically.
+                </p>
+                <p style="line-height: 2em;">&emsp; The next contraint (2) we add is pretty boring: we constrain the timesteps to be within 
+                    certain ranges so that the solver has enough space to search, but not so much that it gets overwhelmed.
+                </p>
+                <p style="line-height: 2em;">&emsp; Contraint three (3) is to link the configurations, velocities, and accelerations using Euler 
+                    Forward for all timesteps.
+                </p>
+                <p style="line-height: 2em;">&emsp; The fourth constraint (4) is where we start to define how we want our pendubot to move. If the
+                    sequence takes t timesteps, then let T be the final timestep. At time T, we want the upper arm to be oriented at the desired
+                    angle.
+                </p>
+                <p style="line-height: 2em;">&emsp; The fifth constraint (5) is that at time T, the lower arm is oriented vertically
+                </p>
+                <p style="line-height: 2em;">&emsp; The sixth constraint (6) is that at time T, the angular velocity of the lower arm is <= 0.1m/s
+                </p>
+                <p style="line-height: 2em;">&emsp; Constraint (7) is keeping the actuation input (u) below a certain torque threshold
+                </p>
+                <p style="line-height: 2em;">If we enforce all of these constraints and allow a nonlinear solver like Snopt to solve
+                    the optimization problem, we get a result as follows:
+                </p>
+                <video src="./Website_Pics/PendubotTrajOpt.mov" controls class="center-align"></video>
+                <p style="line-height: 2em;">TO BE EXPANDED UPON
+                </p>
+                <p style="line-height: 2em;">***Takes too long to solve to control in real time, will explain how to deal with that 
+                    in the future, will cover controller in the future, will add more pictures and visuals in the future***
+                </p>
+            </div>
+
         </div>
         
-        <div id="results" class="section">
-            <h2>Results</h2>
-            <img src="path/to/results-image.jpg" alt="Results Image">
-            <p>Description of the Results section.</p>
+        <div id="pathPlanning" class="section">
+            <div class="description">
+                <h2>Path Planning</h2>
+                <p style="line-height: 2em;">&emsp; COMING SOON! </p>
+            </div>
+        </div>
+
+        <div id="final" class="section">
+            <div class="description">
+                <h2>Final Challenge</h2>
+                <p style="line-height: 2em;">&emsp; COMING SOON! </p>
+            </div>
         </div>
     </div>
     

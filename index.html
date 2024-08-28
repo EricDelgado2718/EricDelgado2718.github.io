@@ -121,6 +121,10 @@
             font-size: 28px;
             color: maroon;
         }
+        .section h3 {
+            text-align: center;
+            color:lightgray;
+        }
         .section p {
             font-size: 16px;
             line-height: 1.6;
@@ -130,9 +134,15 @@
             line-height: 1.6;
             margin: 0px;
         }
+        .section img {
+            align-items: center;
+        }
         .experience-section li {
             margin-left: 20px; /* Indent */
             list-style-type: disc; /* Bullet points */
+        }
+        .experience-section p {
+            color: lightgray;
         }
         .resume-link {
             display: flex;
@@ -309,32 +319,37 @@
     </div>
     <div id="right-panel">
         <div id="about" class="section">
-            <p>Hi, I'm Eric Delgado! I am an MIT '26 from Milwaukee, Wisconsin 
-                studying Mechanical Engineering and concentrating in Robotics. 
-                Current academic interests include: bionic prosthetics, automobiles, 
-                and machine learning.</p>
-            <p>I enjoy hands-on projects, from woodworking 
-                to Arduino and everything in between. I love being active and 
-                in nature - running, cycling, lifting, and hiking are some of my favorite 
-                ways to destress! Watching fast cars on TV is my peak entertainment.  
-                Look around to learn more about me and what I do.</p>
+            <div style="text-align: center;">
+                <img style='border:5px solid #99a5b1' src="./Website_Pics/Prof_pic.png" alt="Project Image" width="75%">
+            </div>            
+            <h3 style="line-height: 2em;">Hi! I'm Eric Delgado, an MIT '26 from Milwaukee, Wisconsin 
+                studying Mechanical Engineering and Robotics</h3>
+            <p>&emsp; I currently work in Biomechatronics Group in the Media Lab and am developing a bionic
+                ankle prosthetic with optimal control for biological gait. I also spend 
+                a lot of my time as a lead on the MIT Solar Electric Vehicle Team, designing
+                the front suspension. I also like to box and have recently started gymnastics!</p>
         </div>
         <div id="experience" class="section experience-section">
-            <p><strong>Research Intern, Biomechatronics Lab</strong></p>
+            <p color = "white"><strong>Student Researcher, MIT Media Lab - Biomechatronics Lab</strong></p>
             <li>Develop a humanoid walking plant model in Drake for integration with a Model Predictive Controller, optimizing the gait of an ankle-foot prosthetic based on specified mass and walking speed</li>
+            <p></p>
             <li>Use a closed form representation of human walking gait at different speeds to create a library of optimized trajectories to follow given an estimated state</li>
-            <li>Implement “self-learning” using Bayesian optimization to tune the controller for unique individual walking gaits</li>
+            <p></p>
             <li>Assist supervisor in conducting walking trials with human subjects to validate results</li>
 
-            <p><strong>Summer Research Intern, Friedrich Alexander University - N2 Lab </strong></p>
+            <p><strong>Summer Researcher, Friedrich Alexander University - N2 Lab </strong></p>
             <li>Developed an actuation system with a 33% reduced number of motors while preserving all degrees of freedom for four fingers of a myoelectrically controlled bionic hand prosthetic</li>
+            <p></p>
             <li>Coded and implemented a CAN bus communication system facilitated by Arduino nodes to simultaneously and independently actuate tendons of a hand prosthetic</li>
+            <p></p>
             <li>Designed and fabricated a damping mechanism meant to simulate muscular stretch during flexion and extension of digits</li>
 
-            <p><strong>MIT Solar Electric Vehicle Team Lead (Sep. 2023 – Present)</strong></p>
-            <li>Design and fabricate a solar powered vehicle that competes in prestigious national competitions (American Solar Challenge,  Formula Sun Grand Prix)</li>
+            <p><strong>MIT Solar Electric Vehicle Team Lead</strong></p>
+            <li>Design and fabricate a solar powered vehicle that competes in multiple national competitions (American Solar Challenge,  Formula Sun Grand Prix)</li>
+            <p></p>
             <li>Lead weekly meetings to discuss design choices regarding the suspension system and its implications on the overall design of the solar car</li>  
-            <li>Develop and refine the suspension subsystem by CAD-ing, creating HAAS toolpaths, water jetting, and welding components for final vehicle assembly</li>  
+            <p></p>
+            <li>Develop and refine the suspension subsystem as the suspension lead by CAD-ing, creating HAAS toolpaths, water jetting, and welding components for final vehicle assembly</li>  
 
             <div class="resume-link" onclick="location.href='Resume.pdf'">
                 <div class="details">
@@ -343,18 +358,18 @@
             </div>
         </div>
         <div id="projects" class="section">
-            <div class="project" onclick="location.href='mpc_pendubot.html'">
-                <img style='border:5px solid #99a5b1' src="./Website_Pics/Pendubot.png" alt="Project Image">
-                <div class="details">
-                    <h3>MPC Pendubot (Ongoing)</h3>
-                    <p>A brief description of the MPC Pendubot project.</p>
-                </div>
-            </div>
             <div class="project" onclick="location.href='bionic_ankle.html'">
                 <img style='border:5px solid #99a5b1' src="./Website_Pics/Full_Ankle.png" alt="Project Image">
                 <div class="details">
                     <h3>Bionic Ankle (Ongoing)</h3>
                     <p>A brief description of the Bionic Ankle project.</p>
+                </div>
+            </div>
+            <div class="project" onclick="location.href='mpc_pendubot.html'">
+                <img style='border:5px solid #99a5b1' src="./Website_Pics/Pendubot.png" alt="Project Image">
+                <div class="details">
+                    <h3>MPC Pendubot (Ongoing)</h3>
+                    <p>A brief description of the MPC Pendubot project.</p>
                 </div>
             </div>
             <div class="project" onclick="location.href='autonomous_race_car.html'">

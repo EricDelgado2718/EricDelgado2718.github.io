@@ -36,6 +36,7 @@
             font-weight: bold;
             text-align: center;
             padding-bottom: 25px;
+            color: lightgray;
         }
         .divider {
             width: 100%;
@@ -44,8 +45,8 @@
             margin-bottom: 30px;
         }
         .projects-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            display: flex;
+            flex-wrap: wrap; /* Allows items to wrap to the next row */
             gap: 20px;
         }
         .project {
@@ -53,29 +54,31 @@
             padding: 20px;
             border-radius: 10px;
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             align-items: center;
             cursor: pointer;
             transition: transform 0.3s, background-color 0.3s;
+            width: calc(50% - 20px); /* Calculate the width to fit two items in a row with gap */
+            box-sizing: border-box;
         }
         body.alt-color-scheme .project {
             background-color: #e0e0e0;
         }
         .project img {
-            width: 30%;
+            width: 100%;
             border-radius: 10px;
-            margin-right: 15px;
+            margin-bottom: 15px;
+            height: auto; /* Ensure the image maintains its aspect ratio */
         }
         .project-title-text {
             font-size: 24px;
             margin-bottom: 10px;
+            color: lightgray;
         }
         .project-description {
             font-size: 16px;
-        }
-        .project:hover {
-            background-color: #22365e;
-            transform: scale(1.05);
+            text-align: center;
+            color: lightgray;
         }
         body.alt-color-scheme .project:hover {
             background-color: #c0c0c0;
@@ -114,9 +117,38 @@
     <button class="toggle-button"><i class="fas fa-moon"></i></button>
     
     <div id="right-panel">
-        <div class="project-title">Fun Projects!</div>
-        <div class="divider"></div>
+        <div class="project-title">For Fun!</div>
+        
         <div class="projects-container">
+            <!-- First Project -->
+            <div class="project">
+                <img src="./Website_Pics/flower.png" alt="./Website_Pics/flower.png">
+                <div class="project-title-text">Project 1 Title</div>
+                <div class="project-description">Short description of Project 1.</div>
+            </div>
+            
+            <!-- Second Project -->
+            <div class="project">
+                <img src="./Website_Pics/julie_figure.png" alt="Project 2 Image">
+                <div class="project-title-text">Project 2 Title</div>
+                <div class="project-description">Short description of Project 2.</div>
+            </div>
+            
+            <!-- Third Project -->
+            <div class="project">
+                <img src="./Website_Pics/Project3.png" alt="Project 3 Image">
+                <div class="project-title-text">Project 3 Title</div>
+                <div class="project-description">Short description of Project 3.</div>
+            </div>
+            
+            <!-- Fourth Project -->
+            <div class="project">
+                <img src="./Website_Pics/Project4.png" alt="Project 4 Image">
+                <div class="project-title-text">Project 4 Title</div>
+                <div class="project-description">Short description of Project 4.</div>
+            </div>
+            
+            <!-- Add more projects as needed -->
         </div>
     </div>
     

@@ -69,9 +69,13 @@
         .project-title-text {
             font-size: 24px;
             margin-bottom: 10px;
+            text-align: center;
+            color: lightgray;
+            padding-bottom: 20px;
         }
         .project-description {
             font-size: 16px;
+            text-align: center;
         }
         .project:hover {
             background-color: #22365e;
@@ -109,7 +113,7 @@
 </head>
 <body>
     <!-- House Icon -->
-    <a href="index.html" class="home-icon"><i class="fas fa-home"></i></a>
+    <a href="index.html" class="home-icon"><i class="fa-solid fa-arrow-left"></i></a>
     
     <button class="toggle-button"><i class="fas fa-moon"></i></button>
     
@@ -121,7 +125,8 @@
             <div class="project" onclick="location.href='mpc_pendubot.html'">
                 <img src="./Website_Pics/Pendubot.png" alt="MPC Pendubot">
                 <div>
-                    <div class="project-title-text">MPC Pendubot</div>
+                    <div class="project-title-text">MPC Pendubot (In Progress)</div>
+                    <div class="divider2"></div>
                     <div class="project-description">Using Trajectory Optimization and Model Predictive Control to balance a Pendubot.</div>
                 </div>
             </div>
@@ -129,7 +134,7 @@
             <div class="project" onclick="location.href='bionic_ankle.html'">
                 <img src="./Website_Pics/Full_Ankle.png" alt="Bionic Ankle">
                 <div>
-                    <div class="project-title-text">Bionic Ankle</div>
+                    <div class="project-title-text">Bionic Ankle (In Progress)</div>
                     <div class="project-description">A bionic prosthetic ankle capable of biological gait with an adaptive controller optimizing to each subject.</div>
                 </div>
             </div>
@@ -139,7 +144,7 @@
                 <div>
                     <div class="project-title-text">Autonomous Race Car</div>
                     <div class="project-description">Develop and implement sophisticated functionalities such as wall-following, 
-                        a parking controller, path planning, etc. on a racecar robot.</div>
+                        a parking controller, path planning, etc. on a racecar robot using ROS2.</div>
                 </div>
             </div>
             <!-- Example Project 4 -->
@@ -159,7 +164,6 @@
                     <div class="project-description">A fully-determined prototype of a bionic hand using Arduinos and CAN Bus communication.</div>
                 </div>
             </div>
-            <!-- Example Project 6 -->
             <div class="project" onclick="location.href='fun_projects.html'">
                 <img src="./Website_Pics/flower.png" alt="Miscellaneous!">
                 <div>

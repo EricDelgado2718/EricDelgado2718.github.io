@@ -183,8 +183,7 @@
 </head>
 <body>
     <!-- House Icon -->
-    <a href="index.html" class="home-icon"><i class="fas fa-home"></i></a>
-    
+    <a href="projects.html" class="home-icon"><i class="fa-solid fa-arrow-left"></i></a>    
     <button class="toggle-button"><i class="fas fa-moon"></i></button>
     
     <div id="right-panel">
@@ -210,7 +209,7 @@
                     safety controller, cone detection, parking control, line following, localization, path planning, and path 
                     following. To ensure transparency and collaboration, we conducted bi-weekly Lab Briefings and Reports, 
                     during which we discussed the rationale behind our decisions, coding strategies, and collaborative efforts.
-                    This project was been a valuable experience, growing my skills in both technical aspects and in terms of communication and teamwork.</p>
+                    This project was  a valuable experience, growing my skills in both technical aspects and communication and teamwork.</p>
             </div>
             <div class="image-container">
                 <img src="./Website_Pics/RSS_candid.png" alt="Inverted Pendulum System">
@@ -223,46 +222,6 @@
             <div class="description">
                 <h2>Wall Following</h2>
                 <p style="line-height: 2em;">&emsp;Initially, I believed that I would be able to simply turn the crank of Lagrangian 
-                    mechanics, find the equations of motion of the system, and use that
-                    to create a plant system with defined dynamics, but after running through the calculations, I realized that 
-                    this problem was going to have to be approached a little differently:
-                </p>
-                <p style="line-height: 2em;">We are going to use this example double pendulum system to try and find the 
-                    equations of motion (EOM) of the system. We model the links as point masses at the COM.
-                </p>
-                <img src="./Website_Pics/PendubotEOMDiagram.png"
-                width="400"
-                class="center-align"
-                >
-                <p style="line-height: 2em;">And find the position of each of the masses as follows:
-                </p>
-                </p>
-                <img src="./Website_Pics/PendubotEOM1.png"
-                width="600"
-                class="center-align"
-                >
-                <p style="line-height: 2em;">Knowing that we will also need the velocities of each of the masses,
-                    we differentiate the positions and find the velocities of each of the masses as follows:
-                </p>
-                <img src="./Website_Pics/PendubotEOM2.png"
-                width="800"
-                class="center-align"
-                >
-                <p style="line-height: 2em;">We then formulate our Lagrangian from the equation L = T - U, and find our
-                    kinetic and potential energies from the previous results:
-                </p>
-                <img src="./Website_Pics/PendubotEOM3.png"
-                width="1000"
-                class="center-align"
-                >
-                <p style="line-height: 2em;">Finally, turning the crank of Lagrangian mechanics by using the Euler-Lagrange Equation,
-                    we get the EOMs of the system and realize that our math was for nothing since the system is coupled...
-                </p>
-                <img src="./Website_Pics/PendubotEOM4.png"
-                width="1000"
-                class="center-align"
-                >
-                <p style="line-height: 2em;">This just means that we're going to have to use other methods to find trajectories.
                 </p>
             </div>
         </div>

@@ -31,7 +31,19 @@
             height: 100%;
             scroll-behavior: smooth;
         }
+        #right-panel h5{
+            color: lightgray;;
+            font-size: 24px;
+            text-align: center;
+        }
         .project-title {
+            font-size: 60px;
+            font-weight: bold;
+            text-align: center;
+            padding-bottom: 25px;
+            color: lightgray;
+        }
+        .project-title p{
             font-size: 60px;
             font-weight: bold;
             text-align: center;
@@ -155,6 +167,9 @@
             width: 100%; /* Description takes up 70% of the width */
             margin-right: 20px; /* Space between description and image */
         }
+        .section .description white{
+            color: lightgray;
+        }
 
         .section .image-container {
             margin-top: 100px;
@@ -183,18 +198,19 @@
 </head>
 <body>
     <!-- House Icon -->
-    <a href="index.html" class="home-icon"><i class="fas fa-home"></i></a>
+    <a href="projects.html" class="home-icon"><i class="fa-solid fa-arrow-left"></i></a>
     
     <button class="toggle-button"><i class="fas fa-moon"></i></button>
     
     <div id="right-panel">
         <div class="project-title">Autonomous Race Car</div>
+        <h5><strong><white>Contributors: Arianna Ilvonen, Dora Hu, Jusus Diaz, Charles Ge</strong></h5>
         
         <!-- Table of Contents -->
         <div class="categories-container">
             <a href="#overview" class="category">Goal</a>
             <a href="#wallFollowing" class="category">Wall Following</a>
-            <a href="#visual" class="category">Visual Operations</a>
+            <a href="#visual" class="category">Computer Vision</a>
             <a href="#localization" class="category">Localization</a>
             <a href="#pathPlanning" class="category">Path Planning</a>
             <a href="#final" class="category">Final Challenge</a>
@@ -209,9 +225,11 @@
                     Xavier computer, and tasked with programming and executing various operations.
                     Our tasks encompass developing and implementing sophisticated functionalities such as wall-following, a 
                     safety controller, cone detection, parking control, line following, localization, path planning, and path 
-                    following. To ensure transparency and collaboration, we conducted bi-weekly Lab Briefings and Reports, 
+                    following. </p>
+                <p style="line-height: 2em;">&emsp; To ensure transparency and collaboration, we conducted bi-weekly Lab Briefings and Reports, 
                     during which we discussed the rationale behind our decisions, coding strategies, and collaborative efforts.
-                    This project was been a valuable experience, growing my skills in both technical aspects and in terms of communication and teamwork.</p>
+                    This project was  a valuable experience, growing my skills in both technical aspects and communication and teamwork.
+                </p>
             </div>
             <div class="image-container">
                 <img src="./Website_Pics/RSS_candid.png" alt="Inverted Pendulum System">
@@ -222,48 +240,39 @@
         
         <div id="wallFollowing" class="section">
             <div class="description">
-                <h2>Wall Following</h2>
-                <p style="line-height: 2em;">&emsp;Initially, I believed that I would be able to simply turn the crank of Lagrangian 
-                    mechanics, find the equations of motion of the system, and use that
-                    to create a plant system with defined dynamics, but after running through the calculations, I realized that 
-                    this problem was going to have to be approached a little differently:
+                <h2>Wall Following (Sim Done Individually)</h2>
+                <p style="line-height: 2em;">&emsp; The goal of the wall following lab was to write a program that would make it such
+                    that the <white><strong>car would drive forward at a set speed and keep a constant distance from either the left or right wall</strong></white>.
+                    The car would have to navigate around corners and obstacles. The first step would be to implement code in simulation, and 
+                    later develop onto the physical car.
                 </p>
-                <p style="line-height: 2em;">We are going to use this example double pendulum system to try and find the 
-                    equations of motion (EOM) of the system. We model the links as point masses at the COM.
+                <p style="line-height: 2em;">&emsp; Using the simulator provided by the instructors, I created a ROS node that subscribed to the simulated
+                    LIDAR scans, and sliced the scan into a front, left, and right section.
                 </p>
-                <img src="./Website_Pics/PendubotEOMDiagram.png"
-                width="400"
-                class="center-align"
-                >
-                <p style="line-height: 2em;">And find the position of each of the masses as follows:
+                <p style="line-height: 2em;">&emsp; INSERT PIC OF SIM AND LIDAR SLICE
                 </p>
+                <p style="line-height: 2em;">&emsp; Given a wall to follow, I would then calculate the horizontal distance to the wall ( np.sin(ϴ) ), remove any extreme
+                    outliers, take the average, and use it as the input to a PD controller. I chose to take the average instead of the median values because upon approaching
+                    a corner, the average would push the car to more smoothly turn the corner. I also took the average of the frontal slice, and when that value was below a certain
+                    threshold dependent on the velocity, a multiplier would be added to the controller (ensures tight turning radius for faster speeds).
                 </p>
-                <img src="./Website_Pics/PendubotEOM1.png"
-                width="600"
-                class="center-align"
-                >
-                <p style="line-height: 2em;">Knowing that we will also need the velocities of each of the masses,
-                    we differentiate the positions and find the velocities of each of the masses as follows:
+                <p style="line-height: 2em;">&emsp; INSERT PIC OF HORIZ CALC AND TURNING
                 </p>
-                <img src="./Website_Pics/PendubotEOM2.png"
-                width="800"
-                class="center-align"
-                >
-                <p style="line-height: 2em;">We then formulate our Lagrangian from the equation L = T - U, and find our
-                    kinetic and potential energies from the previous results:
+                <p style="line-height: 2em;">&emsp; Once I tuned the PD controller, I would pushlished an AckermannDrive message with the output of the PD controller 
+                    linked to the steering angle of the car, resulting in the following wall follower:
                 </p>
-                <img src="./Website_Pics/PendubotEOM3.png"
-                width="1000"
-                class="center-align"
-                >
-                <p style="line-height: 2em;">Finally, turning the crank of Lagrangian mechanics by using the Euler-Lagrange Equation,
-                    we get the EOMs of the system and realize that our math was for nothing since the system is coupled...
+                <p style="line-height: 2em;">&emsp; INSERT VID OF WALL FOLLOWER SIM
                 </p>
-                <img src="./Website_Pics/PendubotEOM4.png"
-                width="1000"
-                class="center-align"
-                >
-                <p style="line-height: 2em;">This just means that we're going to have to use other methods to find trajectories.
+                <p style="line-height: 2em;">&emsp; Implementing wall following on the hardware was a little more difficult. Because the data from the actual LIDAR is noisy,
+                    simply finding the mean of the normal distance would not be robust enough. Instead, my team and I decided to do a Least Squares Regression on the LIDAR 
+                    data to compute a theoretical "wall", and use our normal distance to that wall as the input to our PD controller. 
+                </p>
+                <p style="line-height: 2em;">&emsp; As the hardware is quite expensive, we were also tasked with designing a safety controller for the car. To do this,
+                    I wrote a function that, if the average forward distance within the width of the car is under a certain threshold, the function would begin sending
+                    an AckermannDrive message of highest priority with its velocity set to 0. The threshold was calculated experimentally by measuring braking distances at different
+                    speeds and extracting a minumum braking distance formula. The safety controller would be running at all times during the course of the project.
+                    <p style="line-height: 2em;">&emsp; INSERT FORMULA
+                    </p>
                 </p>
             </div>
         </div>
@@ -271,100 +280,110 @@
         <div id="visual" class="section">
             <div class="description">
                 <h2>Visual Operations</h2>
-                <p style="line-height: 2em;">In terms of the physical design of this project, it is pretty simple and 
-                    made up of a few components:
+                <p style="line-height: 2em;">&emsp; This goal of this lab was to learn how to take visual input to allow the <white><strong>
+                    racecar to park in front of a cone and follow a line</white></strong>. We dealt with object detection algorithms, homography
+                    transformations, and parking controllers.
                 </p>
-                <p style="line-height: 2em;">&emsp; Base (Designed): will hold up the entire system (motor, electronics, arms, etc.)</p>
-                <p style="line-height: 2em;">&emsp; Bearings (<a href="https://www.amazon.com/HiPicco-607-2RS-Bearings-Miniature-Pre-Lubricated/dp/B0CH2WZQMJ/ref=sr_1_1_sspa?crid=1EFOD8K1KOMB9&dib=eyJ2IjoiMSJ9.meDce_gTHnnGPlxBTQ1J7gA5hP20auGNnl7Xbsi8j0-MzcntQhhOsz4rHqYXo2Pi210PnrKWbQRHS-gkbZUqQ8U5ca1ZvkptxD1ZVDbuA0aBxJApGkgSYLWY-mgjpKxfZbJ8G6mVe0DSZ-jUB5lGRLnXrw8X6_naEmPgKsnzu0jdjVcSGwGNYTG3JI8N-ljBLOR3zM6hRTDbFw-LlcLGIN5jKt6OK8c7E6QsEouzF4E.YYG0qM_bH8nkmEf4UPybXY2gmagHAFQSjfAEtc13Yic&dib_tag=se&keywords=bearings%2B7mm%2Bid&qid=1724303936&sprefix=bearings%2B7mm%2Bid%2Caps%2C73&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1" class="link">Link</a>): allow for rotational motion at the "shoulder" and "elbow"</p>
-                <p style="line-height: 2em;">&emsp; Arms and Connecting Shafts (Designed): rotate about the bearings to create our pendubot!</p>
-                <p style="line-height: 2em;">&emsp; Encoder (Custom): will be situated at joint between the first and second arm - will measure
-                    the angular position of the second arm to receive state
+                <p style="line-height: 2em;">&emsp; The first step of this lab was what <white><strong>I was in charge of</white></strong>: detecting a cone given an image.
                 </p>
-                <p style="line-height: 2em;">&emsp; Motor (<a href="https://www.mouser.com/ProductDetail/Vertiq/VERT-M2.0-E3.0-F2.0-SC1.0-PCK1.0?qs=QNEnbhJQKvYBTGTgJ%252B2yHQ%3D%3D" class="link">Link</a>): Will actuate the first arm!</p>
-                <p style="line-height: 2em;">&emsp; Slip Ring (<a href="https://www.amazon.com/Comidox-CIRCUITSx2A-Capsule-Electrical-Equipment/dp/B07H2SRMXP/ref=sr_1_5?crid=12DQYJRKFRBQR&dib=eyJ2IjoiMSJ9.IRyuA96vmHwE0i6WI5ToTTM0aztYhkv-AI0UuSpU9_4w_LdAUieL8rROqfaO4WAeeaU8cRSumtzmeyOqyzrSo_5kCdsDwfX8gVE6TU_DRJTeSRYn3860_CycEs0xmgcMpJu4yoRbNLRJTHnlkC-sQoXOp-Ko8XIu3nPV0jQ7U_o5NbpYKOcS6DOfmpV1i7VzlXEnsB8wKOAYLQheWiyYtnpBXFNe-SvpvQNuz_aaGlYygPUmaP7nvYRmdQl319vW3do8YDvN6eWBi_EssYiIJclUKmbiHU9kY0-hzKVxPfg.FZR1AeAUe-JyRbSYNe3DPx_5A8169ZjWf4XGW8I652o&dib_tag=se&keywords=slip+ring&qid=1724303979&sprefix=slip+rin%2Caps%2C108&sr=8-5" class="link">Link</a>): placed along first connecting shaft - will deal with any potential
-                    wire tangling from the rotational motion
+                <p style="line-height: 2em;">&emsp; I first subscribed to a ROS node that published the ZED Camera picture. I then used the <a href="https://opencv.org/" class="link">OpenCV library</a>
+                    to apply the series of operations on the image shown below:
                 </p>
-                <p style="line-height: 2em;">&emsp; TO BE EXPANDED UPON!
+                <p style="line-height: 2em;">&emsp; Using the bounding box computed from my node as an input, my teammate <white><strong>Dora Hu</white></strong> 
+                    designed a homography transformer that determined the position of the cone relative to the racecar. Using a set of known sample points and 
+                    OpenCV libraries, she was able to compute the homography matrix and transform the positions in the pixel frame (u, v) to locations on the ground (x, y). 
                 </p>
-
-                
-            </div>
-            <div class="image-container">
-                <img src="./Website_Pics/PendubotCAD.png" alt="Inverted Pendulum System">
-                <div class="image-caption">Example CAD Model of Pendubot</div>
+                <p style="line-height: 2em;">&emsp; My next teammate <white><strong>Arianna Ilvonen</white></strong> then took this x,y input and designed a parking controller
+                    around it, with the logic described in the table below
+                </p>
+                <p style="line-height: 2em;">&emsp; Finally, <white><strong>Charles Ge</white></strong> wrote a line follower that would crop the input image such that a red 
+                    stripe of tape would be interpreted as a cone set at a fixed distance ahead - the car will always be trying to reach the cone. 
+                </p>
             </div>
         </div>
-        
         <div id="localization" class="section">
             <div class="description">
                 <h2>Localization</h2>
-                <p style="line-height: 2em;">&emsp; The first step in execution is getting the system to run in simulation - that means 
-                    we need to do trajectory optimization and subsequent stabilization around the computed trajectories (iLQR or MPC). To achieve this 
-                I will be using Deepnote notebooks and pyDrake.</p>
-                <p style="line-height: 2em;">First we make a URDF of our model with the correct dimensions, masses, and moments of inertia, and visualize it in Meshcat:</p>
-                <img src="./Website_Pics/PendubotMeshcat.png"
-                class="center-align"
-                width="400"
-                >
-                <p style="line-height: 2em;">&emsp;Next, we'll make a MultibodyPlant of the system, and add our URDF along with a single joint actuator
-                    at the shoulder. We now need to figure out how to get our system to behave physically. We can achieve this by creating 
-                    continuous variables to represent the state, velocity, acceleration, timesteps, external forces, and actuation inputs, and
-                    add constraints to our system and variables to forcing the program to enforce certain constraints.
+                <p style="line-height: 2em;">&emsp; In this lab, we were tasked with <white><strong>localizing our robot (determining its orientation and position) given a map of our environment by
+                    implementing Monte Carlo Localization</strong></white>. My team and I went about this by contructing a motion model and sensor model, and combining this into a particle 
+                    filter.
                 </p>
-                <p style="line-height: 2em;">&emsp;The first constraint (1) we will add will be for the system to obey the manipulator equations 
-                    (<a href="https://underactuated.mit.edu/multibody.html" class="link">read more about the manipulator equations here</a>),
-                    which are basically equations of motion with actuation inputs and contact forces included.
+                <p style="line-height: 2em;">&emsp; To determine where in the map we were, we needed to initialize particles in the approximate area we were in, evaluate their positions
+                    and orientations relative to the car's position using LIDAR data, and have the particles converge to one position. This comparison is done using the following equations
+                    to find the probability that the current scan is the same as the car's scan:
+                    </p>
+                <p style="line-height: 2em;">&emsp;
+                    One difficult facet of this is the baud rate of the comparison of however many particles you have (usually hundreds) needs to happen very quickly, and this computation
+                    needs to be done for each simulated LIDAR value for each particle (approx 10,000 times). Explicitly computing these probabilities then does not become feasible, so <white><strong>
+                    Charles Ge and I</strong></white> instead precomputed a lookup table to fetch probabilities from, which increased the update rate from 4Hz to over 20Hz. 
+                    After computing each particle's probability, we would converge all particles to the one with the highest probability.
                 </p>
-                <img src="./Website_Pics/Manipulator.png"
-                class="center-align"
-                width="400"
-                >
-                <p style="line-height: 2em;">&emsp;In this equation, q represents the state, v represents the derivative of the state, u represents
-                    the control input, and lambda represents the external forces. Now you may be thinking, wait why can we use the equations of 
-                    motion now when we couldn't earlier? And the answer is: Drake. Beautiful Drake can compute all the matrices for you
-                    based on your MultibodyPlant which is wonderful for us. We just move all the terms to one side and constrain the output of
-                    the manipulator equations to be zero for all timesteps. This will make our system behave physically.
+                <p style="line-height: 2em;">&emsp;
+                    The next phase of the problem was to create the motion model which would update the particle based on the car's odometry. To implement this, <white><strong>Charles and I</strong></white>
+                    wrote a file that would subscribe to the car's published odometry topic and update each particle accordingly. To ensure that we are repeatedly converging to the 
+                    best possible particle instead of getting an ok particle and sticking with it, we added noise to the odometry so that the sample of particle is constantly changing. 
                 </p>
-                <p style="line-height: 2em;">&emsp; The next contraint (2) we add is pretty boring: we constrain the timesteps to be within 
-                    certain ranges so that the solver has enough space to search, but not so much that it gets overwhelmed.
+                <p style="line-height: 2em;">&emsp;
+                    To bring it all together, we needed to ensure that the motion model would not be updating the particles at the same time as the sensor model was computing the 
+                    probabilities. To combat this, <white><strong>Dora Hu </strong></white> implemented threading, to prevent both models from accessing the data concurrently.
                 </p>
-                <p style="line-height: 2em;">&emsp; Contraint three (3) is to link the configurations, velocities, and accelerations using Euler 
-                    Forward for all timesteps.
-                </p>
-                <p style="line-height: 2em;">&emsp; The fourth constraint (4) is where we start to define how we want our pendubot to move. If the
-                    sequence takes t timesteps, then let T be the final timestep. At time T, we want the upper arm to be oriented at the desired
-                    angle.
-                </p>
-                <p style="line-height: 2em;">&emsp; The fifth constraint (5) is that at time T, the lower arm is oriented vertically
-                </p>
-                <p style="line-height: 2em;">&emsp; The sixth constraint (6) is that at time T, the angular velocity of the lower arm is <= 0.1m/s
-                </p>
-                <p style="line-height: 2em;">&emsp; Constraint (7) is keeping the actuation input (u) below a certain torque threshold
-                </p>
-                <p style="line-height: 2em;">If we enforce all of these constraints and allow a nonlinear solver like Snopt to solve
-                    the optimization problem, we get a result as follows:
-                </p>
-                <video src="./Website_Pics/PendubotTrajOpt.mov" controls class="center-align"></video>
-                <p style="line-height: 2em;">TO BE EXPANDED UPON
-                </p>
-                <p style="line-height: 2em;">***Takes too long to solve to control in real time, will explain how to deal with that 
-                    in the future, will cover controller in the future, will add more pictures and visuals in the future***
+                <p style="line-height: 2em;">&emsp;
+                    And after a couple long nights with the whole team pushing to implement the code onto the hardware, we finally got the localization to work!
                 </p>
             </div>
-
         </div>
         
         <div id="pathPlanning" class="section">
             <div class="description">
                 <h2>Path Planning</h2>
-                <p style="line-height: 2em;">&emsp; COMING SOON! </p>
+                <p style="line-height: 2em;">&emsp; My team and I were tasked with, given a start and end point, <white><strong>planning trajectories in a known occupancy grid
+                    and program our car to drive along this computed path.</strong></white> </p>
+                <p style="line-height: 2em;">&emsp;
+                    We wanted to implement various different types of path planners to test which one would be most effective, and thus get the fastest computation or shortest path. 
+                    Therefore, <white><strong>Jesus</strong></white> worked on a BFS path planner, <white><strong>I</strong></white> worked on an A* path planner, and 
+                    <white><strong>Arianna</strong></white> worked on an RRT* path planner. 
+                </p>
+                <p style="line-height: 2em;">&emsp;
+                    To implement A*, I first discritized the map into 0.5m x 0.5m squares and assigned occupancy values to the squares (1 if the square was occupiable, 0 if it was not). 
+                    For my total cost function, I used the following:
+                </p>
+                <p style="line-height: 2em;">&emsp;
+                    Both A* and BFS are optimal pathfinding algorithms - BFS is more naive, but was ultimately much faster due to the small size of the map and the computation time of A*. 
+                    RRT* is a sampling based algorithm and evolves over time to get better solutions, approaching optimal as time goes to infinity. The computation time, path lengths, and 
+                    final paths are visualized below for all three methods.
+                </p>
+                <p style="line-height: 2em;">&emsp;
+                    Once the trajecories were computed, <white><strong>Charles and Dora</strong></white> worked on implementing a pure pursuit controller for our robot. The way our controller worked,
+                    is that we would first compute distances to each line segment in the trajectory and find the closest one. A target point at a specified lookahead radius on the trajectory would 
+                    then be used to compute the steering input for the car. 
+                </p>
+                <p style="line-height: 2em;">&emsp;
+                    Wrapping the localization in with the trajectory planner and pure pursuit controller, we were able to implement the code onto the hardware and got the following
+                    results:
+                </p>
             </div>
         </div>
 
         <div id="final" class="section">
             <div class="description">
                 <h2>Final Challenge</h2>
-                <p style="line-height: 2em;">&emsp; COMING SOON! </p>
+                <p style="line-height: 2em;">&emsp; The final challenge was meant to encompass everything we had implemented so far. There were two parts to the challenge: 
+                    <white><strong>a time trial around a track and a city-driving component</strong></white>. We needed to race around the track within a certain time 
+                    window, and navigate around a constructed city, obeying traffic laws, lanes, and avoiding pedestrians while stopping at three seperate locations.
+                </p>
+                <p style="line-height: 2em;">&emsp; To navigate around the track, we used the OpenCV library to detect the lanes (penalties applied
+                    for crossing lanes), and performed a series of operations to extract a goal point at a certain lookahead.
+                </p>
+                <p style="line-height: 2em;">&emsp;  As the car would run, the image would update, which meant I could feed this input into a PD Controller and tune it to stabilize in the center of the lane.
+                </p>
+                <p style="line-height: 2em;">&emsp; For the city navigation, <white><strong>Jesus</strong></white> developed a bidirectional version of his BFS algorithm to
+                    obey the direction of travel (drive only in the right lane) and implement U-turns, and we stiched together the trajectories from the three stopping points 
+                    to get one long trajectory to follow. 
+                </p>
+                <p style="line-height: 2em;">&emsp; To obey the traffic lights and stop signs, we again used OpenCV to detect stop signs and red light, and to stop for the appropriate 
+                    amounts of time. Ultimately, the long uniform hallway that we had to navigate midway through our trajectory was too nondescript for out localizer to work effectively
+                    and we were only able to achieve the first two stops before clipping a wall (video shown below).
+                </p>
             </div>
         </div>
     </div>

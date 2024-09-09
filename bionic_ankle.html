@@ -20,7 +20,7 @@
             align-items: center;
         }
         body.alt-color-scheme {
-            background-color: #f5f5dc;
+            background-color: #E4EFF1;
             color: black;
         }
         #right-panel {
@@ -31,18 +31,31 @@
             height: 100%;
             scroll-behavior: smooth;
         }
+        #right-panel h5{
+            color: lightgray;
+            font-size: 24px;
+            text-align: center;
+        }
+        body.alt-color-scheme #right-panel h5{
+            color: #00243D;
+        }
         .project-title {
             font-size: 60px;
             font-weight: bold;
             text-align: center;
-            padding-bottom: 25px;
             color: lightgray;
+        }
+        body.alt-color-scheme .project-title {
+            color: #00243D;
         }
         .divider {
             width: 100%;
             height: 2px;
             background-color: lightgray;
             margin-bottom: 30px;
+        }
+        body.alt-color-scheme .divider {
+            background-color: #00243D;
         }
         .categories-container {
             display: flex;
@@ -56,10 +69,14 @@
             background-color: #151E3D; /* Match the body background color for seamless integration */
             z-index: 1000; /* Ensure it stays above other content */
             padding: 10px 0; /* Add padding for better visual spacing */
-            border: 2px solid lightgray; /* Add a border */
+            border: 2px solid #ABA9C3; /* Add a border */
             border-radius: 8px; /* Optional: to make the corners rounded */
             box-sizing: border-box; /* Include padding and border in the element's total width and height */
-    }   
+        }
+        body.alt-color-scheme .categories-container {
+                background-color: #E4EFF1; /* Match the body background color for seamless integration */
+                border: 2px solid #00243D; /* Add a border */
+        }   
         .category {
             font-size: 24px;
             color: lightgray;
@@ -67,6 +84,9 @@
             padding: 10px 40px;
             border-radius: 5px;
             transition: background-color 0.3s;
+        }
+        body.alt-color-scheme .category {
+            color: #151E3D;
         }
         body.alt-color-scheme .categories-container .category {
             color: black;
@@ -126,10 +146,9 @@
             color: #99a5b1;
         }
         body.alt-color-scheme .toggle-button {
-            color: black;
+            color: #00243D;
         }
-        /* House icon style */
-        .home-icon {
+        .back-icon {
             position: absolute;
             top: 20px;
             left: 20px;
@@ -137,8 +156,19 @@
             color: #99a5b1;
             text-decoration: none;
         }
+        body.alt-color-scheme .back-icon {
+            color: #00243D;
+        }
+        .home-icon {
+            position: absolute;
+            top: 20px;
+            right: 65px;
+            font-size: 24px;
+            color: #99a5b1;
+            text-decoration: none;
+        }
         body.alt-color-scheme .home-icon {
-            color: black;
+            color: #00243D;
         }
         .section {
             margin-bottom: 50px;
@@ -149,6 +179,9 @@
         .section .description h2{
             font-size: 36px;
             color: lightgray;
+        }
+        body.alt-color-scheme .section .description h2{
+            color: #151E3D
         }
 
         .section .description {
@@ -179,15 +212,25 @@
             margin-left: auto;
             margin-right: auto;
         }
+        .section .description white{
+            color: lightgray;
+        }
+        body.alt-color-scheme .section .description white{
+            color: black;
+        }
     </style>
 </head>
 <body>
     <!-- House Icon -->
-    <a href="projects.html" class="home-icon"><i class="fa-solid fa-arrow-left"></i></a>    
+    <a href="projects.html" class="back-icon"><i class="fa-solid fa-arrow-left"></i></a>
+    <a href="index.html" class="home-icon"><i class="fa-solid fa-house"></i></a>
+ 
     <button class="toggle-button"><i class="fas fa-moon"></i></button>
     
     <div id="right-panel">
         <div class="project-title">Bionic Ankle Prosthetic (In Progress)</div>
+        <h5><white>Contributors: Daniel Levine, Thomas Larsen</white></h5>
+
         
         <!-- Table of Contents -->
         <div class="categories-container">
@@ -203,150 +246,175 @@
         <div id="overview" class="section">
             <div class="description">
                 <h2>Goal</h2>
-                <p style="line-height: 2em;">&emsp; As a part of <a href="https://student.mit.edu/catalog/search.cgi?search=6.4200&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">6.4200</a>, my team and I were given a racecar robot with an NVIDIA Jetson 
-                    Xavier computer, and tasked with programming and executing various operations.
-                    Our tasks encompass developing and implementing sophisticated functionalities such as wall-following, a 
-                    safety controller, cone detection, parking control, line following, localization, path planning, and path 
-                    following. To ensure transparency and collaboration, we conducted bi-weekly Lab Briefings and Reports, 
-                    during which we discussed the rationale behind our decisions, coding strategies, and collaborative efforts.
-                    This project was been a valuable experience, growing my skills in both technical aspects and in terms of communication and teamwork.</p>
+                <p style="line-height: 2em;">&emsp; The goal of this project is to create an optimized parallel-spring bionic ankle prosthetic with an 
+                    adaptive controller capable of biological gait for a wide range of patient weights, walking speeds, and inclines. For 
+                this project, neural control will not be implemented - control will be soley based on state estimation gathered from a 
+            6 DOF load cell, an IMU, encoders, and various other sensors. </p>
+            <p style="line-height: 2em;">&emsp; This project was conceived and is headed by PhD student <white><strong>Daniel Levine</strong></white> with assistance 
+                from multiple other sources including, but not limited to, <white><strong>Thomas Larsen</strong></white> and <white><strong>myself</strong></white>. 
+                Thomas, with help from Daniel, was responsible for the motor design and tolerancing, while I assisted in much of the design of the external housing,  
+                PCB Design, and the controls for the system. </p>
             </div>
             <div class="image-container">
-                <img src="./Website_Pics/RSS_candid.png" alt="Inverted Pendulum System">
-                <div class="image-caption">MIT 6.4200 Robot Car</div>
+                <img src="./Website_Pics/Full_Ankle.png" alt="Inverted Pendulum System">
+                <div class="image-caption">CAD Model of the Full Bionic Ankle</div>
             </div>
         </div>
         
         
         <div id="wallFollowing" class="section">
             <div class="description">
-                <h2>Wall Following</h2>
-                <p style="line-height: 2em;">&emsp;Initially, I believed that I would be able to simply turn the crank of Lagrangian 
-                    mechanics, find the equations of motion of the system, and use that
-                    to create a plant system with defined dynamics, but after running through the calculations, I realized that 
-                    this problem was going to have to be approached a little differently:
+                <h2>Physical Design</h2>
+                <div style="float: left; margin-left: 25px; margin-bottom: 5px; width: 300px; display: flex; flex-direction: column;">
+                    <figure style="margin-bottom: 5px;">
+                        <img src="./Website_Pics/Generative.png" controls class="center-align" width="400px"></img>
+                        <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px;">
+                            Generative Design Example: red = obstacle geometry, green = preserve geometry, blue = forces & moments
+                        </figcaption>
+                    </figure>
+        
+                    <figure>
+                        <img src="./Website_Pics/Machined_Housing.png" controls class="center-align" width="400px"></img>
+                        <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px;">
+                            5-axis milled housing
+                        </figcaption>
+                    </figure>
+                </div>
+                <p style="line-height: 2em;">&emsp; The main objective for the physical design of the ankle housing was to minimize 
+                    the mass and the build height of the prosthesis so as to have a comfortable and widely available design 
+                    respectively. After many iterations working with different pyramid attachments, I decided to design a housing that 
+                mates to the load cell, essentially having a steel ground, allowing the housing to heavily minimize mass.  </p>
+                <p style="line-height: 2em;">&emsp; I used Fusion to create the generative design - many key preserve geometries and 
+                    obstacle geometries had already been created by <white><strong>Daniel Levine</strong></white>; I added the necessary
+                    geometries to create the specific load cell housing. I also designed custom housing legs (frame to the left does not have 
+                    them attached) so that the motor could be inserted and removed, and created GD&T Drawings for all necessary parts of the 
+                    prosthesis.
                 </p>
-                <p style="line-height: 2em;">We are going to use this example double pendulum system to try and find the 
-                    equations of motion (EOM) of the system. We model the links as point masses at the COM.
+                <div style="float: right; margin-left: 25px; margin-bottom: 5px; width: 400px; display: flex; flex-direction: column;">
+                    <figure style="margin-bottom: 5px;">
+                        <img src="./Website_Pics/Fang_curve.png" controls class="center-align" width="400px"></img>
+                        <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px;">
+                            Computed Fang Curve plotted
+                        </figcaption>
+                    </figure>
+        
+                    <figure>
+                        <img src="./Website_Pics/Fang_pdf.png" controls class="center-align" width="400px"></img>
+                        <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px;">
+                            GD&T Drawing of the cam-following fang 
+                        </figcaption>
+                    </figure>
+                </div>
+                <p style="line-height: 2em;">&emsp; Upon actuation of the motor, a lead screw flexes the active spring, injecting power into
+                    the prosthesis. In this process, however, the spring bending changes the effective stiffness, introducing a nonlinearity.
+                    To  better control the system, <white><strong>Daniel and I</strong></white> planned to create a cam-follower that
+                    would follow along a cam path and change the nonlinearity of the bending spring. <white><strong>Daniel</strong></white> focused 
+                    on a "fang" design that would perfectly cancel out the nonlinearity while I worked on a design to promote maxiumum deflection of the 
+                    spring. To the right is my computed curve, and the associated GD&T Drawing of the final fang design. <white><strong>Daniel</strong></white>
+                    computed his curve and made a similar fang, which we can easily switch out of the housing.
                 </p>
-                <img src="./Website_Pics/PendubotEOMDiagram.png"
-                width="400"
-                class="center-align"
-                >
-                <p style="line-height: 2em;">And find the position of each of the masses as follows:
+                <p style="line-height: 2em;">&emsp; Additional components that I designed that were simpler components were: 
+                    A custom heatsink that acts as both a heatsink and mount for the electronic components to the housing, encoder caps 
+                    to house both the encoder and the magnet needed for angular state estimation, a bracket to hold the active spring in place 
+                    relative to the housing, a bracket to guide the spring upon maximum deflection, and various other small assembly components.
                 </p>
-                </p>
-                <img src="./Website_Pics/PendubotEOM1.png"
-                width="600"
-                class="center-align"
-                >
-                <p style="line-height: 2em;">Knowing that we will also need the velocities of each of the masses,
-                    we differentiate the positions and find the velocities of each of the masses as follows:
-                </p>
-                <img src="./Website_Pics/PendubotEOM2.png"
-                width="800"
-                class="center-align"
-                >
-                <p style="line-height: 2em;">We then formulate our Lagrangian from the equation L = T - U, and find our
-                    kinetic and potential energies from the previous results:
-                </p>
-                <img src="./Website_Pics/PendubotEOM3.png"
-                width="1000"
-                class="center-align"
-                >
-                <p style="line-height: 2em;">Finally, turning the crank of Lagrangian mechanics by using the Euler-Lagrange Equation,
-                    we get the EOMs of the system and realize that our math was for nothing since the system is coupled...
-                </p>
-                <img src="./Website_Pics/PendubotEOM4.png"
-                width="1000"
-                class="center-align"
-                >
-                <p style="line-height: 2em;">This just means that we're going to have to use other methods to find trajectories.
+                <p style="line-height: 2em;">&emsp; (IN PROGRESS)
                 </p>
             </div>
         </div>
         
         <div id="visual" class="section">
             <div class="description">
-                <h2>Visual Operations</h2>
-                <p style="line-height: 2em;">In terms of the physical design of this project, it is pretty simple and 
-                    made up of a few components:
+                <h2>PCB Design</h2>
+                <figure style="float: right; margin-left: 25px; margin-bottom: 5px; width: 300px;">
+                    <img src="./Website_Pics/PCB.png" controls class="center-align" width="400px"></img>
+                    <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px;">
+                        Ankle Power Board Designed in Altium - 2.5 in x 2 in
+                    </figcaption>
+                </figure>
+        
+                <!-- Container for 3DPCB and CAN_Physical -->
+                <div style="float: left; margin-left: 25px; margin-bottom: 5px; width: 300px; display: flex; flex-direction: column;">
+                    <figure style="margin-bottom: 5px;">
+                        <img src="./Website_Pics/3DPCB.png" controls class="center-align" width="400px"></img>
+                        <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px;">
+                            Dual CAN Communication Board Designed in Altium (SMD) - 1 in x 1 in
+                        </figcaption>
+                    </figure>
+        
+                    <figure>
+                        <img src="./Website_Pics/CAN_Physical.png" controls class="center-align" width="400px"></img>
+                        <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px;">
+                            Preliminary Dual CAN Communication Board (THT) - 1.8 in x 2 in
+                        </figcaption>
+                    </figure>
+                </div>
+                <p style="line-height: 2em;">&emsp; For this project I also learned how to use Altium to design PCBs. The compute would be processed on the 
+                    Verdin i.MX 8 Computer on Module mounted on the custom heatsink, along with an ingenia motor driver. To communicate between systems, a dual 
+                    CAN communication board would be needed, along with a power board to take the voltage from the battery (48V) and power the Verdin (12V), the 
+                    Ingenia (12V), and Data Aquisition System (12V) safely. There is a manual switch to initially power the Verdin - the 
+                    power board also includes a mosfet logic gate to turn the ingenia on using signal from a GPIO pin 
+                    located on the Verdin carrier, switching a relay on and powering the ingenia. 
                 </p>
-                <p style="line-height: 2em;">&emsp; Base (Designed): will hold up the entire system (motor, electronics, arms, etc.)</p>
-                <p style="line-height: 2em;">&emsp; Bearings (<a href="https://www.amazon.com/HiPicco-607-2RS-Bearings-Miniature-Pre-Lubricated/dp/B0CH2WZQMJ/ref=sr_1_1_sspa?crid=1EFOD8K1KOMB9&dib=eyJ2IjoiMSJ9.meDce_gTHnnGPlxBTQ1J7gA5hP20auGNnl7Xbsi8j0-MzcntQhhOsz4rHqYXo2Pi210PnrKWbQRHS-gkbZUqQ8U5ca1ZvkptxD1ZVDbuA0aBxJApGkgSYLWY-mgjpKxfZbJ8G6mVe0DSZ-jUB5lGRLnXrw8X6_naEmPgKsnzu0jdjVcSGwGNYTG3JI8N-ljBLOR3zM6hRTDbFw-LlcLGIN5jKt6OK8c7E6QsEouzF4E.YYG0qM_bH8nkmEf4UPybXY2gmagHAFQSjfAEtc13Yic&dib_tag=se&keywords=bearings%2B7mm%2Bid&qid=1724303936&sprefix=bearings%2B7mm%2Bid%2Caps%2C73&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1" class="link">Link</a>): allow for rotational motion at the "shoulder" and "elbow"</p>
-                <p style="line-height: 2em;">&emsp; Arms and Connecting Shafts (Designed): rotate about the bearings to create our pendubot!</p>
-                <p style="line-height: 2em;">&emsp; Encoder (Custom): will be situated at joint between the first and second arm - will measure
-                    the angular position of the second arm to receive state
+                <p style="line-height: 2em;">&emsp; (IN PROGRESS)
                 </p>
-                <p style="line-height: 2em;">&emsp; Motor (<a href="https://www.mouser.com/ProductDetail/Vertiq/VERT-M2.0-E3.0-F2.0-SC1.0-PCK1.0?qs=QNEnbhJQKvYBTGTgJ%252B2yHQ%3D%3D" class="link">Link</a>): Will actuate the first arm!</p>
-                <p style="line-height: 2em;">&emsp; Slip Ring (<a href="https://www.amazon.com/Comidox-CIRCUITSx2A-Capsule-Electrical-Equipment/dp/B07H2SRMXP/ref=sr_1_5?crid=12DQYJRKFRBQR&dib=eyJ2IjoiMSJ9.IRyuA96vmHwE0i6WI5ToTTM0aztYhkv-AI0UuSpU9_4w_LdAUieL8rROqfaO4WAeeaU8cRSumtzmeyOqyzrSo_5kCdsDwfX8gVE6TU_DRJTeSRYn3860_CycEs0xmgcMpJu4yoRbNLRJTHnlkC-sQoXOp-Ko8XIu3nPV0jQ7U_o5NbpYKOcS6DOfmpV1i7VzlXEnsB8wKOAYLQheWiyYtnpBXFNe-SvpvQNuz_aaGlYygPUmaP7nvYRmdQl319vW3do8YDvN6eWBi_EssYiIJclUKmbiHU9kY0-hzKVxPfg.FZR1AeAUe-JyRbSYNe3DPx_5A8169ZjWf4XGW8I652o&dib_tag=se&keywords=slip+ring&qid=1724303979&sprefix=slip+rin%2Caps%2C108&sr=8-5" class="link">Link</a>): placed along first connecting shaft - will deal with any potential
-                    wire tangling from the rotational motion
-                </p>
-                <p style="line-height: 2em;">&emsp; TO BE EXPANDED UPON!
-                </p>
-
-                
-            </div>
-            <div class="image-container">
-                <img src="./Website_Pics/PendubotCAD.png" alt="Inverted Pendulum System">
-                <div class="image-caption">Example CAD Model of Pendubot</div>
             </div>
         </div>
         
         <div id="localization" class="section">
             <div class="description">
-                <h2>Localization</h2>
-                <p style="line-height: 2em;">&emsp; The first step in execution is getting the system to run in simulation - that means 
-                    we need to do trajectory optimization and subsequent stabilization around the computed trajectories (iLQR or MPC). To achieve this 
-                I will be using Deepnote notebooks and pyDrake.</p>
-                <p style="line-height: 2em;">First we make a URDF of our model with the correct dimensions, masses, and moments of inertia, and visualize it in Meshcat:</p>
-                <img src="./Website_Pics/PendubotMeshcat.png"
-                class="center-align"
-                width="400"
-                >
-                <p style="line-height: 2em;">&emsp;Next, we'll make a MultibodyPlant of the system, and add our URDF along with a single joint actuator
-                    at the shoulder. We now need to figure out how to get our system to behave physically. We can achieve this by creating 
-                    continuous variables to represent the state, velocity, acceleration, timesteps, external forces, and actuation inputs, and
-                    add constraints to our system and variables to forcing the program to enforce certain constraints.
+                <h2>Controls</h2>
+                <p style="line-height: 2em;">&emsp; For fully adaptive control, Daniel and I plan to implement Model Predictive Control on the prosthesis. For this,
+                    we first would need a trajectory to stabilize around, which neccessitates the implementation of trajectory optimization for the gait cycle - something 
+                    we have implemented using pyDrake. To 
+                    find our trajectory, we create a mathematical program with continuous variables for the timestep, the state variables, contact forces, and torques. 
+                    To satisfy dynamics, we apply constraints on a variety of different aspects of the system (manipulator equations, inital condition, contact force and impulse,
+                    mirrored initial and final state, etc.) to create the confines of a mirrored half-gait cycle. We then use a nonlinear solver 
+                    (ex. Ipopt) to solve for the optimal trajectories while minimizing the energy expenditure of the system. This gives us the following 
+                    trajectories seen below using different URDFs with varying levels of complexity in control of number of joints.                
                 </p>
-                <p style="line-height: 2em;">&emsp;The first constraint (1) we will add will be for the system to obey the manipulator equations 
-                    (<a href="https://underactuated.mit.edu/multibody.html" class="link">read more about the manipulator equations here</a>),
-                    which are basically equations of motion with actuation inputs and contact forces included.
+                <div style="float: left; margin-left: 5px; margin-bottom: 5px; width: 100%; display: flex; flex-direction: row;">
+                    <figure style="margin-bottom: 5px;">
+                        <video src="./Website_Pics/PendubotTrajOpt.mov" controls class="center-align" width="600px"></video>
+                        <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px;">
+                            <p style="line-height: 2em;">&emsp;<a href="mpc_pendubot.html" class="link">Pendubot</a> TrajOpt</p>
+                        </figcaption>
+                    </figure>
+        
+                    <figure>
+                        <video src="./Website_Pics/Piston_Walker.mov" controls class="center-align" width="90%"></video>
+                        <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px;">
+                            Simple Piston Walker TrajOpt (hip, piston)
+                        </figcaption>
+                    </figure>
+                    <figure>
+                        <video src="./Website_Pics/Ankle_Walker.mov" controls class="center-align" width="90%"></video>
+                        <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px;">
+                            Simple Ankle Walker TrajOpt (hip, ankle)
+                        </figcaption>
+                    </figure>
+                    <figure>
+                        <video src="./Website_Pics/Unconstrained_Walker.mov" controls class="center-align" width="90%"></video>
+                        <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px;">
+                            Unconstrained Walker (shoulder, elbow, hip, knee, ankle)
+                        </figcaption>
+                    </figure>
+                </div>
+                <p style="line-height: 2em;">&emsp; The next steps may take two different paths. One path would be to take the approach of using
+                    approximate closed form dynamics (inspiration taken from "3LP: a linear 3D-walking model including torso and swing dynamics"),
+                    and define a leaf system where our model must satisfy these dynamics, can easily linearize them, and very quickly compute 
+                    trajectories. This will allow us to implement receding-horizon MPC, calling trajectory optimizations at every time step, making 
+                    the controller fully adaptive.
                 </p>
-                <img src="./Website_Pics/Manipulator.png"
-                class="center-align"
-                width="400"
-                >
-                <p style="line-height: 2em;">&emsp;In this equation, q represents the state, v represents the derivative of the state, u represents
-                    the control input, and lambda represents the external forces. Now you may be thinking, wait why can we use the equations of 
-                    motion now when we couldn't earlier? And the answer is: Drake. Beautiful Drake can compute all the matrices for you
-                    based on your MultibodyPlant which is wonderful for us. We just move all the terms to one side and constrain the output of
-                    the manipulator equations to be zero for all timesteps. This will make our system behave physically.
+                <p style="line-height: 2em;">&emsp; The alternative route would be to keep all the current constraints we have enforced in a mathematical 
+                    program (not closed form), create a LeafSystem with these constraints applied, and use local linearizations of the dynamics to very quickly
+                    solve local trajectory optimizations. This will also allow us to implement receding-horizon MPC.
                 </p>
-                <p style="line-height: 2em;">&emsp; The next contraint (2) we add is pretty boring: we constrain the timesteps to be within 
-                    certain ranges so that the solver has enough space to search, but not so much that it gets overwhelmed.
+                <p style="line-height: 2em;">&emsp; I will also potentially accumulate a library of trajectories given various walking speeds, inclines, 
+                    body weights, etc. and train a neural network on this data to create a black-box-type system to feed our state into and very quickly
+                    (much quicker than TrajOpt) receive the desired trajectory.
                 </p>
-                <p style="line-height: 2em;">&emsp; Contraint three (3) is to link the configurations, velocities, and accelerations using Euler 
-                    Forward for all timesteps.
-                </p>
-                <p style="line-height: 2em;">&emsp; The fourth constraint (4) is where we start to define how we want our pendubot to move. If the
-                    sequence takes t timesteps, then let T be the final timestep. At time T, we want the upper arm to be oriented at the desired
-                    angle.
-                </p>
-                <p style="line-height: 2em;">&emsp; The fifth constraint (5) is that at time T, the lower arm is oriented vertically
-                </p>
-                <p style="line-height: 2em;">&emsp; The sixth constraint (6) is that at time T, the angular velocity of the lower arm is <= 0.1m/s
-                </p>
-                <p style="line-height: 2em;">&emsp; Constraint (7) is keeping the actuation input (u) below a certain torque threshold
-                </p>
-                <p style="line-height: 2em;">If we enforce all of these constraints and allow a nonlinear solver like Snopt to solve
-                    the optimization problem, we get a result as follows:
-                </p>
-                <video src="./Website_Pics/PendubotTrajOpt.mov" controls class="center-align"></video>
-                <p style="line-height: 2em;">TO BE EXPANDED UPON
-                </p>
-                <p style="line-height: 2em;">***Takes too long to solve to control in real time, will explain how to deal with that 
-                    in the future, will cover controller in the future, will add more pictures and visuals in the future***
+                <p style="line-height: 2em;">&emsp; (IN PROGRESS)
                 </p>
             </div>
 
@@ -354,15 +422,9 @@
         
         <div id="pathPlanning" class="section">
             <div class="description">
-                <h2>Path Planning</h2>
-                <p style="line-height: 2em;">&emsp; COMING SOON! </p>
-            </div>
-        </div>
-
-        <div id="final" class="section">
-            <div class="description">
-                <h2>Final Challenge</h2>
-                <p style="line-height: 2em;">&emsp; COMING SOON! </p>
+                <h2>Final Product</h2>
+                <p style="line-height: 2em;">&emsp; (IN PROGRESS)
+                </p>
             </div>
         </div>
     </div>

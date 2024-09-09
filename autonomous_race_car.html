@@ -20,7 +20,7 @@
             align-items: center;
         }
         body.alt-color-scheme {
-            background-color: #f5f5dc;
+            background-color: #E4EFF1;
             color: black;
         }
         #right-panel {
@@ -32,29 +32,30 @@
             scroll-behavior: smooth;
         }
         #right-panel h5{
-            color: lightgray;;
+            color: lightgray;
             font-size: 24px;
             text-align: center;
+        }
+        body.alt-color-scheme #right-panel h5{
+            color: #00243D;
         }
         .project-title {
             font-size: 60px;
             font-weight: bold;
             text-align: center;
-            padding-bottom: 25px;
             color: lightgray;
         }
-        .project-title p{
-            font-size: 60px;
-            font-weight: bold;
-            text-align: center;
-            padding-bottom: 25px;
-            color: lightgray;
+        body.alt-color-scheme .project-title {
+            color: #00243D;
         }
         .divider {
             width: 100%;
             height: 2px;
             background-color: lightgray;
             margin-bottom: 30px;
+        }
+        body.alt-color-scheme .divider {
+            background-color: #00243D;
         }
         .categories-container {
             display: flex;
@@ -68,10 +69,14 @@
             background-color: #151E3D; /* Match the body background color for seamless integration */
             z-index: 1000; /* Ensure it stays above other content */
             padding: 10px 0; /* Add padding for better visual spacing */
-            border: 2px solid lightgray; /* Add a border */
+            border: 2px solid #ABA9C3; /* Add a border */
             border-radius: 8px; /* Optional: to make the corners rounded */
             box-sizing: border-box; /* Include padding and border in the element's total width and height */
-    }   
+        }
+        body.alt-color-scheme .categories-container {
+                background-color: #E4EFF1; /* Match the body background color for seamless integration */
+                border: 2px solid #00243D; /* Add a border */
+        }   
         .category {
             font-size: 24px;
             color: lightgray;
@@ -79,6 +84,9 @@
             padding: 10px 40px;
             border-radius: 5px;
             transition: background-color 0.3s;
+        }
+        body.alt-color-scheme .category {
+            color: #151E3D;
         }
         body.alt-color-scheme .categories-container .category {
             color: black;
@@ -138,10 +146,9 @@
             color: #99a5b1;
         }
         body.alt-color-scheme .toggle-button {
-            color: black;
+            color: #00243D;
         }
-        /* House icon style */
-        .home-icon {
+        .back-icon {
             position: absolute;
             top: 20px;
             left: 20px;
@@ -149,8 +156,19 @@
             color: #99a5b1;
             text-decoration: none;
         }
+        body.alt-color-scheme .back-icon {
+            color: #00243D
+        }
+        .home-icon {
+            position: absolute;
+            top: 20px;
+            right: 65px;
+            font-size: 24px;
+            color: #99a5b1;
+            text-decoration: none;
+        }
         body.alt-color-scheme .home-icon {
-            color: black;
+            color: #00243D;
         }
         .section {
             margin-bottom: 50px;
@@ -162,13 +180,13 @@
             font-size: 36px;
             color: lightgray;
         }
+        body.alt-color-scheme .section .description h2{
+            color: #151E3D
+        }
 
         .section .description {
             width: 100%; /* Description takes up 70% of the width */
             margin-right: 20px; /* Space between description and image */
-        }
-        .section .description white{
-            color: lightgray;
         }
 
         .section .image-container {
@@ -194,17 +212,25 @@
             margin-left: auto;
             margin-right: auto;
         }
+        .section .description white{
+            color: lightgray;
+        }
+        body.alt-color-scheme .section .description white{
+            color: black;
+        }
     </style>
 </head>
 <body>
     <!-- House Icon -->
-    <a href="projects.html" class="home-icon"><i class="fa-solid fa-arrow-left"></i></a>
+    <a href="projects.html" class="back-icon"><i class="fa-solid fa-arrow-left"></i></a>
+    <a href="index.html" class="home-icon"><i class="fa-solid fa-house"></i></a>
+
     
     <button class="toggle-button"><i class="fas fa-moon"></i></button>
     
     <div id="right-panel">
         <div class="project-title">Autonomous Race Car</div>
-        <h5><strong><white>Contributors: Arianna Ilvonen, Dora Hu, Jusus Diaz, Charles Ge</strong></h5>
+        <h5><white>Contributors: Arianna Ilvonen, Dora Hu, Jusus Diaz, Charles Ge</white></h5>
         
         <!-- Table of Contents -->
         <div class="categories-container">
@@ -241,6 +267,12 @@
         <div id="wallFollowing" class="section">
             <div class="description">
                 <h2>Wall Following (Sim Done Individually)</h2>
+                <figure style="float: right; margin-left: 25px; margin-bottom: 5px; width: 300px; border-color: #B8998E;">
+                    <img src="./Website_Pics/LIDAR_Slicing.png" controls class="center-align" width = 400px></img>
+                    <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px; ">
+                        LIDAR sliced into front, left, and right
+                    </figcaption>
+                </figure>
                 <p style="line-height: 2em;">&emsp; The goal of the wall following lab was to write a program that would make it such
                     that the <white><strong>car would drive forward at a set speed and keep a constant distance from either the left or right wall</strong></white>.
                     The car would have to navigate around corners and obstacles. The first step would be to implement code in simulation, and 
@@ -249,30 +281,39 @@
                 <p style="line-height: 2em;">&emsp; Using the simulator provided by the instructors, I created a ROS node that subscribed to the simulated
                     LIDAR scans, and sliced the scan into a front, left, and right section.
                 </p>
-                <p style="line-height: 2em;">&emsp; INSERT PIC OF SIM AND LIDAR SLICE
-                </p>
+                <figure style="float: left; margin-left: 25px; margin-bottom: 5px; width: 400px; border-color: #B8998E;">
+                    <img src="./RSS Media/PD_Controller.png" controls class="center-align" width = 400px></img>
+                    <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px; ">
+                        PD Controller Architecture
+                    </figcaption>
+                </figure>
                 <p style="line-height: 2em;">&emsp; Given a wall to follow, I would then calculate the horizontal distance to the wall ( np.sin(ϴ) ), remove any extreme
                     outliers, take the average, and use it as the input to a PD controller. I chose to take the average instead of the median values because upon approaching
                     a corner, the average would push the car to more smoothly turn the corner. I also took the average of the frontal slice, and when that value was below a certain
                     threshold dependent on the velocity, a multiplier would be added to the controller (ensures tight turning radius for faster speeds).
+                    Once I tuned the PD controller, I would pushlished an AckermannDrive message with the output of the PD controller 
+                    linked to the steering angle of the car.
                 </p>
-                <p style="line-height: 2em;">&emsp; INSERT PIC OF HORIZ CALC AND TURNING
-                </p>
-                <p style="line-height: 2em;">&emsp; Once I tuned the PD controller, I would pushlished an AckermannDrive message with the output of the PD controller 
-                    linked to the steering angle of the car, resulting in the following wall follower:
-                </p>
-                <p style="line-height: 2em;">&emsp; INSERT VID OF WALL FOLLOWER SIM
-                </p>
+                <figure style="float: right; margin-left: 25px; margin-bottom: 5px; width: 300px; border-color: #B8998E;">
+                    <img src="./RSS Media/LR_Line.png" controls class="center-align" width = 400px></img>
+                    <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px; ">
+                        Least Squares Regression with RANSAC applied to reduce noise
+                    </figcaption>
+                </figure>
                 <p style="line-height: 2em;">&emsp; Implementing wall following on the hardware was a little more difficult. Because the data from the actual LIDAR is noisy,
                     simply finding the mean of the normal distance would not be robust enough. Instead, my team and I decided to do a Least Squares Regression on the LIDAR 
                     data to compute a theoretical "wall", and use our normal distance to that wall as the input to our PD controller. 
                 </p>
+                <figure style="float: left; margin-left: 25px; margin-bottom: 5px; width: 300px; border-color: #B8998E;">
+                    <img src="./RSS Media/Braking_Dist.png" controls class="center-align" width = 400px></img>
+                    <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px; ">
+                        Empirical braking distances for varying speeds
+                    </figcaption>
+                </figure>
                 <p style="line-height: 2em;">&emsp; As the hardware is quite expensive, we were also tasked with designing a safety controller for the car. To do this,
                     I wrote a function that, if the average forward distance within the width of the car is under a certain threshold, the function would begin sending
                     an AckermannDrive message of highest priority with its velocity set to 0. The threshold was calculated experimentally by measuring braking distances at different
                     speeds and extracting a minumum braking distance formula. The safety controller would be running at all times during the course of the project.
-                    <p style="line-height: 2em;">&emsp; INSERT FORMULA
-                    </p>
                 </p>
             </div>
         </div>
@@ -281,7 +322,7 @@
             <div class="description">
                 <h2>Visual Operations</h2>
                 <p style="line-height: 2em;">&emsp; This goal of this lab was to learn how to take visual input to allow the <white><strong>
-                    racecar to park in front of a cone and follow a line</white></strong>. We dealt with object detection algorithms, homography
+                    racecar to park in front of a cone and perform line following</white></strong>. We dealt with object detection algorithms, homography
                     transformations, and parking controllers.
                 </p>
                 <p style="line-height: 2em;">&emsp; The first step of this lab was what <white><strong>I was in charge of</white></strong>: detecting a cone given an image.
@@ -289,16 +330,84 @@
                 <p style="line-height: 2em;">&emsp; I first subscribed to a ROS node that published the ZED Camera picture. I then used the <a href="https://opencv.org/" class="link">OpenCV library</a>
                     to apply the series of operations on the image shown below:
                 </p>
+                <div style="float: center; margin-bottom: 5px; width: 100%; display: flex; flex-wrap: wrap; justify-content: center;">
+                    <figure style="margin-bottom: 5px; width: 25%;">
+                        <img src="./RSS Media/OG_Img.png" controls class="center-align" width=""></img>
+                        <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px;">
+                            <p style="line-height: 2em;">&emsp;Original Image - No operation</p>
+                        </figcaption>
+                    </figure>
+                
+                    <figure style="margin-bottom: 5px; width: 25%;">
+                        <img src="./RSS Media/HSV_Img.png" controls class="center-align" width=""></img>
+                        <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px;">
+                            Apply HSV Filter to Image
+                        </figcaption>
+                    </figure>
+                
+                    <figure style="margin-bottom: 5px; width: 25%;">
+                        <img src="./RSS Media/Red_Img.png" controls class="center-align" width=""></img>
+                        <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px;">
+                            Threshold operation on the red/orange component of the image
+                        </figcaption>
+                    </figure>
+                
+                    <figure style="margin-bottom: 5px; width: 25%;">
+                        <img src="./RSS Media/Morph_Img.png" controls class="center-align" width=""></img>
+                        <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px;">
+                            MorphOPEN applied - Removes Noise
+                        </figcaption>
+                    </figure>
+                
+                    <figure style="margin-bottom: 5px; width: 25%;">
+                        <img src="./RSS Media/Simplified_Img.png" controls class="center-align" width=""></img>
+                        <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px;">
+                            Convex-Simplifier Applied
+                        </figcaption>
+                    </figure>
+                
+                    <figure style="margin-bottom: 5px; width: 25%;">
+                        <img src="./RSS Media/Bounding_Img.png" controls class="center-align" width=""></img>
+                        <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px;">
+                            Bounding Box from Convex Feature
+                        </figcaption>
+                    </figure>
+                </div>
+                
                 <p style="line-height: 2em;">&emsp; Using the bounding box computed from my node as an input, my teammate <white><strong>Dora Hu</white></strong> 
                     designed a homography transformer that determined the position of the cone relative to the racecar. Using a set of known sample points and 
                     OpenCV libraries, she was able to compute the homography matrix and transform the positions in the pixel frame (u, v) to locations on the ground (x, y). 
                 </p>
+                <div style="float: right; margin-left: 5px; margin-bottom: 5px; width: 50%; display: flex; flex-direction: row;">
+                    <figure style="margin-bottom: 5px;">
+                        <img src="./RSS Media/Parking_Logic.png" controls class="center-align" width="100%"></img>
+                        <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px;">
+                            <p style="line-height: 2em;">&emsp;Parking Logic</p>
+                        </figcaption>
+                    </figure>
+                    <figure>
+                </div>
                 <p style="line-height: 2em;">&emsp; My next teammate <white><strong>Arianna Ilvonen</white></strong> then took this x,y input and designed a parking controller
-                    around it, with the logic described in the table below
+                    around it, with the logic and an example shown in the table below:
                 </p>
                 <p style="line-height: 2em;">&emsp; Finally, <white><strong>Charles Ge</white></strong> wrote a line follower that would crop the input image such that a red 
-                    stripe of tape would be interpreted as a cone set at a fixed distance ahead - the car will always be trying to reach the cone. 
+                    stripe of tape would be interpreted as a cone set at a fixed distance ahead - the car will perpetually attempt to reach the cone, but never manage to.
                 </p>
+                <div style="float: left; margin-left: 5px; margin-bottom: 5px; width: 100%; display: flex; flex-direction: row;">
+                    <figure style="margin-bottom: 5px;">
+                        <video src="./RSS Media/Park_Vid.mP4" controls class="center-align" width="100%"></video>
+                        <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px;">
+                            <p style="line-height: 2em;">&emsp; Parking Controller in Use</p>
+                        </figcaption>
+                    </figure>
+        
+                    <figure>
+                        <video src="./RSS Media/Line_Follow.mp4" controls class="center-align" width="100%"></video>
+                        <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px;">
+                            Line Follower Running in a Circle
+                        </figcaption>
+                    </figure>
+                </div>
             </div>
         </div>
         <div id="localization" class="section">
@@ -308,6 +417,12 @@
                     implementing Monte Carlo Localization</strong></white>. My team and I went about this by contructing a motion model and sensor model, and combining this into a particle 
                     filter.
                 </p>
+                <figure style="float: right; margin-left: 25px; margin-bottom: 5px; width: 250px; border-color: #B8998E;">
+                    <img src="./RSS Media/Sensor_Model.png" controls class="center-align" width = 250px></img>
+                    <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px; ">
+                        Empirical braking distances for varying speeds
+                    </figcaption>
+                </figure>
                 <p style="line-height: 2em;">&emsp; To determine where in the map we were, we needed to initialize particles in the approximate area we were in, evaluate their positions
                     and orientations relative to the car's position using LIDAR data, and have the particles converge to one position. This comparison is done using the following equations
                     to find the probability that the current scan is the same as the car's scan:
@@ -318,6 +433,19 @@
                     Charles Ge and I</strong></white> instead precomputed a lookup table to fetch probabilities from, which increased the update rate from 4Hz to over 20Hz. 
                     After computing each particle's probability, we would converge all particles to the one with the highest probability.
                 </p>
+                <figure style="float: left; margin-bottom: 5px; width: 25%; border-color: #B8998E;">
+                    <video src="./RSS Media/Motion_Model_Odom.mov" controls class="center-align" width = 250px></video>
+                    <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px; ">
+                        Motion Model without noise - perfectly follows the car's odometry
+                    </figcaption>
+                </figure>
+                <figure style="float: left; margin-bottom: 5px; width: 25%; border-color: #B8998E;">
+                    <video src="./RSS Media/Motion_Model_Noise.mov" controls class="center-align" width = 250px></video>
+                    <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px; ">
+                        Motion Model Noise and Resampling
+                    </figcaption>
+                </figure>
+
                 <p style="line-height: 2em;">&emsp;
                     The next phase of the problem was to create the motion model which would update the particle based on the car's odometry. To implement this, <white><strong>Charles and I</strong></white>
                     wrote a file that would subscribe to the car's published odometry topic and update each particle accordingly. To ensure that we are repeatedly converging to the 
@@ -330,6 +458,21 @@
                 <p style="line-height: 2em;">&emsp;
                     And after a couple long nights with the whole team pushing to implement the code onto the hardware, we finally got the localization to work!
                 </p>
+                <div style="float: left; margin-left: 5px; margin-bottom: 5px; width: 100%; display: flex; flex-direction: row;">
+                    <figure style="margin-bottom: 5px;">
+                        <video src="./RSS Media/Loc_Sim.mov" controls class="center-align" width="100%"></video>
+                        <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px;">
+                            <p style="line-height: 2em;">&emsp; Localization Working in Simulation</p>
+                        </figcaption>
+                    </figure>
+        
+                    <figure>
+                        <video src="./RSS Media/Loc_IRL.mov" controls class="center-align" width="100%"></video>
+                        <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px;">
+                            Localization Working on Hardware
+                        </figcaption>
+                    </figure>
+                </div>
             </div>
         </div>
         
@@ -347,11 +490,53 @@
                     To implement A*, I first discritized the map into 0.5m x 0.5m squares and assigned occupancy values to the squares (1 if the square was occupiable, 0 if it was not). 
                     For my total cost function, I used the following:
                 </p>
+                <div style="float: left; margin-left: 5px; margin-bottom: 5px; width: 100%; display: flex; flex-direction: row;">
+                    <figure style="margin-bottom: 5px;">
+                        <img src="./RSS Media/A*1.png" controls class="center-align" width="70%"></img>
+                        <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px;">
+                            <p style="line-height: 2em;">&emsp; A-star Step 1: Initial</p>
+                        </figcaption>
+                    </figure>
+        
+                    <figure>
+                        <img src="./RSS Media/A*2.png" controls class="center-align" width="70%"></img>
+                        <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px;">
+                            <p style="line-height: 2em;">&emsp; A-star Step 2: Calculate Costs</p>
+                        </figcaption>
+                    </figure>
+
+                    <figure>
+                        <img src="./RSS Media/A*3.png" controls class="center-align" width="70%"></img>
+                        <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px;">
+                            <p style="line-height: 2em;">&emsp; A-star Step 3: Choose Cheapest Step</p>
+                        </figcaption>
+                    </figure>
+
+                    <figure>
+                        <img src="./RSS Media/A*4.png" controls class="center-align" width="70%"></img>
+                        <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px;">
+                            <p style="line-height: 2em;">&emsp;  A-star Step 4: Calculate Cost About New Square</p>
+                        </figcaption>
+                    </figure>
+
+                    <figure>
+                        <img src="./RSS Media/A*5.png" controls class="center-align" width="70%"></img>
+                        <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px;">
+                            <p style="line-height: 2em;">&emsp; A-star Step 5: Reach Goal</p>
+                        </figcaption>
+                    </figure>
+                </div>
+                <figure style="float: right; margin-bottom: 5px; width: 30%; border-color: #B8998E;">
+                    <img src="./RSS Media/Path_Plan_All.png" controls class="center-align" width = 100%></img>
+                    <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px; ">
+                        Motion Model Noise and Resampling
+                    </figcaption>
+                </figure>
                 <p style="line-height: 2em;">&emsp;
                     Both A* and BFS are optimal pathfinding algorithms - BFS is more naive, but was ultimately much faster due to the small size of the map and the computation time of A*. 
                     RRT* is a sampling based algorithm and evolves over time to get better solutions, approaching optimal as time goes to infinity. The computation time, path lengths, and 
                     final paths are visualized below for all three methods.
-                </p>
+                </p>             
                 <p style="line-height: 2em;">&emsp;
                     Once the trajecories were computed, <white><strong>Charles and Dora</strong></white> worked on implementing a pure pursuit controller for our robot. The way our controller worked,
                     is that we would first compute distances to each line segment in the trajectory and find the closest one. A target point at a specified lookahead radius on the trajectory would 
@@ -361,12 +546,30 @@
                     Wrapping the localization in with the trajectory planner and pure pursuit controller, we were able to implement the code onto the hardware and got the following
                     results:
                 </p>
+                <figure style="float: center; margin-bottom: 5px; width: 60%; border-color: #B8998E;">
+                    <video src="./RSS Media/Path_Plan_Vid.mov" controls class="center-align" width = 100%></video>
+                    <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px; ">
+                        Motion Model Noise and Resampling
+                    </figcaption>
+                </figure>
             </div>
         </div>
 
         <div id="final" class="section">
             <div class="description">
                 <h2>Final Challenge</h2>
+                <figure style="float: left; margin-bottom: 5px; width: 18%; border-color: #B8998E;">
+                    <video src="./RSS Media/Johnson_Run.mov" controls class="center-align" width = 100%></video>
+                    <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px; ">
+                        Robot racing around Johnson Track 
+                    </figcaption>
+                </figure>
+                <figure style="float: right; margin-bottom: 5px; width: 18%; border-color: #B8998E;">
+                    <video src="./RSS Media/Luigi_Run.mov" controls class="center-align" width = 100%></video>
+                    <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px; ">
+                        Robot navigating the City
+                    </figcaption>
+                </figure>
                 <p style="line-height: 2em;">&emsp; The final challenge was meant to encompass everything we had implemented so far. There were two parts to the challenge: 
                     <white><strong>a time trial around a track and a city-driving component</strong></white>. We needed to race around the track within a certain time 
                     window, and navigate around a constructed city, obeying traffic laws, lanes, and avoiding pedestrians while stopping at three seperate locations.
@@ -382,7 +585,7 @@
                 </p>
                 <p style="line-height: 2em;">&emsp; To obey the traffic lights and stop signs, we again used OpenCV to detect stop signs and red light, and to stop for the appropriate 
                     amounts of time. Ultimately, the long uniform hallway that we had to navigate midway through our trajectory was too nondescript for out localizer to work effectively
-                    and we were only able to achieve the first two stops before clipping a wall (video shown below).
+                    and we were only able to achieve the first two stops before clipping a wall.
                 </p>
             </div>
         </div>

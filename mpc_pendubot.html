@@ -20,7 +20,7 @@
             align-items: center;
         }
         body.alt-color-scheme {
-            background-color: #f5f5dc;
+            background-color: #E4EFF1;
             color: black;
         }
         #right-panel {
@@ -31,18 +31,32 @@
             height: 100%;
             scroll-behavior: smooth;
         }
+        #right-panel h5{
+            color: lightgray;
+            font-size: 24px;
+            text-align: center;
+        }
+        body.alt-color-scheme #right-panel h5{
+            color: #00243D;
+        }
         .project-title {
             font-size: 60px;
             font-weight: bold;
             text-align: center;
-            padding-bottom: 25px;
             color: lightgray;
+            margin-bottom: 25px;
+        }
+        body.alt-color-scheme .project-title {
+            color: #00243D;
         }
         .divider {
             width: 100%;
             height: 2px;
             background-color: lightgray;
             margin-bottom: 30px;
+        }
+        body.alt-color-scheme .divider {
+            background-color: #00243D;
         }
         .categories-container {
             display: flex;
@@ -56,17 +70,24 @@
             background-color: #151E3D; /* Match the body background color for seamless integration */
             z-index: 1000; /* Ensure it stays above other content */
             padding: 10px 0; /* Add padding for better visual spacing */
-            border: 2px solid lightgray; /* Add a border */
+            border: 2px solid #ABA9C3; /* Add a border */
             border-radius: 8px; /* Optional: to make the corners rounded */
             box-sizing: border-box; /* Include padding and border in the element's total width and height */
-    }   
+        }
+        body.alt-color-scheme .categories-container {
+                background-color: #E4EFF1; /* Match the body background color for seamless integration */
+                border: 2px solid #00243D; /* Add a border */
+        }   
         .category {
-            font-size: 28px;
+            font-size: 24px;
             color: lightgray;
             text-decoration: none;
-            padding: 10px 75px;
+            padding: 10px 40px;
             border-radius: 5px;
             transition: background-color 0.3s;
+        }
+        body.alt-color-scheme .category {
+            color: #151E3D;
         }
         body.alt-color-scheme .categories-container .category {
             color: black;
@@ -126,10 +147,9 @@
             color: #99a5b1;
         }
         body.alt-color-scheme .toggle-button {
-            color: black;
+            color: #00243D;
         }
-        /* House icon style */
-        .home-icon {
+        .back-icon {
             position: absolute;
             top: 20px;
             left: 20px;
@@ -137,8 +157,19 @@
             color: #99a5b1;
             text-decoration: none;
         }
+        body.alt-color-scheme .back-icon {
+            color: #00243D;
+        }
+        .home-icon {
+            position: absolute;
+            top: 20px;
+            right: 65px;
+            font-size: 24px;
+            color: #99a5b1;
+            text-decoration: none;
+        }
         body.alt-color-scheme .home-icon {
-            color: black;
+            color: #00243D;
         }
         .section {
             margin-bottom: 50px;
@@ -150,6 +181,9 @@
             font-size: 36px;
             color: lightgray;
         }
+        body.alt-color-scheme .section .description h2{
+            color: #151E3D
+        }
 
         .section .description {
             width: 100%; /* Description takes up 70% of the width */
@@ -157,7 +191,8 @@
         }
 
         .section .image-container {
-            width: 20%; /* Image container takes up 25% of the width */
+            margin-top: 100px;
+            width: 40%; /* Image container takes up 25% of the width */
             display: flex;
             flex-direction: column;
             align-items: center; /* Center image and caption */
@@ -178,11 +213,19 @@
             margin-left: auto;
             margin-right: auto;
         }
+        .section .description white{
+            color: lightgray;
+        }
+        body.alt-color-scheme .section .description white{
+            color: black;
+        }
     </style>
 </head>
 <body>
     <!-- House Icon -->
-    <a href="projects.html" class="home-icon"><i class="fa-solid fa-arrow-left"></i></a>    
+    <a href="projects.html" class="back-icon"><i class="fa-solid fa-arrow-left"></i></a>
+    <a href="index.html" class="home-icon"><i class="fa-solid fa-house"></i></a>
+ 
     <button class="toggle-button"><i class="fas fa-moon"></i></button>
     
     <div id="right-panel">
@@ -229,35 +272,35 @@
                     equations of motion (EOM) of the system. We model the links as point masses at the COM.
                 </p>
                 <img src="./Website_Pics/PendubotEOMDiagram.png"
-                width="400"
+                width="300"
                 class="center-align"
                 >
                 <p style="line-height: 2em;">And find the position of each of the masses as follows:
                 </p>
                 </p>
                 <img src="./Website_Pics/PendubotEOM1.png"
-                width="600"
+                width="400"
                 class="center-align"
                 >
                 <p style="line-height: 2em;">Knowing that we will also need the velocities of each of the masses,
                     we differentiate the positions and find the velocities of each of the masses as follows:
                 </p>
                 <img src="./Website_Pics/PendubotEOM2.png"
-                width="800"
+                width="600"
                 class="center-align"
                 >
                 <p style="line-height: 2em;">We then formulate our Lagrangian from the equation L = T - U, and find our
                     kinetic and potential energies from the previous results:
                 </p>
                 <img src="./Website_Pics/PendubotEOM3.png"
-                width="1000"
+                width="500"
                 class="center-align"
                 >
                 <p style="line-height: 2em;">Finally, turning the crank of Lagrangian mechanics by using the Euler-Lagrange Equation,
                     we get the EOMs of the system and realize that our math was for nothing since the system is coupled...
                 </p>
                 <img src="./Website_Pics/PendubotEOM4.png"
-                width="1000"
+                width="600"
                 class="center-align"
                 >
                 <p style="line-height: 2em;">This just means that we're going to have to use other methods to find trajectories.
@@ -295,14 +338,16 @@
         <div id="execution" class="section">
             <div class="description">
                 <h2>Execution</h2>
+                <figure style="float: right; margin-left: 25px; margin-bottom: 5px; width: 300px;">
+                    <img src="./Website_Pics/PendubotMeshcat.png" controls class="center-align" width = 300px></img>
+                    <figcaption style="text-align: center; font-size: 14px; color: #99a5b1; margin-top: 5px;">
+                        URDF visualized in Meshcat
+                    </figcaption>
+                </figure>
                 <p style="line-height: 2em;">&emsp; The first step in execution is getting the system to run in simulation - that means 
                     we need to do trajectory optimization and subsequent stabilization around the computed trajectories (iLQR or MPC). To achieve this 
                 I will be using Deepnote notebooks and pyDrake.</p>
                 <p style="line-height: 2em;">First we make a URDF of our model with the correct dimensions, masses, and moments of inertia, and visualize it in Meshcat:</p>
-                <img src="./Website_Pics/PendubotMeshcat.png"
-                class="center-align"
-                width="400"
-                >
                 <p style="line-height: 2em;">&emsp;Next, we'll make a MultibodyPlant of the system, and add our URDF along with a single joint actuator
                     at the shoulder. We now need to figure out how to get our system to behave physically. We can achieve this by creating 
                     continuous variables to represent the state, velocity, acceleration, timesteps, external forces, and actuation inputs, and

@@ -20,8 +20,8 @@
             align-items: center;
         }
         body.alt-color-scheme {
-            background-color: #f5f5dc;
-            color: black;
+            background-color: #E4EFF1 ;
+            color: #00243D;
         }
         #right-panel {
             width: 90%;
@@ -40,8 +40,11 @@
         .divider {
             width: 100%;
             height: 2px;
-            background-color: lightgray;
+            background-color: #99a5b1;
             margin-bottom: 30px;
+        }
+        body.alt-color-scheme .divider {
+            background-color: #365681;
         }
         .projects-container {
             display: grid;
@@ -59,7 +62,7 @@
             transition: transform 0.3s, background-color 0.3s;
         }
         body.alt-color-scheme .project {
-            background-color: #e0e0e0;
+            background-color: #F1F7F8;
         }
         .project img {
             width: 90%;
@@ -91,7 +94,7 @@
             color: #99a5b1;
         }
         body.alt-color-scheme .toggle-button {
-            color: black;
+            color: #00243D;
         }
         /* House icon style */
         .home-icon {
@@ -103,7 +106,7 @@
             text-decoration: none;
         }
         body.alt-color-scheme .home-icon {
-            color: black;
+            color: #00243D;
         }
         .section p {
             font-size: 16px;
@@ -115,6 +118,9 @@
             margin: 0;
             position: relative;
             padding-bottom: 5px; /* Space for the underline */
+        }
+        .section a {
+            color: #FFFFFF;
         }
         .link {
             display: block;
@@ -129,6 +135,10 @@
         .link:hover {
             background: rgba(0, 0, 0, 0.7); /* Opaque background on hover */
             color: white; /* Text color on hover */
+            border-radius: 5px; /* Rounded corners */
+        }
+        body.alt-color-scheme .link:hover {
+            background: rgba(0, 100, 200, 0.15); /* Opaque background on hover */
             border-radius: 5px; /* Rounded corners */
         }
     </style>
@@ -187,14 +197,13 @@
                 <p><a href="https://student.mit.edu/catalog/search.cgi?search=21G.418&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">21G.418: Race and Migration in Europe</a></p>
             </div>  
             <div class="section">
-                <h4>Fall 2024 (Current Classes):</h4>
+                <h4>Fall 2024 (Current):</h4>
                 <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.003&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.004: Dynamics and Control II</a></p>
                 <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.008&style=verbatim&when=C&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.008: Design and Manufacturing II</a></p>
-                <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.155&style=verbatim&when=C&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.155: AI & ML for Engineering Design</a></p>
                 <p><a href="https://student.mit.edu/catalog/search.cgi?search=6.1210&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">6.1210: Introduction to Algorithms</a></p>
+                <p><a href="https://student.mit.edu/catalog/search.cgi?search=6.7960&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">6.7960: Deep Learning</a></p>
                 <p><a href="https://student.mit.edu/catalog/search.cgi?search=6.9110&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">6.9110: Engineering Leadership Lab</a></p>
                 <p><a href="https://student.mit.edu/catalog/search.cgi?search=6.9120&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">6.9120: Engineering Leadership</a></p>
-                <p><a href="https://student.mit.edu/catalog/search.cgi?search=17.561&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">17.561: European Politics</a></p>
                 <p><a href="https://student.mit.edu/catalog/search.cgi?search=21T.121&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">21T.121: Drawing for Designers</a></p>
             </div>  
         </div>

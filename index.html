@@ -19,12 +19,12 @@
             overflow: hidden;
         }
         body.alt-color-scheme {
-            background-color: #f5f5dc;
-            color: black;
+            background-color: #E4EFF1;
+            color: #00243D;
         }
         #left-panel {
             background-color: #151E3D;
-            color: lightgray;
+            color: #99a5b1;
             width: 50%;
             padding: 75px;
             padding-left: 15%;
@@ -37,8 +37,8 @@
             justify-content: space-between;
         }
         body.alt-color-scheme #left-panel {
-            background-color: #f5f5dc;
-            color: black;
+            background-color: #E4EFF1;
+            color: 00243D;
         }
         #right-panel {
             width: 45%;
@@ -54,14 +54,23 @@
             font-size: 60px;
             font-weight: bold;
         }
+        body.alt-color-scheme .header-title {
+            color: #00243D
+        }
         .quote {
             font-size: 24px;
             margin-top: 10px;
             font-weight: bold;
         }
+        body.alt-color-scheme .quote {
+            color: #00243D
+        }
         .description {
             font-size: 18px;
             margin-top: 10px;
+        }
+        body.alt-color-scheme .description {
+            color: #00243D
         }
         .nav-tabs {
             margin-top: 60px;
@@ -70,25 +79,30 @@
             list-style-type: none;
             padding: 0;
             margin: 0;
+            
         }
         .nav-tabs ul li {
             font-size: 18px;
             margin: 20px 0; /* Increased margin for larger spacing */
             position: relative;
+            
         }
         .nav-tabs ul li a {
             text-decoration: none;
-            color: lightgray;
+            color: white;
             display: block;
             padding: 10px;
-            border-radius: 25px; /* Rounded corners */
+            border-radius: 50px; /* Rounded corners */
             transition: background 0.3s;
         }
         body.alt-color-scheme .nav-tabs ul li a {
             color: black;
         }
         .nav-tabs ul li a.active {
-            background: rgba(255, 255, 255, 0.5);
+            background: gray;
+        }
+        body.alt-color-scheme .nav-tabs ul li a.active {
+            background: rgba(73, 164, 192, 0.337);
         }
         .contact-info {
             font-size: 24px;
@@ -102,7 +116,7 @@
             margin-right: 25px;
         }
         body.alt-color-scheme .contact-info a {
-            color: black;
+            color: #00243D;
         }
         .contact-info a:hover {
             color: #ddd;
@@ -125,9 +139,16 @@
             text-align: center;
             color:lightgray;
         }
+        body.alt-color-scheme .section h3 {
+            text-align: center;
+            color:#00243D;
+        }
         .section p {
             font-size: 16px;
             line-height: 1.6;
+        }
+        body.alt-color-scheme .section p {
+            color: #00243D
         }
         .section h4 {
             font-size: 32px;
@@ -172,6 +193,13 @@
             padding: 10px;
             color: white;
         }
+        body.alt-color-scheme .resume-link:hover .details {
+            width: 100%; /* Make the details span the entire left side */
+            background: rgba(73, 164, 192, 0.337); /* Opaque background */
+            border-radius: 10px; /* Remove border-radius for full span */
+            padding: 10px;
+            color: black;
+        }
         .project {
             display: flex;
             margin-bottom: 20px;
@@ -193,7 +221,7 @@
         }
         .project .details h3 {
             font-size: 24px;
-            margin: 0;
+            margin-bottom: 20px;
         }
         .project .details p {
             margin: 5px 0 0;
@@ -204,6 +232,13 @@
         .project:hover .details {
             width: 100%; /* Make the details span the entire left side */
             background: rgba(0, 0, 0, 0.7); /* Opaque background */
+            border-radius: 10px; /* Remove border-radius for full span */
+            padding: 10px;
+            color: white;
+        }
+        body.alt-color-scheme .project:hover .details {
+            width: 100%; /* Make the details span the entire left side */
+            background: rgba(73, 164, 192, 0.337); /* Opaque background */
             border-radius: 10px; /* Remove border-radius for full span */
             padding: 10px;
             color: white;
@@ -237,6 +272,13 @@
             padding: 10px;
             color: white;
         }
+        body.alt-color-scheme .classes:hover .details {
+            width: 100%; /* Make the details span the entire left side */
+            background: rgba(73, 164, 192, 0.337); /* Opaque background */
+            border-radius: 10px; /* Remove border-radius for full span */
+            padding: 10px;
+            color: black;
+        }
         #cursor-highlight {
             position: absolute;
             width: 500px;
@@ -249,6 +291,9 @@
         .last-updated {
             margin-top: 10px;
             font-size: 12px;
+        }
+        body.alt-color-scheme .last-updated {
+            color: #00243D
         }
         .toggle-button {
             position: absolute;
@@ -288,6 +333,12 @@
             color: white; /* Text color on hover */
             border-radius: 5px; /* Rounded corners */
         }
+        body.alt-color-scheme .link:hover {
+            background: rgba(73, 164, 192, 0.337); /* Opaque background on hover */
+            color: black; /* Text color on hover */
+            border-radius: 5px; /* Rounded corners */
+        }
+        
 
     </style>
 </head>
@@ -298,7 +349,7 @@
         <div>
             <div class="header-title">Eric Delgado</div>
             <div class="quote">MIT Mechanical Engineering</div>
-            <div class="description">I build ideas</div>
+            <div class="description">I love building things!</div>
             <div class="nav-tabs">
                 <ul>
                     <li><a href="#about">About</a></li>
@@ -314,7 +365,7 @@
                 <a href="https://www.linkedin.com/in/eric-delgado-0896b9292/" target="_blank"><i class="fab fa-linkedin"></i></a>
                 <a href="mailto:edelga2@mit.edu"><i class="fas fa-envelope"></i></a>
             </div>
-            <div class="last-updated">Last Updated: 8/26/2024</div>
+            <div class="last-updated">Last Updated: 9/7/2024</div>
         </div>
     </div>
     <div id="right-panel">
@@ -324,7 +375,7 @@
             </div>            
             <h3 style="line-height: 2em;">Hi! I'm Eric Delgado, an MIT '26 from Milwaukee, Wisconsin 
                 studying Mechanical Engineering and Robotics</h3>
-            <p>&emsp; I currently work in Biomechatronics Group in the Media Lab and am developing a bionic
+            <p>&emsp; I currently work in Biomechatronics Group in the MIT Media Lab and am developing a bionic
                 ankle prosthetic with optimal control for biological gait. I also spend 
                 a lot of my time as a lead on the MIT Solar Electric Vehicle Team, designing
                 the front suspension. I also enjoy boxing and have recently started gymnastics!</p>
@@ -362,21 +413,22 @@
                 <img style='border:5px solid #99a5b1' src="./Website_Pics/Full_Ankle.png" alt="Project Image">
                 <div class="details">
                     <h3>Bionic Ankle (Ongoing)</h3>
-                    <p>A brief description of the Bionic Ankle project.</p>
+                    <p>A bionic prosthetic ankle capable of biological gait with an adaptive MPC controller optimizing to each subject.</p>
                 </div>
             </div>
             <div class="project" onclick="location.href='mpc_pendubot.html'">
                 <img style='border:5px solid #99a5b1' src="./Website_Pics/Pendubot.png" alt="Project Image">
                 <div class="details">
                     <h3>MPC Pendubot (Ongoing)</h3>
-                    <p>A brief description of the MPC Pendubot project.</p>
+                    <p>Using Trajectory Optimization and Model Predictive Control to balance a Pendubot.</p>
                 </div>
             </div>
             <div class="project" onclick="location.href='autonomous_race_car.html'">
                 <img style='border:5px solid #99a5b1' src="./Website_Pics/RSSMainPic.png" alt="Project Image">
                 <div class="details">
                     <h3>Autonomous Race Car</h3>
-                    <p>A brief description of the Autonomous Race Car project.</p>
+                    <p>Develop and implement sophisticated functionalities such as wall-following, 
+                        a parking controller, path planning, etc. on a racecar robot using ROS2.</p>
                 </div>
             </div>
             <div class="project" onclick="location.href='projects.html'">
@@ -389,11 +441,10 @@
             <h4>Current Classes (Fall 2024):</h4>
             <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.003&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.004: Dynamics and Control II</a></p>
             <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.008&style=verbatim&when=C&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.008: Design and Manufacturing II</a></p>
-            <p><a href="https://student.mit.edu/catalog/search.cgi?search=2.155&style=verbatim&when=C&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">2.155: AI & ML for Engineering Design</a></p>
             <p><a href="https://student.mit.edu/catalog/search.cgi?search=6.1210&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">6.1210: Introduction to Algorithms</a></p>
+            <p><a href="https://student.mit.edu/catalog/search.cgi?search=6.7960&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">6.7960: Deep Learning</a></p>
             <p><a href="https://student.mit.edu/catalog/search.cgi?search=6.9110&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">6.9110: Engineering Leadership Lab</a></p>
             <p><a href="https://student.mit.edu/catalog/search.cgi?search=6.9120&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">6.9120: Engineering Leadership</a></p>
-            <p><a href="https://student.mit.edu/catalog/search.cgi?search=17.561&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">17.561: European Politics</a></p>
             <p><a href="https://student.mit.edu/catalog/search.cgi?search=21T.121&style=verbatim&when=*&termleng=4&days_offered=*&start_time=*&duration=*&total_units=*" class="link">21T.121: Drawing for Designers</a></p>
             <div class="classes" onclick="location.href='classes.html'">
                 <div class="details">

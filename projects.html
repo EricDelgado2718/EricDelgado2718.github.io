@@ -20,8 +20,8 @@
             align-items: center;
         }
         body.alt-color-scheme {
-            background-color: #f5f5dc;
-            color: black;
+            background-color: #E4EFF1;
+            color: #00243D;
         }
         #right-panel {
             width: 90%;
@@ -43,6 +43,9 @@
             background-color: lightgray;
             margin-bottom: 30px;
         }
+        body.alt-color-scheme .divider {
+            background-color: #00243D;
+        }
         .projects-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -59,7 +62,7 @@
             transition: transform 0.3s, background-color 0.3s;
         }
         body.alt-color-scheme .project {
-            background-color: #e0e0e0;
+            background-color: #c0cff36f;
         }
         .project img {
             width: 30%;
@@ -72,6 +75,9 @@
             text-align: center;
             color: lightgray;
             padding-bottom: 20px;
+        }
+        body.alt-color-scheme .project-title-text{
+            color: #00243D
         }
         .project-description {
             font-size: 16px;
@@ -135,7 +141,7 @@
                 <img src="./Website_Pics/Full_Ankle.png" alt="Bionic Ankle">
                 <div>
                     <div class="project-title-text">Bionic Ankle (In Progress)</div>
-                    <div class="project-description">A bionic prosthetic ankle capable of biological gait with an adaptive controller optimizing to each subject.</div>
+                    <div class="project-description">A bionic prosthetic ankle capable of biological gait with an adaptive MPC controller optimizing to each subject.</div>
                 </div>
             </div>
             <!-- Example Project 3 -->
@@ -151,7 +157,7 @@
             <div class="project" onclick="location.href='semi_autonomous_robot.html'">
                 <img src="./Website_Pics/2007Pic.png" alt="2.007 Semi-Autonomous Robot">
                 <div>
-                    <div class="project-title-text">2.007 Semi-Autonomous Robot</div>
+                    <div class="project-title-text">2.007 Robot Build Challenge</div>
                     <div class="project-description">A robot that both autonomously and manually navigates a 
                         competition course to score points and compete against others. </div>
                 </div>

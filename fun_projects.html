@@ -21,8 +21,8 @@
             align-items: center;
         }
         body.alt-color-scheme {
-            background-color: #f5f5dc;
-            color: black;
+            background-color: #E4EFF1;
+            color: #00243D;
         }
         #right-panel {
             width: 90%;
@@ -39,11 +39,17 @@
             padding-bottom: 25px;
             color: lightgray;
         }
+        body.alt-color-scheme .project-title {
+            color: #00243D;
+        }
         .divider {
             width: 100%;
             height: 2px;
             background-color: lightgray;
             margin-bottom: 30px;
+        }
+        body.alt-color-scheme .divider {
+            background-color: #00243D;
         }
         .categories-container {
             display: flex;
@@ -127,10 +133,10 @@
             color: #99a5b1;
         }
         body.alt-color-scheme .toggle-button {
-            color: black;
+            color: #00243D;
         }
         /* House icon style */
-        .home-icon {
+        .back-icon {
             position: absolute;
             top: 20px;
             left: 20px;
@@ -138,23 +144,38 @@
             color: #99a5b1;
             text-decoration: none;
         }
+        body.alt-color-scheme .back-icon {
+            color: #00243D;
+        }
+        .home-icon {
+            position: absolute;
+            top: 20px;
+            right: 65px;
+            font-size: 24px;
+            color: #99a5b1;
+            text-decoration: none;
+        }
         body.alt-color-scheme .home-icon {
-            color: black;
+            color: #00243D;
         }
         .section {
             margin-bottom: 50px;
             display: flex;
             align-items: flex-start; /* Align items at the start */
             justify-content: space-between; /* Distribute space between items */
+            color: #99a5b1
         }
         .section .description h2{
             font-size: 36px;
-            color: lightgray;
+            color: #99a5b1;
         }
 
         .section .description {
             width: 100%; /* Description takes up 70% of the width */
             margin-right: 20px; /* Space between description and image */
+        }
+        .section .description p {
+            color: yellow;
         }
 
         .section .image-container {
@@ -199,13 +220,13 @@
             height: auto;
             border-radius: 10px;
             transition: transform 0.3s;
-            border: 3px solid lightgray; /* Add this line for the border */
+            border: 3px solid #99a5b1; /* Add this line for the border */
         }
 
         .collage-item .description {
             margin-top: 10px;
             font-size: 16px;
-            color: lightgray;
+            color: #99a5b1;
         }
 
         /* Hover effect on images */
@@ -216,7 +237,8 @@
 </head>
 <body>
     <!-- House Icon -->
-    <a href="projects.html" class="home-icon"><i class="fa-solid fa-arrow-left"></i></a>    
+    <a href="projects.html" class="back-icon"><i class="fa-solid fa-arrow-left"></i></a>    
+    <a href="index.html" class="home-icon"><i class="fa-solid fa-house"></i></a>
     <button class="toggle-button"><i class="fas fa-moon"></i></button>
     
     <div id="right-panel">
